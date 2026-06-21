@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en" data-base="dark" data-accent="navy" data-display="cinzel" data-script="gvibes">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Store · Shepherd's House Worship Center</title>
+<!-- The store now lives on an external site; forward any direct visits there. -->
+<meta http-equiv="refresh" content="0; url=https://shwc-store.square.site" />
+<script>window.location.replace("https://shwc-store.square.site");</script>
+<link rel="icon" type="image/png" href="uploads/shwc-anniversary-logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Italiana&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Great+Vibes&family=Pinyon+Script&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="shwc.css" />
+</head>
+<body>
+
+<div class="countbar" data-screen-label="Countdown Bar">
+  <span class="cb-label">The Celebration Begins In</span>
+  <span class="cb-clock" id="cbClock" data-target="2026-10-09T21:00:00-04:00">
+    <span><b>0</b><i>Days</i></span>
+    <span><b>00</b><i>Hrs</i></span>
+    <span><b>00</b><i>Min</i></span>
+    <span><b>00</b><i>Sec</i></span>
+  </span>
+  <span class="cb-when">Friday, Oct 9 · 9:00 PM ET</span>
+</div>
+
+<header class="nav">
+  <a class="brand" href="index.html">
+    <img class="mark-img" src="uploads/shwc-anniversary-logo.png" alt="SHWC 10th Anniversary logo" />
+    <span class="name">Shepherd's House<small>Worship Center</small></span>
+  </a>
+  <nav class="nav-links" aria-label="Primary">
+    <a href="about.html" class="optional">About</a>
+    <a href="giving.html">Giving</a>
+    <a href="store.html" aria-current="page">Store</a>
+    <button type="button" class="btn sm ghost cart-btn" id="openCart">
+      Cart
+      <span class="count" style="display:none;">0</span>
+    </button>
+  </nav>
+  <button type="button" class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <nav class="mm-links" aria-label="Mobile">
+    <a href="index.html"><i>01</i>Home</a>
+    <a href="index.html#program"><i>02</i>The Program</a>
+    <a href="about.html"><i>03</i>Values &amp; Mission</a>
+    <a href="giving.html"><i>04</i>Giving</a>
+    <a href="store.html"><i>05</i>Store</a>
+  </nav>
+  <div class="mm-foot">
+    <a href="https://theshepherdshouse.church" target="_blank" rel="noopener">Main Site</a>
+    <a href="mailto:info@theshepherdshouse.church">Contact</a>
+  </div>
+</div>
+
+<main>
+
+  <section class="page-hero" data-screen-label="Store Hero">
+    <div class="wrap">
+      <p class="eyebrow">Wear It. Share It. Represent.</p>
+      <h1>The anniversary <em>collection.</em></h1>
+      <p class="section-sub">A small commemorative collection for the 10 year celebration. Every purchase supports the ministry. <span class="placeholder-note">[Prices, sizes &amp; photos to be confirmed.]</span></p>
+    </div>
+  </section>
+
+  <section class="band cream" data-screen-label="Products">
+    <div class="wrap">
+      <div class="store-grid" id="storeGrid"></div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot" data-screen-label="Footer">
+  <div class="wrap">
+    <div class="foot-cols" style="padding-top:0;">
+      <div>
+        <h5>Lynchburg</h5>
+        <p>521 Allegheny Avenue<br />Lynchburg, VA 24501</p>
+        <a href="https://www.facebook.com/thehouselynchburg/" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://www.instagram.com/shepherdshouse_lynchburg/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.youtube.com/@SHWCLynchburg" target="_blank" rel="noopener">YouTube</a>
+      </div>
+      <div>
+        <h5>Charlottesville</h5>
+        <p>808 Blenheim Avenue<br />Charlottesville, VA 22902</p>
+        <a href="https://www.facebook.com/shepherdshouseworshipcenter/" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://www.instagram.com/shepherdshouse_charlottesville/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.youtube.com/@shepherdshouseworshipcenter" target="_blank" rel="noopener">YouTube</a>
+      </div>
+      <div>
+        <h5>Explore</h5>
+        <a href="index.html">Home</a>
+        <a href="about.html">Values &amp; Mission</a>
+        <a href="giving.html">Giving</a>
+        <a href="https://shwc-store.square.site" target="_blank" rel="noopener">Store<svg class="ext-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
+      </div>
+      <div>
+        <h5>Connect</h5>
+        <a href="mailto:info@theshepherdshouse.church">info@theshepherdshouse.church</a>
+        <a href="https://theshepherdshouse.church" target="_blank" rel="noopener">Main Website<svg class="ext-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
+      </div>
+    </div>
+    <div class="legal">
+      <span>© 2026 Shepherds House Worship Center, Inc.</span>
+      <span>A Home of Grace, Destiny, and Fulfillment</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ CART DRAWER ============ -->
+<div class="drawer-scrim" id="cartScrim"></div>
+<aside class="drawer" id="cartDrawer" aria-label="Shopping cart" data-screen-label="Cart Drawer">
+  <header>
+    <h3 id="drawerTitle">Your Cart</h3>
+    <button type="button" class="x" id="closeCart" aria-label="Close cart">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+  </header>
+
+  <!-- step 1: cart -->
+  <div class="body" id="cartBody"></div>
+  <footer id="cartFoot">
+    <div class="sub"><span>Subtotal</span><b id="cartSubtotal">$0</b></div>
+    <button type="button" class="btn wide" id="toCheckout">Checkout</button>
+    <p class="note">Guest checkout · payment via Stripe <span class="placeholder-note">[TBC]</span></p>
+  </footer>
+
+  <!-- step 2: checkout -->
+  <div class="body" id="checkoutBody" hidden>
+    <form id="checkoutForm" novalidate>
+      <div class="field">
+        <label for="cname">Full name</label>
+        <input id="cname" type="text" autocomplete="name" />
+        <span class="err">Please enter your name.</span>
+      </div>
+      <div class="field">
+        <label for="cemail">Email</label>
+        <input id="cemail" type="email" autocomplete="email" />
+        <span class="err">Enter a valid email.</span>
+      </div>
+      <div class="field">
+        <label for="cfulfil">Fulfillment</label>
+        <select id="cfulfil">
+          <option value="pickup">Pick up at church</option>
+          <option value="ship">Ship to me</option>
+        </select>
+      </div>
+      <div class="field" id="shipField" hidden>
+        <label for="caddress">Shipping address</label>
+        <input id="caddress" type="text" autocomplete="street-address" />
+        <span class="err">Enter a shipping address.</span>
+      </div>
+      <div class="sub" style="display:flex; justify-content:space-between; margin:18px 0 14px;">
+        <span>Total</span><b class="serif" style="font-size:1.4rem;" id="checkoutTotal">$0</b>
+      </div>
+      <button type="submit" class="btn wide" id="payBtn">Pay with Stripe</button>
+      <p class="stripe-note">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+        Secure checkout, card details handled by Stripe. <span class="placeholder-note">[Integration TBC]</span>
+      </p>
+      <p class="note" style="text-align:center; margin-top:10px;"><a href="#" id="backToCart" style="color:var(--ink-soft); font-size:.82rem;">Back to cart</a></p>
+    </form>
+  </div>
+
+  <!-- step 3: success -->
+  <div class="body" id="successBody" hidden>
+    <div class="give-success" style="padding-top:30px;">
+      <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></div>
+      <h3>Order received!</h3>
+      <p id="orderSummary">Thank you for supporting the house.</p>
+      <p style="font-size:.85rem;">A confirmation is on its way to your inbox.</p>
+      <div style="display:flex; flex-direction:column; gap:10px; margin-top:22px;">
+        <a href="index.html#program" class="btn">See the Anniversary Program</a>
+        <button type="button" class="btn ghost" id="keepShopping">Keep Shopping</button>
+      </div>
+    </div>
+  </div>
+</aside>
+
+<script src="image-slot.js"></script>
+<script src="shwc.js"></script>
+<script src="home.js"></script>
+<script src="store.js"></script>
+
+</body>
+</html>

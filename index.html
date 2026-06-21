@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en" data-base="dark" data-accent="navy" data-display="cinzel" data-script="gvibes">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Shepherd's House Worship Center · 10 Year Anniversary</title>
+<link rel="icon" type="image/png" href="uploads/shwc-anniversary-logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Italiana&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Great+Vibes&family=Pinyon+Script&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="shwc.css" />
+</head>
+<body>
+
+<!-- ============ COUNTDOWN BAR ============ -->
+<div class="countbar" data-screen-label="Countdown Bar">
+  <span class="cb-label">The Celebration Begins In</span>
+  <span class="cb-clock" id="cbClock" data-target="2026-10-09T21:00:00-04:00">
+    <span><b>0</b><i>Days</i></span>
+    <span><b>00</b><i>Hrs</i></span>
+    <span><b>00</b><i>Min</i></span>
+    <span><b>00</b><i>Sec</i></span>
+  </span>
+  <span class="cb-when">Friday, Oct 9 · 9:00 PM ET</span>
+</div>
+
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <a class="brand" href="index.html">
+    <img class="mark-img" src="uploads/shwc-anniversary-logo.png" alt="SHWC 10th Anniversary logo" />
+    <span class="name">Shepherd's House<small>Worship Center</small></span>
+  </a>
+  <nav class="nav-links" aria-label="Primary">
+    <a href="about.html" class="optional">About</a>
+    <a href="giving.html">Giving</a>
+    <a href="https://shwc-store.square.site" target="_blank" rel="noopener">Store<svg class="ext-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
+    <a href="https://theshepherdshouse.church" class="btn sm ghost" target="_blank" rel="noopener">Main Site</a>
+  </nav>
+  <button type="button" class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- ============ MOBILE MENU ============ -->
+<div class="mobile-menu" id="mobileMenu">
+  <nav class="mm-links" aria-label="Mobile">
+    <a href="index.html"><i>01</i>Home</a>
+    <a href="index.html#program"><i>02</i>The Program</a>
+    <a href="about.html"><i>03</i>Values &amp; Mission</a>
+    <a href="giving.html"><i>04</i>Giving</a>
+    <a href="https://shwc-store.square.site" target="_blank" rel="noopener"><i>05</i>Store<svg class="ext-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
+  </nav>
+  <div class="mm-foot">
+    <a href="https://theshepherdshouse.church" target="_blank" rel="noopener">Main Site</a>
+    <a href="mailto:info@theshepherdshouse.church">Contact</a>
+  </div>
+</div>
+
+<main>
+
+  <!-- ============ 1 · HERO ============ -->
+  <section class="hero" data-screen-label="Hero">
+    <div class="media">
+      <video class="hero-video" data-desktop="uploads/hero-collage.mp4" data-mobile="uploads/hero-collage-mobile.mp4" autoplay muted loop playsinline webkit-playsinline preload="auto" disableremoteplayback x5-playsinline tabindex="-1"></video>
+    </div>
+    <div class="wrap inner">
+      <div class="hero-logo-wrap">
+        <img class="hero-logo" src="uploads/shwc-anniversary-logo.png" alt="Shepherd's House Worship Center, 10th Anniversary" />
+      </div>
+      <div class="hero-bottom">
+        <p class="hero-sub">A Decade of Faith. A Lifetime of Impact.</p>
+        <p class="hero-years">2016 - 2026</p>
+        <div class="hero-actions">
+          <a href="#program" class="btn">Register Now</a>
+          <a href="#ministers" class="btn ghost">Meet the Ministers</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- marquee -->
+  <div class="marquee" aria-hidden="true">
+    <div class="track">
+      <div class="grp"><span>Celebrate</span><i>✦</i><span>Remember</span><i>✦</i><span>Look Ahead</span><i>✦</i><span>A Home of Grace, Destiny &amp; Fulfillment</span><i>✦</i></div>
+      <div class="grp"><span>Celebrate</span><i>✦</i><span>Remember</span><i>✦</i><span>Look Ahead</span><i>✦</i><span>A Home of Grace, Destiny &amp; Fulfillment</span><i>✦</i></div>
+    </div>
+  </div>
+
+  <!-- ============ 2 · ANNIVERSARY PROGRAM ============ -->
+  <section class="band" id="program" data-screen-label="Anniversary Program">
+    <div class="wrap">
+      <div class="program-head reveal">
+        <p class="eyebrow">The Anniversary Program · October 9 - 11</p>
+        <a class="venue-line" href="https://www.google.com/maps/search/?api=1&amp;query=Lynchburg%2C%20VA%2024501" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-6-5.2-6-10a6 6 0 1 1 12 0c0 4.8-6 10-6 10Z"/><circle cx="12" cy="11" r="2.4"/></svg>
+          Two Venues · Lynchburg, Virginia
+        </a>
+        <h2 class="section-title">Gathering of Nations <em>Harvest Celebration.</em></h2>
+      </div>
+      <div class="sched">
+        <div class="sched-row reveal" data-goto-day="0" title="See who's ministering Friday">
+          <div class="sr-date"><span class="sr-dow">Fri</span><span class="sr-num">09</span><span class="sr-mon">Oct</span></div>
+          <div class="sr-main">
+            <h3>Prayer &amp; Thanksgiving</h3>
+            <p>A sacred gathering of prayer and thanksgiving, an offering of remembrance and gratitude unto the Lord.</p>
+            <a class="sr-venue" href="https://www.google.com/maps/search/?api=1&amp;query=Shepherd%27s%20House%20Lynchburg%20Campus%2C%20521%20Allegheny%20Avenue%2C%20Lynchburg%2C%20VA%2024501" target="_blank" rel="noopener" onclick="event.stopPropagation()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-6-5.2-6-10a6 6 0 1 1 12 0c0 4.8-6 10-6 10Z"/><circle cx="12" cy="11" r="2.4"/></svg>
+              Shepherd's House Church · 521 Allegheny Ave
+            </a>
+          </div>
+          <div class="sr-time">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            <span>9:00 PM ET</span>
+          </div>
+        </div>
+        <div class="sched-row reveal d1" data-goto-day="1" title="See who's ministering Saturday">
+          <div class="sr-date"><span class="sr-dow">Sat</span><span class="sr-num">10</span><span class="sr-mon">Oct</span></div>
+          <div class="sr-main">
+            <h3>Night of United Worship</h3>
+            <p>A powerful night of united worship, coming into one accord to exalt the name above all names.</p>
+            <a class="sr-venue" href="https://www.google.com/maps/search/?api=1&amp;query=Sydnor%20Performance%20Hall%2C%20100%20Vernon%20Street%2C%20Lynchburg%2C%20VA%2024501" target="_blank" rel="noopener" onclick="event.stopPropagation()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-6-5.2-6-10a6 6 0 1 1 12 0c0 4.8-6 10-6 10Z"/><circle cx="12" cy="11" r="2.4"/></svg>
+              Sydnor Performance Hall · 100 Vernon Street
+            </a>
+          </div>
+          <div class="sr-time">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            <span>6:00 PM ET</span>
+          </div>
+        </div>
+        <div class="sched-row reveal d2" data-goto-day="2" title="See who's ministering Sunday">
+          <div class="sr-date"><span class="sr-dow">Sun</span><span class="sr-num">11</span><span class="sr-mon">Oct</span></div>
+          <div class="sr-main">
+            <h3>Commissioning Service</h3>
+            <p>Releasing the Church into its next dimension of purpose and impact.</p>
+            <a class="sr-venue" href="https://www.google.com/maps/search/?api=1&amp;query=Sydnor%20Performance%20Hall%2C%20100%20Vernon%20Street%2C%20Lynchburg%2C%20VA%2024501" target="_blank" rel="noopener" onclick="event.stopPropagation()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-6-5.2-6-10a6 6 0 1 1 12 0c0 4.8-6 10-6 10Z"/><circle cx="12" cy="11" r="2.4"/></svg>
+              Sydnor Performance Hall · 100 Vernon Street
+            </a>
+          </div>
+          <div class="sr-time">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            <span>10:00 AM ET</span>
+          </div>
+        </div>
+      </div>
+      <div class="program-ctas reveal">
+        <a href="#" class="btn" data-toast="Registration link to be wired up">Register</a>
+        <a href="#" class="btn ghost" id="addCal">Add to Calendar</a>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=Shepherd%27s%20House%20Lynchburg%20Campus%2C%20521%20Allegheny%20Avenue%2C%20Lynchburg%2C%20VA%2024501" target="_blank" rel="noopener" class="btn ghost">Directions · Fri (Church)</a>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=Sydnor%20Performance%20Hall%2C%20100%20Vernon%20Street%2C%20Lynchburg%2C%20VA%2024501" target="_blank" rel="noopener" class="btn ghost">Directions · Sat &amp; Sun (Venue)</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 3 · MINISTERS (scroll showcase) ============ -->
+  <section class="ministers" id="ministers" data-screen-label="Ministers">
+    <div class="sticky">
+      <div class="wrap m-layout">
+        <h2 class="section-title m-title">Ministering this <em>weekend.</em></h2>
+        <div class="m-days">
+          <div class="m-day" data-day="0" data-goto-day="0"><span class="d">Friday</span><span class="t">Prayer &amp; Thanksgiving</span></div>
+          <div class="m-day" data-day="1" data-goto-day="1"><span class="d">Saturday</span><span class="t">United Worship</span></div>
+          <div class="m-day" data-day="2" data-goto-day="2"><span class="d">Sunday</span><span class="t">Commissioning Service</span></div>
+        </div>
+        <div class="m-stage">
+          <figure class="m-card" data-day="0">
+            <img src="uploads/sil-man.png" alt="Minister coming soon" />
+            <figcaption><b>Coming Soon</b><span>Friday · Prayer &amp; Thanksgiving</span></figcaption>
+          </figure>
+          <figure class="m-card" data-day="0">
+            <img src="uploads/sil-woman.png" alt="Minister coming soon" />
+            <figcaption><b>Coming Soon</b><span>Friday · Worship &amp; Praise</span></figcaption>
+          </figure>
+          <figure class="m-card" data-day="1">
+            <img src="uploads/sil-man.png" alt="Minister coming soon" />
+            <figcaption><b>Coming Soon</b><span>Saturday · United Worship</span></figcaption>
+          </figure>
+          <figure class="m-card" data-day="1">
+            <img src="uploads/sil-woman.png" alt="Minister coming soon" />
+            <figcaption><b>Coming Soon</b><span>Saturday · United Worship</span></figcaption>
+          </figure>
+          <figure class="m-card" data-day="1">
+            <img src="uploads/sil-man.png" alt="Minister coming soon" />
+            <figcaption><b>Coming Soon</b><span>Saturday · United Worship</span></figcaption>
+          </figure>
+          <figure class="m-card" data-day="2">
+            <img src="uploads/sil-woman.png" alt="Minister coming soon" />
+            <figcaption><b>Coming Soon</b><span>Sunday · Commissioning Service</span></figcaption>
+          </figure>
+          <figure class="m-card" data-day="2">
+            <img src="uploads/sil-man.png" alt="Minister coming soon" />
+            <figcaption><b>Coming Soon</b><span>Sunday · Worship Leader</span></figcaption>
+          </figure>
+          <figure class="m-card" data-day="2">
+            <img src="uploads/sil-woman.png" alt="Minister coming soon" />
+            <figcaption><b>Coming Soon</b><span>Sunday · Praise &amp; Worship</span></figcaption>
+          </figure>
+          <figure class="m-card" data-day="2">
+            <img src="uploads/sil-man.png" alt="Minister coming soon" />
+            <figcaption><b>Coming Soon</b><span>Sunday · Intercession</span></figcaption>
+          </figure>
+        </div>
+      </div>
+      <div class="m-progress" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    </div>
+  </section>
+
+  <!-- ============ 5 · REHOBOTH PRAYER CAMP (highlight banner) ============ -->
+  <section class="rehab" data-screen-label="Rehab Program Banner">
+    <div class="wrap row reveal">
+      <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.6-9.5-9A5.5 5.5 0 0 1 12 6.5 5.5 5.5 0 0 1 21.5 12C19 16.4 12 21 12 21Z"/></svg></span>
+      <div class="t">
+        <b>Rehoboth Prayer Camp</b>
+        <span><b style="display:inline; font-size:inherit; letter-spacing:.08em;">August 28 - 30, 2026</b> · Theme: <em style="font-style:italic;">God's Dwelling Place</em></span>
+      </div>
+      <a href="https://theshepherdshouse.elvanto.net/form/4f270263-c586-4d61-bb9c-31ff0c64d80a" target="_blank" rel="noopener" class="btn rehab-cta">Register</a>
+    </div>
+  </section>
+
+  <!-- ============ 6 · MERCH TEASER ============ -->
+  <section class="band cream" id="merch" data-screen-label="Merch Teaser">
+    <div class="wrap">
+      <div class="section-head reveal" style="display:flex; justify-content:space-between; align-items:flex-end; gap:24px; flex-wrap:wrap;">
+        <div>
+          <p class="eyebrow">Wear It. Share It. Represent.</p>
+          <h2 class="section-title">The anniversary <em>collection.</em></h2>
+        </div>
+        <a href="https://shwc-store.square.site" target="_blank" rel="noopener" class="btn">Shop the Collection<svg class="ext-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
+      </div>
+      <div class="merch-grid five">
+        <article class="product reveal">
+          <div class="ph"><img class="ph-img" src="uploads/merch-hat.webp" alt="10 Year Anniversary Hat" /></div>
+          <div class="info">
+            <span class="nm">10 Year Anniversary Hat</span>
+            <span class="pr">$25.00</span>
+            <a class="btn sm" href="https://shwc-store.square.site/product/polo-hat-10-year-anniversary/KSTQVEUGS2IAFOD5SP4ASQBT?cs=true&amp;cst=custom" target="_blank" rel="noopener">Buy Now<svg class="ext-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
+          </div>
+        </article>
+        <article class="product reveal d1">
+          <div class="ph"><img class="ph-img" src="uploads/merch-tee.webp" alt="10 Year Anniversary T-Shirt" /></div>
+          <div class="info">
+            <span class="nm">10 Year Anniversary T-Shirt</span>
+            <span class="pr">$30.00</span>
+            <a class="btn sm" href="https://shwc-store.square.site/product/t-shirt-10-year-anniversary/BXZD44Q7SKEZUGCG6HWYKK5B?cs=true&amp;cst=custom" target="_blank" rel="noopener">Buy Now<svg class="ext-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
+          </div>
+        </article>
+        <article class="product reveal d2">
+          <div class="ph"><img class="ph-img" src="uploads/merch-polo.webp" alt="10 Year Anniversary Polo Shirt" /></div>
+          <div class="info">
+            <span class="nm">10 Year Anniversary Polo Shirt</span>
+            <span class="pr">$50.00</span>
+            <a class="btn sm" href="https://shwc-store.square.site/product/polo-10-year-anniversary/55G6K5LGYZ6KJA7FT3OGFM3J?cs=true&amp;cst=custom" target="_blank" rel="noopener">Buy Now<svg class="ext-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
+          </div>
+        </article>
+        <article class="product reveal d1">
+          <div class="ph"><img class="ph-img" src="uploads/merch-pen.webp" alt="10 Year Anniversary Pen" /></div>
+          <div class="info">
+            <span class="nm">10 Year Anniversary Pen</span>
+            <span class="pr">$5.00</span>
+            <a class="btn sm" href="https://shwc-store.square.site/product/pen-10-year-anniversary/Y7PL2CV6YNVYZAOFJLXG6I2G?cp=true&amp;sa=true&amp;sbp=false&amp;q=false" target="_blank" rel="noopener">Buy Now<svg class="ext-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
+          </div>
+        </article>
+        <article class="product reveal d2">
+          <div class="ph"><img class="ph-img" src="uploads/merch-tote.webp" alt="10 Year Anniversary Tote" /></div>
+          <div class="info">
+            <span class="nm">10 Year Anniversary Tote</span>
+            <span class="pr">$30.00</span>
+            <a class="btn sm" href="https://shwc-store.square.site/product/shwc-tote-bag/OV6IJBEZWVTLZFVWB3655KYE?cs=true&amp;cst=custom" target="_blank" rel="noopener">Buy Now<svg class="ext-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 6b · HOUSE / LOGO COLLECTION ============ -->
+  <section class="band" id="house-merch" data-screen-label="House Collection">
+    <div class="wrap">
+      <div class="section-head reveal" style="display:flex; justify-content:space-between; align-items:flex-end; gap:24px; flex-wrap:wrap;">
+        <div>
+          <p class="eyebrow">Everyday, All Year</p>
+          <h2 class="section-title">The house <em>collection.</em></h2>
+        </div>
+        <a href="https://shwc-store.square.site" target="_blank" rel="noopener" class="btn">Shop the Collection<svg class="ext-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
+      </div>
+      <p class="section-sub reveal" style="margin-bottom:clamp(28px,4vw,44px);">Carry the house with you every day. Pieces with the Shepherd's House logo, not the anniversary mark.</p>
+      <div class="merch-grid five">
+        <article class="product reveal">
+          <div class="ph"><img class="ph-img" src="uploads/house-jersey.webp" alt="Equipping to Equip Jersey" /></div>
+          <div class="info">
+            <span class="nm">Equipping to Equip Jersey</span>
+            <span class="pr">$65.00</span>
+            <a class="btn sm" href="https://shwc-store.square.site/product/shepherds-house-jersey/6USZD6PINTVNTKIIEYAXNM26?cs=true&amp;cst=custom" target="_blank" rel="noopener">Buy Now<svg class="ext-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
+          </div>
+        </article>
+        <article class="product reveal d1">
+          <div class="ph"><img class="ph-img" src="uploads/house-tumbler.webp" alt="SHWC Tumbler" /></div>
+          <div class="info">
+            <span class="nm">SHWC Tumbler</span>
+            <span class="pr">$30.00</span>
+            <a class="btn sm" href="https://shwc-store.square.site/product/tumbler/XUJIHOFSS67P5S75U44ULQGL?cs=true&amp;cst=custom" target="_blank" rel="noopener">Buy Now<svg class="ext-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
+          </div>
+        </article>
+        <article class="product reveal d2">
+          <div class="ph"><img class="ph-img" src="uploads/house-notebook.webp" alt="SHWC Notebook" /></div>
+          <div class="info">
+            <span class="nm">SHWC Notebook</span>
+            <span class="pr">$15.00</span>
+            <a class="btn sm" href="https://shwc-store.square.site/product/shwc-notebook/3R2G5POCDEI6I7YRUKULMFSB?cs=true&amp;cst=custom" target="_blank" rel="noopener">Buy Now<svg class="ext-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
+          </div>
+        </article>
+        <article class="product reveal d1">
+          <div class="ph"><img class="ph-img" src="uploads/house-varsity.webp" alt="SHWC Varsity Jacket" /></div>
+          <div class="info">
+            <span class="nm">SHWC Varsity Jacket</span>
+            <span class="pr">$80.00</span>
+            <a class="btn sm" href="https://shwc-store.square.site/product/varsity-jacket-equipping-to-equip-/365YANFBF3XYLDQG5XOTEEUT?cs=true&amp;cst=custom" target="_blank" rel="noopener">Buy Now<svg class="ext-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
+          </div>
+        </article>
+        <article class="product reveal d2">
+          <div class="ph"><img class="ph-img" src="uploads/house-tracksuit.webp" alt="SHWC Track Suit Set" /></div>
+          <div class="info">
+            <span class="nm">SHWC Track Suit Set</span>
+            <span class="pr">$90.00</span>
+            <a class="btn sm" href="https://shwc-store.square.site/product/shwc-track-suit-set/SNYYF6A3RLUQ5TLPZDXPVHVG?cs=true&amp;cst=custom" target="_blank" rel="noopener">Buy Now<svg class="ext-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 7 · GIVING TEASER ============ -->
+  <section class="band" id="give" data-screen-label="Giving Teaser">
+    <div class="wrap">
+      <div class="cta-panel reveal">
+        <p class="eyebrow" style="justify-content:center; display:flex;">Giving</p>
+        <h2 class="section-title">Sow into the next <em>decade.</em></h2>
+        <p>Every seed built this house. This season we're believing God for the <b>Prayer Tabernacle</b>, a consecrated place of divine encounter, and prayerfully raising over $100,000 to begin the work. Give securely online in under a minute.</p>
+        <a href="giving.html" class="btn lg">Give Now</a>
+        <p class="cta-note">Secure giving · One-time or recurring · Tax deductible</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 8 · REGULAR CHURCH INFO ============ -->
+  <section class="band tint" id="visit" data-screen-label="Visit / Church Info">
+    <div class="wrap">
+      <div class="visit-cta reveal">
+        <p class="eyebrow">Beyond the Celebration</p>
+        <h2 class="section-title">Join us any <em>week.</em></h2>
+        <p class="visit-lead">The anniversary is just one chapter. For weekly service times, locations, sermons, and everything else, visit our main website.</p>
+        <a href="https://theshepherdshouse.church" target="_blank" rel="noopener" class="btn">Visit the Main Website</a>
+      </div>
+    </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ 9 · FOOTER ============ -->
+<footer class="foot" data-screen-label="Footer">
+  <div class="wrap">
+    <div class="foot-cols" style="padding-top:0;">
+      <div>
+        <h5>Lynchburg</h5>
+        <p>521 Allegheny Avenue<br />Lynchburg, VA 24501</p>
+        <a href="https://www.facebook.com/thehouselynchburg/" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://www.instagram.com/shepherdshouse_lynchburg/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.youtube.com/@SHWCLynchburg" target="_blank" rel="noopener">YouTube</a>
+      </div>
+      <div>
+        <h5>Charlottesville</h5>
+        <p>808 Blenheim Avenue<br />Charlottesville, VA 22902</p>
+        <a href="https://www.facebook.com/shepherdshouseworshipcenter/" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://www.instagram.com/shepherdshouse_charlottesville/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.youtube.com/@shepherdshouseworshipcenter" target="_blank" rel="noopener">YouTube</a>
+      </div>
+      <div>
+        <h5>Explore</h5>
+        <a href="index.html">Home</a>
+        <a href="about.html">Values &amp; Mission</a>
+        <a href="giving.html">Giving</a>
+        <a href="https://shwc-store.square.site" target="_blank" rel="noopener">Store<svg class="ext-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
+      </div>
+      <div>
+        <h5>Connect</h5>
+        <a href="mailto:info@theshepherdshouse.church">info@theshepherdshouse.church</a>
+        <a href="https://theshepherdshouse.church" target="_blank" rel="noopener">Main Website<svg class="ext-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
+      </div>
+    </div>
+    <div class="legal">
+      <span>© 2026 Shepherds House Worship Center, Inc.</span>
+      <span>A Home of Grace, Destiny, and Fulfillment</span>
+    </div>
+  </div>
+</footer>
+
+<script src="shwc.js"></script>
+<script src="home.js"></script>
+
+</body>
+</html>
