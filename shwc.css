@@ -1,3 +1,8 @@
+/* Webfonts — same families used by the tokens below. Self-imported here so
+   the CSS closure declares them (consumers linking only this file get them too).
+   Exact families; no substitutions. */
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Italiana&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Great+Vibes&family=Pinyon+Script&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap");
+
 /* ============================================================
    Shepherd's House Worship Center · 10 Year Anniversary
    v3 — black / gold / cream, per brand mockup.
@@ -28,14 +33,14 @@
   --cream-ink:   #1d1812;
   --cream-soft:  #6f6253;
 
-  --display: "Cinzel", Georgia, serif;
-  --display-wt: 600;
-  --script:  "Great Vibes", cursive;
-  --label:   "Hanken Grotesk", system-ui, sans-serif;
-  --body:    "Hanken Grotesk", system-ui, sans-serif;
+  --display: "Cinzel", Georgia, serif; /* @kind font */
+  --display-wt: 600; /* @kind other */
+  --script:  "Great Vibes", cursive; /* @kind font */
+  --label:   "Hanken Grotesk", system-ui, sans-serif; /* @kind font */
+  --body:    "Hanken Grotesk", system-ui, sans-serif; /* @kind font */
 
   --maxw: 1240px;
-  --gutter: clamp(20px, 5vw, 80px);
+  --gutter: clamp(20px, 5vw, 80px); /* @kind spacing */
   --radius: 2px;
 }
 
@@ -81,13 +86,13 @@
   --line:      rgba(19, 28, 49, .22);
   --line-soft: rgba(19, 28, 49, .1);
 }
-:root[data-accent="navy"] .band.cream { --accent: #34466e; --accent-2: #7d96c9; --gold-hi: #22304d; }
+:root[data-accent="navy"] { --cream-accent: #34466e; --cream-accent-2: #7d96c9; --cream-gold-hi: #22304d; }
 :root[data-accent="royal"]    { --accent:#8aa3d6; --accent-2:#4d648f; --gold-hi:#c3d2ee; --on-accent:#10131a; }
 :root[data-base="light"][data-accent="royal"]   { --accent:#3d5687; --accent-2:#7d96c9; --gold-hi:#2c3f63; --on-accent:#f6f4ec; }
 
-:root[data-display="italiana"] { --display: "Italiana", Georgia, serif; --display-wt: 400; }
-:root[data-display="cormorant"] { --display: "Cormorant Garamond", Georgia, serif; }
-:root[data-script="pinyon"] { --script: "Pinyon Script", cursive; }
+:root[data-display="italiana"] { --display: "Italiana", Georgia, serif; /* @kind font */ --display-wt: 400; /* @kind other */ }
+:root[data-display="cormorant"] { --display: "Cormorant Garamond", Georgia, serif; /* @kind font */ }
+:root[data-script="pinyon"] { --script: "Pinyon Script", cursive; /* @kind font */ }
 
 /* Display-font weight follows the active family (Italiana has no bold) */
 :is(.serif, .section-title, .page-hero h1, .ten-num, .ten-side, .hero-sub,
@@ -395,14 +400,14 @@ main, section, footer, header { position: relative; z-index: 2; }
   --bg: var(--cream);
   --bg-2: var(--cream-2);
   --surface: var(--cream-surface);
-  --accent: #8a6526;
-  --accent-2: #c9a356;
-  --gold-hi: #b08a3e;
+  --accent: var(--cream-accent, #8a6526);
+  --accent-2: var(--cream-accent-2, #c9a356);
+  --gold-hi: var(--cream-gold-hi, #b08a3e);
   --on-accent: #faf6ea;
   --line: rgba(29, 24, 18, .25);
   --line-soft: rgba(29, 24, 18, .12);
 }
-:root[data-accent="royal"] .band.cream { --accent: #3d5687; --accent-2: #7d96c9; --gold-hi: #2c3f63; }
+:root[data-accent="royal"] { --cream-accent: #3d5687; --cream-accent-2: #7d96c9; --cream-gold-hi: #2c3f63; }
 
 /* cool grey-white band (house collection) — keeps gold accents, lifts merch off the bg */
 .band.mist {
@@ -672,6 +677,25 @@ main, section, footer, header { position: relative; z-index: 2; }
 .sig .sig-script { font-family: var(--script); font-size: clamp(1.5rem, 3.4vw, 1.9rem); color: var(--ink); }
 .sig .sig-name { font-family: var(--display); font-weight: 600; text-transform: uppercase; letter-spacing: .08em; font-size: 1.05rem; margin-top: 10px; }
 .sig .sig-role { font-family: var(--label); font-weight: 700; font-size: .62rem; letter-spacing: .26em; text-transform: uppercase; color: var(--ink-soft); }
+
+/* ---------- about: pastor portrait ---------- */
+.letter-band .wrap { max-width: 1600px; padding-left: clamp(8px, 1.5vw, 28px); padding-right: clamp(20px, 4vw, 80px); }
+.pastor-layout { display: grid; grid-template-columns: 1fr; gap: clamp(24px, 4vh, 40px); justify-items: center; }
+.pastor-portrait { width: min(620px, 100%); margin: 0; text-align: center; }
+.pastor-layout .letter { margin: 0; max-width: 660px; }
+@media (min-width: 900px) {
+  .pastor-layout { grid-template-columns: minmax(0, 35fr) minmax(0, 65fr); align-items: center; gap: clamp(28px, 3.5vw, 60px); justify-items: stretch; }
+  .pastor-portrait { width: 100%; }
+  .pastor-layout .letter { max-width: 720px; justify-self: start; }
+}
+.pp-frame { position: relative; aspect-ratio: 3 / 2; }
+.pp-frame img {
+  width: 100%; height: 100%; display: block; object-fit: contain; object-position: center bottom;
+  filter: drop-shadow(0 28px 50px rgba(0,0,0,.55));
+}
+.pastor-portrait figcaption { margin-top: 10px; display: flex; flex-direction: column; gap: 5px; }
+.pp-name { font-family: var(--display); font-weight: 600; text-transform: uppercase; letter-spacing: .07em; font-size: clamp(.92rem, 2vw, 1.05rem); color: var(--ink); line-height: 1.35; }
+.pp-role { font-family: var(--label); font-weight: 700; font-size: .6rem; letter-spacing: .26em; text-transform: uppercase; color: var(--ink-soft); }
 
 /* ---------- about: value rows ---------- */
 .value-list { border-top: 1px solid var(--line); }

@@ -110,7 +110,7 @@
       var campus = "Shepherd's House Lynchburg Campus, 521 Allegheny Avenue, Lynchburg, VA 24501";
       // Oct 2026 is EDT (UTC-4)
       var events = [
-        { uid: "shwc10-fri@shwc", start: "20261010T010000Z", end: "20261010T030000Z", title: "SHWC 10th Anniversary - Prayer & Thanksgiving", loc: campus },
+        { uid: "shwc10-fri@shwc", start: "20261010T010000Z", end: "20261010T030000Z", title: "SHWC 10th Anniversary - Gathering of Prayer & Thanksgiving", loc: campus },
         { uid: "shwc10-sat@shwc", start: "20261010T220000Z", end: "20261011T000000Z", title: "SHWC 10th Anniversary - Night of United Worship", loc: sydnor },
         { uid: "shwc10-sun@shwc", start: "20261011T140000Z", end: "20261011T160000Z", title: "SHWC 10th Anniversary - Commissioning Service", loc: sydnor }
       ];
