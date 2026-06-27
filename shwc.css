@@ -831,6 +831,21 @@ main, section, footer, header { position: relative; z-index: 2; }
 .stripe-note { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 14px; color: var(--ink-soft); font-family: var(--label); font-weight: 600; font-size: .7rem; letter-spacing: .06em; }
 .stripe-note svg { width: 14px; height: 14px; flex: none; }
 
+/* recurrence picker */
+.give-lead { color: var(--ink-soft); margin: 0 0 22px; font-size: .98rem; line-height: 1.55; }
+.recur-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin-bottom: 22px; }
+.recur-opt {
+  appearance: none; cursor: pointer; display: flex; flex-direction: column; gap: 4px; text-align: center; min-width: 0;
+  padding: 1.1em .35em; border-radius: var(--radius); border: 1px solid var(--line); background: transparent; color: var(--ink);
+  transition: border-color .2s, background .2s, color .2s; min-height: 84px; justify-content: center;
+}
+.recur-opt:hover { border-color: var(--accent); }
+.recur-opt[aria-pressed="true"] { border-color: var(--accent); background: color-mix(in oklab, var(--accent) 10%, transparent); }
+.recur-opt .ro-title { font-family: var(--label); font-weight: 700; font-size: .7rem; letter-spacing: .16em; text-transform: uppercase; }
+.recur-opt .ro-sub { font-family: var(--body); font-size: .78rem; color: var(--ink-soft); letter-spacing: 0; text-transform: none; }
+.recur-opt[aria-pressed="true"] .ro-title { color: var(--accent); }
+.give-unavailable { color: #cf5f4a; font-size: .82rem; margin: 10px 0 0; text-align: center; }
+
 /* success / upsell */
 .give-success { text-align: center; padding: 10px 0; }
 .give-success .check {

@@ -76,7 +76,7 @@
         <div class="assure">
           <div class="row">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
-            <span><b>Secure by design.</b> Payments are processed by Stripe, card details never touch our servers.</span>
+            <span><b>Secure by design.</b> Payments are processed by Square, card details never touch our servers.</span>
           </div>
           <div class="row">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18M5 8l7-5 7 5M5 16l7 5 7-5"/></svg>
@@ -90,70 +90,30 @@
       </aside>
 
       <form class="give-card reveal d1" id="giveForm" novalidate>
-        <div id="giveFields">
-          <div class="seg" role="group" aria-label="Gift type">
-            <button type="button" id="segOnce" aria-pressed="true">One time</button>
-            <button type="button" id="segRecur" aria-pressed="false">Recurring</button>
-          </div>
+        <p class="give-lead">How would you like to give? Choose a frequency, then enter your amount and details on our secure Square checkout.</p>
 
-          <div class="freq-row" id="freqRow" hidden>
-            <button type="button" data-freq="weekly" aria-pressed="false">Weekly</button>
-            <button type="button" data-freq="monthly" aria-pressed="true">Monthly</button>
-          </div>
-
-          <div class="amounts" id="amounts">
-            <button type="button" data-amt="25">$25</button>
-            <button type="button" data-amt="50" aria-pressed="true">$50</button>
-            <button type="button" data-amt="100">$100</button>
-            <button type="button" data-amt="250">$250</button>
-            <button type="button" data-amt="500">$500</button>
-            <button type="button" data-amt="1000">$1,000</button>
-          </div>
-
-          <div class="custom-amt">
-            <span class="cur serif">$</span>
-            <input id="customAmt" type="number" min="1" step="1" placeholder="Custom amount" aria-label="Custom amount" />
-          </div>
-
-          <div class="field">
-            <label for="fund">Designation</label>
-            <select id="fund">
-              <option>Prayer Tabernacle</option>
-              <option>Global Missions</option>
-            </select>
-          </div>
-
-          <div class="split">
-            <div class="field">
-              <label for="gname">Full name</label>
-              <input id="gname" type="text" autocomplete="name" />
-              <span class="err">Please enter your name.</span>
-            </div>
-            <div class="field">
-              <label for="gemail">Email for receipt</label>
-              <input id="gemail" type="email" autocomplete="email" />
-              <span class="err">Enter a valid email.</span>
-            </div>
-          </div>
-
-          <button type="submit" class="btn wide" id="giveBtn">Give $50</button>
-          <p class="stripe-note">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
-            You'll complete payment on Stripe's secure checkout. <span class="placeholder-note">[Stripe integration TBC]</span>
-          </p>
+        <div class="recur-grid" id="recurGrid" role="group" aria-label="Giving frequency">
+          <button type="button" class="recur-opt" data-freq="once" aria-pressed="false">
+            <span class="ro-title">One time</span>
+            <span class="ro-sub">A single gift</span>
+          </button>
+          <button type="button" class="recur-opt" data-freq="weekly" aria-pressed="false">
+            <span class="ro-title">Weekly</span>
+            <span class="ro-sub">Every week</span>
+          </button>
+          <button type="button" class="recur-opt" data-freq="monthly" aria-pressed="true">
+            <span class="ro-title">Monthly</span>
+            <span class="ro-sub">Every month</span>
+          </button>
         </div>
 
-        <div class="give-success" id="giveSuccess" hidden>
-          <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></div>
-          <h3>Thank you for giving.</h3>
-          <p id="giveSummary">Your gift has been received.</p>
-          <p style="font-size:.85rem;">A receipt is on its way to your inbox.</p>
-          <div class="upsell">
-            <p class="serif">Take home a piece of the celebration.</p>
-            <a href="https://shwc-store.square.site" target="_blank" rel="noopener" class="btn">Visit the Anniversary Store<svg class="ext-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
-          </div>
-          <p style="margin-top:18px;"><a href="#" id="giveAgain" style="color:var(--ink-soft); font-size:.85rem;">Give again</a></p>
-        </div>
+        <button type="submit" class="btn wide" id="giveBtn">Continue to secure checkout</button>
+        <p class="give-unavailable" id="giveUnavailable" hidden>This option is not available yet. Please choose another frequency.</p>
+
+        <p class="stripe-note">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+          You'll complete your gift on Square's secure checkout. <span class="placeholder-note">[Testing: monthly link is live]</span>
+        </p>
       </form>
 
     </div>

@@ -1,95 +1,67 @@
-/* SHWC Giving, donation flow (front-end mock; Stripe to be wired) */
+/* SHWC Giving, recurrence picker that opens the matching Square payment link */
 (function () {
   "use strict";
 
-  var state = { mode: "once", freq: "monthly", amount: 50 };
+  // One Square payment link per recurrence. Amount is entered by the donor on Square.
+  // Add the weekly / one-time links here as they are created.
+  var LINKS = {
+    once: "",
+    weekly: "",
+    monthly: "https://square.link/u/2YJkTmhu?src=embed"
+  };
 
-  var segOnce = document.getElementById("segOnce");
-  var segRecur = document.getElementById("segRecur");
-  var freqRow = document.getElementById("freqRow");
-  var amounts = document.getElementById("amounts");
-  var customAmt = document.getElementById("customAmt");
-  var giveBtn = document.getElementById("giveBtn");
+  var state = { freq: "monthly" };
+
+  var grid = document.getElementById("recurGrid");
   var form = document.getElementById("giveForm");
-  var fields = document.getElementById("giveFields");
-  var success = document.getElementById("giveSuccess");
-  var summary = document.getElementById("giveSummary");
-  var nameIn = document.getElementById("gname");
-  var emailIn = document.getElementById("gemail");
+  var giveBtn = document.getElementById("giveBtn");
+  var unavailable = document.getElementById("giveUnavailable");
 
-  function money(n) { return "$" + Number(n).toLocaleString("en-US"); }
-
-  function updateBtn() {
-    var label = "Give " + money(state.amount);
-    if (state.mode === "recur") label += state.freq === "weekly" ? " weekly" : " monthly";
-    giveBtn.textContent = label;
-    giveBtn.toggleAttribute("disabled", !(state.amount > 0));
-  }
-
-  function setMode(mode) {
-    state.mode = mode;
-    segOnce.setAttribute("aria-pressed", mode === "once" ? "true" : "false");
-    segRecur.setAttribute("aria-pressed", mode === "recur" ? "true" : "false");
-    freqRow.hidden = mode !== "recur";
-    updateBtn();
-  }
-  segOnce.addEventListener("click", function () { setMode("once"); });
-  segRecur.addEventListener("click", function () { setMode("recur"); });
-
-  freqRow.addEventListener("click", function (e) {
+  grid.addEventListener("click", function (e) {
     var b = e.target.closest("button[data-freq]");
     if (!b) return;
     state.freq = b.getAttribute("data-freq");
-    freqRow.querySelectorAll("button").forEach(function (x) {
+    grid.querySelectorAll("button").forEach(function (x) {
       x.setAttribute("aria-pressed", x === b ? "true" : "false");
     });
-    updateBtn();
+    unavailable.hidden = true;
   });
 
-  amounts.addEventListener("click", function (e) {
-    var b = e.target.closest("button[data-amt]");
-    if (!b) return;
-    state.amount = parseInt(b.getAttribute("data-amt"), 10);
-    customAmt.value = "";
-    amounts.querySelectorAll("button").forEach(function (x) {
-      x.setAttribute("aria-pressed", x === b ? "true" : "false");
-    });
-    updateBtn();
-  });
+  // Open the Square checkout in a centered popup (falls back to a new tab).
+  function openCheckout(url) {
+    var title = "Square Payment Links";
+    var topWindow = window.top ? window.top : window;
 
-  customAmt.addEventListener("input", function () {
-    var v = parseFloat(customAmt.value);
-    amounts.querySelectorAll("button").forEach(function (x) { x.setAttribute("aria-pressed", "false"); });
-    state.amount = isNaN(v) || v <= 0 ? 0 : v;
-    updateBtn();
-  });
+    var dualScreenLeft = topWindow.screenLeft !== undefined ? topWindow.screenLeft : topWindow.screenX;
+    var dualScreenTop = topWindow.screenTop !== undefined ? topWindow.screenTop : topWindow.screenY;
 
-  function validEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
-  [nameIn, emailIn].forEach(function (el) {
-    el.addEventListener("input", function () { el.classList.remove("bad"); });
-  });
+    var width = topWindow.innerWidth || document.documentElement.clientWidth || screen.width;
+    var height = topWindow.innerHeight || document.documentElement.clientHeight || screen.height;
+
+    var h = height * 0.75;
+    var w = 500;
+
+    var systemZoom = width / topWindow.screen.availWidth;
+    var left = (width - w) / 2 / systemZoom + dualScreenLeft;
+    var top = (height - h) / 2 / systemZoom + dualScreenTop;
+
+    var newWindow = window.open(
+      url,
+      title,
+      "scrollbars=yes, width=" + (w / systemZoom) + ", height=" + (h / systemZoom) + ", top=" + top + ", left=" + left
+    );
+
+    if (newWindow && window.focus) newWindow.focus();
+  }
 
   form.addEventListener("submit", function (e) {
     e.preventDefault();
-    var ok = true;
-    if (!nameIn.value.trim()) { nameIn.classList.add("bad"); ok = false; }
-    if (!validEmail(emailIn.value.trim())) { emailIn.classList.add("bad"); ok = false; }
-    if (!ok || !(state.amount > 0)) return;
-
-    var fund = document.getElementById("fund").value;
-    var first = nameIn.value.trim().split(" ")[0];
-    var rec = state.mode === "recur" ? (state.freq === "weekly" ? " every week" : " every month") : "";
-    summary.textContent = first + ", your gift of " + money(state.amount) + rec + " to " + fund + " has been received.";
-    fields.hidden = true;
-    success.hidden = false;
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    var url = LINKS[state.freq];
+    if (!url) {
+      unavailable.hidden = false;
+      return;
+    }
+    unavailable.hidden = true;
+    openCheckout(url);
   });
-
-  document.getElementById("giveAgain").addEventListener("click", function (e) {
-    e.preventDefault();
-    success.hidden = true;
-    fields.hidden = false;
-  });
-
-  updateBtn();
 })();
