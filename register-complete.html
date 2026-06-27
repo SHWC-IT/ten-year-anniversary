@@ -2,6 +2,15 @@
 <html lang="en" data-base="dark" data-accent="navy" data-display="cinzel" data-script="gvibes">
 <head>
 <meta charset="UTF-8" />
+<script>
+  /* Break out of the Elvanto registration iframe to the full top-level page.
+     When Elvanto redirects the iframe here after submission, this page is
+     same-origin with the parent, so it can promote itself to the top window.
+     Runs only when framed, so it is a no-op as a standalone page (no loop). */
+  if (window.top !== window.self) {
+    window.top.location.replace('/register-complete.html');
+  }
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Registration Complete · Shepherd's House Worship Center</title>
 <link rel="icon" type="image/png" href="uploads/shwc-anniversary-logo.png" />
