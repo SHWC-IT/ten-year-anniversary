@@ -5,7 +5,7 @@
   // One Square payment link per recurrence. Amount is entered by the donor on Square.
   // Add the weekly / one-time links here as they are created.
   var LINKS = {
-    once: "https://square.link/u/wQ9hihlU?src=embed",
+    once: "https://square.link/u/3Nc6DwDE?src=embed",
     weekly: "https://square.link/u/rnyWGhI0?src=embed",
     monthly: "https://square.link/u/2YJkTmhu?src=embed"
   };
