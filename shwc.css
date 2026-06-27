@@ -688,19 +688,20 @@ main, section, footer, header { position: relative; z-index: 2; }
 .sig .sig-role { font-family: var(--label); font-weight: 700; font-size: .62rem; letter-spacing: .26em; text-transform: uppercase; color: var(--ink-soft); }
 
 /* ---------- about: pastor portrait ---------- */
-.letter-band .wrap { max-width: 1600px; padding-left: clamp(8px, 1.5vw, 28px); padding-right: clamp(20px, 4vw, 80px); }
+.letter-band .wrap { max-width: none; padding-left: clamp(16px, 4vw, 72px); padding-right: clamp(16px, 4vw, 72px); }
 .pastor-layout { display: grid; grid-template-columns: 1fr; gap: clamp(24px, 4vh, 40px); justify-items: center; }
 .pastor-portrait { width: min(620px, 100%); margin: 0; text-align: center; }
 .pastor-layout .letter { margin: 0; max-width: 660px; }
 @media (min-width: 900px) {
-  .pastor-layout { grid-template-columns: minmax(0, 35fr) minmax(0, 65fr); align-items: center; gap: clamp(28px, 3.5vw, 60px); justify-items: stretch; }
+  .pastor-layout { grid-template-columns: minmax(0, 46fr) minmax(0, 54fr); align-items: center; gap: clamp(24px, 3vw, 52px); justify-items: stretch; }
   .pastor-portrait { width: 100%; }
-  .pastor-layout .letter { max-width: 720px; justify-self: start; }
+  .pastor-layout .letter { max-width: 820px; justify-self: end; }
 }
-.pp-frame { position: relative; aspect-ratio: 3 / 2; }
+.pp-frame { position: relative; aspect-ratio: 1312 / 1386; }
+.letter-band.cream .pp-frame img { filter: drop-shadow(0 22px 42px rgba(40, 28, 12, .30)); }
 .pp-frame img {
   width: 100%; height: 100%; display: block; object-fit: contain; object-position: center bottom;
-  filter: drop-shadow(0 28px 50px rgba(0,0,0,.55));
+  filter: drop-shadow(0 22px 44px rgba(20, 26, 45, .32));
 }
 .pastor-portrait figcaption { margin-top: 10px; display: flex; flex-direction: column; gap: 5px; }
 .pp-name { font-family: var(--display); font-weight: 600; text-transform: uppercase; letter-spacing: .07em; font-size: clamp(.92rem, 2vw, 1.05rem); color: var(--ink); line-height: 1.35; }
