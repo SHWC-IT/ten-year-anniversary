@@ -57,43 +57,39 @@
 
 <main>
 
-  <section class="page-hero" data-screen-label="Giving Hero">
+  <section class="band give-band cream" data-screen-label="Giving Form" style="padding:clamp(48px,7vh,84px) 0;">
     <div class="wrap">
-      <p class="eyebrow">Generosity</p>
-      <h1>Give with <em>joy.</em></h1>
-      <p class="section-sub">Your giving establishes the Prayer Tabernacle, carries our ministries, and reaches our communities in Charlottesville and Lynchburg. Thank you for sowing into the next decade.</p>
-    </div>
-  </section>
-
-  <section class="band" data-screen-label="Giving Form">
-    <div class="wrap give-layout">
+      <div class="give-layout">
 
       <aside class="give-aside reveal">
-        <p class="eyebrow">The Next Decade</p>
-        <h2 class="section-title" style="font-size:clamp(1.8rem,3vw,2.6rem);">The Prayer <em>Tabernacle.</em></h2>
-        <p>As we enter our next decade, God has placed a clear mandate on our Lead Pastor's heart: to establish a <b>Prayer Tabernacle</b>, a consecrated place where seekers from all walks of life can encounter the presence of God, tarry in prayer, and behold His glory in Spirit and in Truth.</p>
-        <p>To begin this sacred work, we are prayerfully seeking to raise over <b>$100,000</b>. We humbly invite you to stand with us as a Kingdom partner, sowing into a vision that will impact generations and create a place where lives are transformed through divine encounter.</p>
-        <div class="assure">
-          <div class="row">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
-            <span><b>Secure by design.</b> Payments are processed by Square, card details never touch our servers.</span>
+        <div class="give-head">
+          <p class="eyebrow">Generosity</p>
+          <h1 class="section-title" style="font-size:clamp(2.7rem,4.8vw,4rem);">Give with <em>joy.</em></h1>
+          <p>As we step into our next decade, every gift you sow advances two priorities close to the heart of our house.</p>
+        </div>
+        <p class="give-pick" style="margin-bottom:18px;">Where your gift goes</p>
+        <div class="give-goals">
+          <div class="goal">
+            <span class="g-num">01</span>
+            <div>
+              <h4>Prayer Tabernacle</h4>
+              <p>A consecrated place where people can encounter the presence of God in prayer. We are prayerfully raising over <b>$100,000</b> to begin this work.</p>
+            </div>
           </div>
-          <div class="row">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18M5 8l7-5 7 5M5 16l7 5 7-5"/></svg>
-            <span><b>One time or recurring.</b> Set a weekly or monthly gift and change it anytime.</span>
-          </div>
-          <div class="row">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19h16M6 19V9l6-5 6 5v10"/></svg>
-            <span><b>Tax deductible.</b> Shepherds House Worship Center, Inc. is a registered nonprofit; receipts are emailed automatically.</span>
+          <div class="goal">
+            <span class="g-num">02</span>
+            <div>
+              <h4>Global Missions</h4>
+              <p>Carrying the Gospel beyond our walls, supporting missionaries and outreach in our communities and around the world.</p>
+            </div>
           </div>
         </div>
       </aside>
 
       <form class="give-card reveal d1" id="giveForm" novalidate>
-        <p class="give-lead">How would you like to give? Choose a frequency, then enter your amount and details on our secure Square checkout.</p>
-
+        <p class="give-pick" style="font-size: 35px">Choose your giving frequency</p>
         <div class="recur-grid" id="recurGrid" role="group" aria-label="Giving frequency">
-          <button type="button" class="recur-opt" data-freq="once" aria-pressed="false">
+          <button type="button" class="recur-opt" data-freq="once" aria-pressed="true">
             <span class="ro-title">One time</span>
             <span class="ro-sub">A single gift</span>
           </button>
@@ -101,7 +97,7 @@
             <span class="ro-title">Weekly</span>
             <span class="ro-sub">Every week</span>
           </button>
-          <button type="button" class="recur-opt" data-freq="monthly" aria-pressed="true">
+          <button type="button" class="recur-opt" data-freq="monthly" aria-pressed="false">
             <span class="ro-title">Monthly</span>
             <span class="ro-sub">Every month</span>
           </button>
@@ -110,12 +106,10 @@
         <button type="submit" class="btn wide" id="giveBtn">Continue to secure checkout</button>
         <p class="give-unavailable" id="giveUnavailable" hidden>This option is not available yet. Please choose another frequency.</p>
 
-        <p class="stripe-note">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
-          You'll complete your gift on Square's secure checkout.
-        </p>
+        <p class="give-lead" style="margin:18px 0 0;">Pick a frequency and continue to our secure Square checkout, which opens in a popup or new tab. Enter your amount there, then return here once you're done.</p>
       </form>
 
+      </div>
     </div>
   </section>
 

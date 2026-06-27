@@ -10,7 +10,7 @@
     monthly: "https://square.link/u/2YJkTmhu?src=embed"
   };
 
-  var state = { freq: "monthly" };
+  var state = { freq: "once" };
 
   var grid = document.getElementById("recurGrid");
   var form = document.getElementById("giveForm");
@@ -64,4 +64,23 @@
     unavailable.hidden = true;
     openCheckout(url);
   });
+
+  // Fit the "Choose your giving frequency" heading to the box width on one line,
+  // at the largest size that fits, on any screen size.
+  var pick = form.querySelector(".give-pick");
+  function fitPick() {
+    if (!pick) return;
+    pick.style.fontSize = "35px";
+    var avail = pick.clientWidth;
+    var text = pick.scrollWidth;
+    if (text > avail && text > 0) {
+      var size = Math.max(12, 35 * (avail / text) * 0.98);
+      pick.style.fontSize = size.toFixed(1) + "px";
+    }
+  }
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(fitPick);
+  }
+  fitPick();
+  window.addEventListener("resize", fitPick);
 })();

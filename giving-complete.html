@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en" data-base="dark" data-accent="navy" data-display="cinzel" data-script="gvibes">
+<head>
+<meta charset="UTF-8" />
+<script>
+  // If this page is loaded inside the registration iframe (Elvanto redirects
+  // here after submit), break out and take over the whole browser window so
+  // the visitor sees the full confirmation page, not a panel inside a frame.
+  try { if (window.top !== window.self) { window.top.location.replace(window.location.href); } } catch (e) {}
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Gift Complete · Shepherd's House Worship Center</title>
+<link rel="icon" type="image/png" href="uploads/shwc-anniversary-logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Italiana&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Great+Vibes&family=Pinyon+Script&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="shwc.css" />
+<style>
+  /* cohesive cream confirmation block between the dark nav and footer */
+  .rc-band { background: #f1ebdb; }
+  .rc-wrap {
+    max-width: 600px; margin: 0 auto;
+    padding: clamp(40px, 8vh, 84px) clamp(18px, 5vw, 36px);
+    display: flex; flex-direction: column; align-items: center; text-align: center;
+  }
+
+  /* success header */
+  .rc-badge {
+    width: 78px; height: 78px; border-radius: 50%; margin: 0 0 22px;
+    display: grid; place-items: center; color: var(--on-accent);
+    background: linear-gradient(165deg, var(--gold-hi) 0%, var(--accent) 45%, var(--accent-2) 140%);
+    box-shadow: 0 16px 36px -14px color-mix(in oklab, var(--accent) 60%, transparent);
+  }
+  .rc-title {
+    font-family: var(--display); font-weight: 600; text-transform: uppercase;
+    font-size: clamp(2rem, 6vw, 3rem); line-height: 1.2; letter-spacing: .03em; margin: 0; color: #1d1812;
+  }
+  .rc-title em {
+    font-family: var(--script); font-style: normal; font-weight: 400;
+    text-transform: none; color: #8a6526; letter-spacing: 0; font-size: 1.18em; line-height: 1;
+  }
+  .rc-meta {
+    font-family: var(--label); font-weight: 700; font-size: .68rem;
+    letter-spacing: .26em; text-transform: uppercase; color: #8a6526; margin: 46px 0 30px;
+  }
+
+  /* stacked CTA cards */
+  .rc-cards { display: flex; flex-direction: column; gap: 16px; width: 100%; }
+  .rc-card {
+    position: relative; background: #faf6ea;
+    border: 1px solid color-mix(in oklab, var(--accent) 55%, transparent); border-radius: var(--radius);
+    padding: clamp(22px, 4vw, 32px) clamp(20px, 4vw, 30px); text-align: center;
+  }
+  .rc-card::before {
+    content: ""; position: absolute; inset: 6px; pointer-events: none;
+    border: 1px solid color-mix(in oklab, var(--accent) 30%, transparent);
+  }
+  .rc-card > * { position: relative; }
+  .rc-card .eyebrow { justify-content: center; color: #8a6526; }
+  .rc-card h2 {
+    font-family: var(--display); font-weight: 600; text-transform: uppercase;
+    font-size: clamp(1.4rem, 4.5vw, 1.85rem); line-height: 1.14; letter-spacing: .04em; margin: 9px 0 0; color: #1d1812;
+  }
+  .rc-card h2 em {
+    font-family: var(--script); font-style: normal; font-weight: 400;
+    text-transform: none; color: #8a6526; letter-spacing: 0; font-size: 1.2em;
+  }
+  .rc-card p { color: #6f6253; margin: 11px auto 0; max-width: 42ch; font-size: .96rem; }
+  .rc-card .btn { margin-top: 20px; }
+  .rc-rule { height: 1px; background: color-mix(in oklab, var(--accent) 32%, transparent); margin: 30px auto; width: 70%; }
+
+  /* store preview thumbnails */
+  .rc-preview { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 18px 0 0; }
+  .rc-preview figure { margin: 0; }
+  .rc-preview .ph {
+    aspect-ratio: 1 / 1; background: #fffdf6; border: 1px solid rgba(29, 24, 18, .14);
+    border-radius: var(--radius); overflow: hidden;
+  }
+  .rc-preview img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .rc-preview figcaption {
+    margin-top: 8px; font-family: var(--label); font-weight: 700; font-size: .54rem;
+    letter-spacing: .14em; text-transform: uppercase; color: #6f6253;
+    display: flex; justify-content: space-between; gap: 6px;
+  }
+  .rc-preview figcaption b { color: #8a6526; font-weight: 700; }
+
+  @media (max-width: 480px) {
+    .rc-wrap { padding: 40px 16px 52px; }
+    .rc-card .btn { width: 100%; padding-inline: 1em; letter-spacing: .16em; font-size: .68rem; }
+    .rc-preview { gap: 8px; }
+    .rc-preview figcaption { font-size: .5rem; letter-spacing: .08em; }
+  }
+</style>
+</head>
+<body>
+
+<div class="countbar" data-screen-label="Countdown Bar">
+  <span class="cb-label">The Celebration Begins In</span>
+  <span class="cb-clock" id="cbClock" data-target="2026-10-09T21:00:00-04:00">
+    <span><b>0</b><i>Days</i></span>
+    <span><b>00</b><i>Hrs</i></span>
+    <span><b>00</b><i>Min</i></span>
+    <span><b>00</b><i>Sec</i></span>
+  </span>
+  <span class="cb-when">Friday, Oct 9 · 9:00 PM ET</span>
+</div>
+
+<header class="nav">
+  <a class="brand" href="index.html">
+    <img class="mark-img" src="uploads/shwc-anniversary-logo.png" alt="SHWC 10th Anniversary logo" />
+    <span class="name">Shepherd's House<small>Worship Center</small></span>
+  </a>
+  <nav class="nav-links" aria-label="Primary">
+    <a href="index.html">Home</a>
+    <a href="about.html" class="optional">About</a>
+    <a href="register.html">Register</a>
+    <a href="giving.html">Giving</a>
+    <a href="https://shwc-store.square.site" target="_blank" rel="noopener">Store<svg class="ext-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
+    <a href="https://theshepherdshouse.church" class="btn sm ghost" target="_blank" rel="noopener">Main Site<svg class="ext-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
+  </nav>
+  <button type="button" class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <nav class="mm-links" aria-label="Mobile">
+    <a href="index.html"><i>01</i>Home</a>
+    <a href="index.html#program"><i>02</i>The Program</a>
+    <a href="about.html"><i>03</i>Values &amp; Mission</a>
+    <a href="register.html"><i>04</i>Register</a>
+    <a href="giving.html"><i>05</i>Giving</a>
+    <a href="https://shwc-store.square.site" target="_blank" rel="noopener"><i>06</i>Store<svg class="ext-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
+  </nav>
+  <div class="mm-foot">
+    <a href="https://theshepherdshouse.church" target="_blank" rel="noopener">Main Site</a>
+    <a href="mailto:info@theshepherdshouse.church">Contact</a>
+  </div>
+</div>
+
+<main>
+  <section class="rc-band" data-screen-label="Gift Complete">
+    <div class="rc-wrap">
+      <span class="rc-badge">
+        <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+      </span>
+      <h1 class="rc-title">Thank you for your <em>gift.</em></h1>
+      <p class="rc-meta">Your generosity sows into the next decade</p>
+
+      <div class="rc-cards">
+
+        <div class="rc-card">
+          <p class="eyebrow">Your Receipt</p>
+          <h2>Check your <em>email.</em></h2>
+          <p>Square will email you a confirmation with your full transaction details. If you don't see it shortly, please check your spam folder.</p>
+
+          <div class="rc-rule"></div>
+
+          <p class="eyebrow">Questions &amp; Recurring Gifts</p>
+          <h2>We're here to <em>help.</em></h2>
+          <p>If you have any questions, or you'd like to change or cancel a recurring donation, please reach out to our finance team and we'll take care of it.</p>
+          <a class="btn" href="mailto:finance@theshepherdshouse.church">finance@theshepherdshouse.church</a>
+        </div>
+
+        <div class="rc-card">
+          <p class="eyebrow">Not Registered Yet?</p>
+          <h2>Reserve your <em>seat.</em></h2>
+          <p>Join us October 9 - 11, 2026 at Sydnor Performance Hall in Lynchburg. Registration is quick, and it's free.</p>
+          <a class="btn" href="register.html">Register Now</a>
+        </div>
+
+        <div class="rc-card">
+          <p class="eyebrow">Anniversary Store</p>
+          <h2>Take home the <em>celebration.</em></h2>
+          <div class="rc-preview">
+            <figure>
+              <div class="ph"><img src="uploads/merch-tee.webp" alt="10 Year Anniversary Tee" /></div>
+              <figcaption><span>Tee</span><b>$25</b></figcaption>
+            </figure>
+            <figure>
+              <div class="ph"><img src="uploads/merch-hat.webp" alt="10 Year Anniversary Hat" /></div>
+              <figcaption><span>Hat</span><b>$20</b></figcaption>
+            </figure>
+            <figure>
+              <div class="ph"><img src="uploads/merch-tote.webp" alt="Anniversary Tote Bag" /></div>
+              <figcaption><span>Tote</span><b>$15</b></figcaption>
+            </figure>
+          </div>
+          <a class="btn" href="https://shwc-store.square.site" target="_blank" rel="noopener">Shop the Collection<svg class="ext-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
+        </div>
+
+      </div>
+
+      <a class="btn ghost" href="index.html" style="margin-top:26px;">Return to Home</a>
+    </div>
+  </section>
+</main>
+
+<footer class="foot" data-screen-label="Footer">
+  <div class="wrap">
+    <div class="foot-cols" style="padding-top:0;">
+      <div>
+        <h5>Lynchburg</h5>
+        <p>521 Allegheny Avenue<br />Lynchburg, VA 24501</p>
+        <a href="https://www.facebook.com/thehouselynchburg/" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://www.instagram.com/shepherdshouse_lynchburg/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.youtube.com/@SHWCLynchburg" target="_blank" rel="noopener">YouTube</a>
+      </div>
+      <div>
+        <h5>Charlottesville</h5>
+        <p>808 Blenheim Avenue<br />Charlottesville, VA 22902</p>
+        <a href="https://www.facebook.com/shepherdshouseworshipcenter/" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://www.instagram.com/shepherdshouse_charlottesville/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.youtube.com/@shepherdshouseworshipcenter" target="_blank" rel="noopener">YouTube</a>
+      </div>
+      <div>
+        <h5>Explore</h5>
+        <a href="index.html">Home</a>
+        <a href="about.html">Values &amp; Mission</a>
+        <a href="register.html">Register</a>
+        <a href="giving.html">Giving</a>
+        <a href="https://shwc-store.square.site" target="_blank" rel="noopener">Store<svg class="ext-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
+      </div>
+      <div>
+        <h5>Connect</h5>
+        <a href="mailto:info@theshepherdshouse.church">info@theshepherdshouse.church</a>
+        <a href="https://theshepherdshouse.church" target="_blank" rel="noopener">Main Website<svg class="ext-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
+      </div>
+    </div>
+    <div class="legal">
+      <span>© 2026 Shepherds House Worship Center, Inc.</span>
+      <span>A Home of Grace, Destiny, and Fulfillment</span>
+    </div>
+  </div>
+</footer>
+
+<script src="shwc.js"></script>
+
+</body>
+</html>
