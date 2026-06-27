@@ -10,8 +10,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Italiana&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Great+Vibes&family=Pinyon+Script&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="shwc.css" />
 <style>
-  /* Cohesive cream page: hero + form band read as one light block */
-  .register-hero { background: #f1ebdb; padding: 30px 0 0; }
+  /* Register page — locked to one screen at all sizes: the FORM scrolls
+     inside the iframe, the page itself never scrolls. */
+  html, body { height: 100%; }
+  body { display: flex; flex-direction: column; min-height: 100svh; max-height: 100svh; overflow: hidden; }
+  main { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; }
+
+  .register-hero { background: #f1ebdb; padding: 26px 0 0; flex: 0 0 auto; text-align: center; }
   .register-hero .wrap { text-align: center; }
   .register-hero h1 { color: #1d1812; font-size: clamp(2rem, 4.6vw, 3.2rem); }
   .register-hero h1 em { color: #8a6526; }
@@ -19,50 +24,39 @@
     font-family: var(--label); font-weight: 700; font-size: .68rem;
     letter-spacing: .26em; text-transform: uppercase; color: #8a6526; margin: 0;
   }
-  .register-hero .section-sub { color: #6f6253; max-width: 46ch; margin: 18px auto 0; }
-  .register-band { background: #f1ebdb; padding-top: clamp(16px, 3vh, 30px); }
-  @media (max-width: 560px) {
-    .register-hero { padding: 16px 0 0; }
-  }
+
+  .register-band { background: #f1ebdb; padding: clamp(12px, 2vh, 22px) 0 14px; flex: 1 1 auto; min-height: 0; display: flex; }
+  .register-band .wrap { max-width: none; padding-inline: 24px; flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; align-items: center; width: 100%; }
+
   .register-shell {
-    position: relative;
-    width: 90vw;
-    max-width: 1100px;
-    margin: 0 auto;
+    position: relative; width: 90vw; max-width: 1100px;
+    flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column;
     background: #faf6ea;
     border: 1px solid color-mix(in oklab, var(--accent) 55%, transparent);
     box-shadow: 0 24px 60px -34px rgba(60, 45, 20, .45);
-    padding: clamp(18px, 3vw, 34px);
+    padding: 10px;
   }
   .register-shell::before {
     content: ""; position: absolute; inset: 6px; pointer-events: none;
     border: 1px solid color-mix(in oklab, var(--accent) 30%, transparent);
   }
-  .register-shell iframe { display: block; position: relative; z-index: 1; background: transparent; height: 1000px; }
-  @media (max-width: 640px) {
-    /* Mobile: lock the page to one screen — the FORM scrolls inside the iframe,
-       the page itself never scrolls. */
-    html, body { height: 100%; }
-    body { display: flex; flex-direction: column; min-height: 100svh; max-height: 100svh; overflow: hidden; }
-    .countbar { display: none; }
-    main { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; }
-    .register-hero { padding: 16px 0 0; flex: 0 0 auto; }
-    .register-hero .hero-meta { display: none; }
-    .register-band { padding: 10px 0 0; flex: 1 1 auto; min-height: 0; display: flex; }
-    .register-band .wrap { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; width: 100%; padding-inline: 5vw; }
-    .register-shell { flex: 1 1 auto; min-height: 0; max-width: none; display: flex; flex-direction: column; padding: 6px; box-shadow: 0 14px 40px -28px rgba(60, 45, 20, .4); }
-    .register-shell iframe { flex: 1 1 auto; height: auto !important; min-height: 0; }
-    .register-note { flex: 0 0 auto; margin: 8px auto 4px; }
-    .foot-min { flex: 0 0 auto; padding: 10px 0; }
-  }
+  .register-shell iframe { display: block; position: relative; z-index: 1; background: transparent; flex: 1 1 auto; width: 100%; height: auto; min-height: 0; border: none; }
+
   .register-note {
-    text-align: center; margin: 18px auto 0; white-space: nowrap;
+    flex: 0 0 auto; text-align: center; margin: 12px auto 0; white-space: nowrap;
     font-family: var(--label); font-weight: 700; font-size: clamp(.46rem, 2.5vw, .6rem);
     letter-spacing: .14em; text-transform: uppercase; color: #6f6253;
   }
   .register-note a { color: #8a6526; text-decoration: underline; text-underline-offset: 2px; }
-  .foot-min { padding: 22px 0; }
-  .foot-min .legal { margin-top: 0; padding-top: 0; border-top: none; justify-content: center; text-align: center; }
+
+  @media (max-width: 640px) {
+    .countbar { display: none; }
+    .register-hero { padding: 16px 0 0; }
+    .register-hero .hero-meta { display: none; }
+    .register-band { padding: 10px 0 0; }
+    .register-band .wrap { padding-inline: 5vw; }
+    .register-shell { width: 100%; max-width: none; padding: 6px; box-shadow: 0 14px 40px -28px rgba(60, 45, 20, .4); }
+  }
 </style>
 </head>
 <body>
@@ -84,11 +78,12 @@
     <span class="name">Shepherd's House<small>Worship Center</small></span>
   </a>
   <nav class="nav-links" aria-label="Primary">
+    <a href="index.html">Home</a>
     <a href="about.html" class="optional">About</a>
     <a href="register.html" aria-current="page">Register</a>
     <a href="giving.html">Giving</a>
     <a href="https://shwc-store.square.site" target="_blank" rel="noopener">Store<svg class="ext-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
-    <a href="https://theshepherdshouse.church" class="btn sm ghost" target="_blank" rel="noopener">Main Site</a>
+    <a href="https://theshepherdshouse.church" class="btn sm ghost" target="_blank" rel="noopener">Main Site<svg class="ext-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
   </nav>
   <button type="button" class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false">
     <span></span><span></span><span></span>
