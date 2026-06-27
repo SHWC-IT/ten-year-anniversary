@@ -11,7 +11,7 @@ Open `index.html`. It depends on the compiled `_ds_bundle.js` at the project roo
 - **Mobile menu** (hamburger appears < 860px).
 - **Schedule rows** and CTAs fire toasts.
 - **Merch** "Add to Cart" fires a toast.
-- **Giving form** — frequency toggle, amount presets + custom, designation (Prayer Tabernacle / Global Missions), donor fields, and a success state.
+- **Giving form** — recurrence picker (one time / weekly / monthly); each routes to its own Square payment link where the donor enters the amount and details.
 
 ## Screens
 | File | Renders |
@@ -20,7 +20,7 @@ Open `index.html`. It depends on the compiled `_ds_bundle.js` at the project roo
 | `Hero.jsx` | `Hero` (logo lockup + actions), `Marquee` |
 | `Program.jsx` | `Program` (schedule via `ScheduleRow`), `RehobothBanner` |
 | `Collection.jsx` | `Collection` (merch via `ProductCard`), `GivingCTA` (via `FramedPanel`) |
-| `Giving.jsx` | `GivingPage` (full giving flow) |
+| `Giving.jsx` | `GivingPage` (recurrence picker → Square checkout) |
 
 ## Fidelity notes
 - The live hero uses a full-bleed background **video**; this kit substitutes a navy radial gradient (video assets live in `uploads/`).
