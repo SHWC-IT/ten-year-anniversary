@@ -6,7 +6,7 @@
   // Add the weekly / one-time links here as they are created.
   var LINKS = {
     once: "",
-    weekly: "",
+    weekly: "https://square.link/u/rnyWGhI0?src=embed",
     monthly: "https://square.link/u/2YJkTmhu?src=embed"
   };
 
