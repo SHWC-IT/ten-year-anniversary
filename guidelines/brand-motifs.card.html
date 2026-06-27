@@ -1,0 +1,24 @@
+<!-- @dsCard group="Brand" viewport="700x250" name="Signature Motifs" subtitle="Eyebrow rule · framed gold box · gradient" -->
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-body); padding: 26px 28px; display: flex; gap: 30px; align-items: center; flex-wrap: wrap; }
+  .eyebrow { font-family: var(--font-label); font-weight: 700; font-size: .68rem; letter-spacing: .3em; text-transform: uppercase; color: var(--accent); display: inline-flex; align-items: center; gap: 1em; margin: 0 0 18px; }
+  .eyebrow::before { content: ""; width: 30px; height: 1px; background: currentColor; }
+  .frame { position: relative; background: var(--surface); border: 1px solid color-mix(in oklab, var(--accent) 40%, transparent); padding: 26px 30px; max-width: 320px; }
+  .frame::before { content: ""; position: absolute; inset: var(--frame-inset); border: 1px solid color-mix(in oklab, var(--accent) 18%, transparent); pointer-events: none; }
+  .frame h3 { font-family: var(--font-display); font-weight: 600; text-transform: uppercase; letter-spacing: .06em; font-size: 1.2rem; margin: 0; }
+  .frame p { color: var(--ink-soft); font-size: .9rem; margin: 8px 0 0; }
+  .meta { font-family: var(--font-label); font-size: .58rem; letter-spacing: .18em; text-transform: uppercase; color: var(--ink-soft); margin-top: 18px; }
+</style></head>
+<body>
+  <div>
+    <p class="eyebrow">Beyond the Celebration</p>
+    <div class="frame">
+      <h3>Prayer Tabernacle</h3>
+      <p>A consecrated place of divine encounter.</p>
+    </div>
+    <p class="meta">Double-inset gold frame · 6px inset · tracked-caps eyebrow with leading rule</p>
+  </div>
+</body></html>

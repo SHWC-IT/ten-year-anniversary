@@ -1,0 +1,22 @@
+<!-- @dsCard group="Spacing" viewport="700x170" name="Radii & Shadow" subtitle="Sharp 2px corners, deep low shadow" -->
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-body); padding: 24px 28px; }
+  .row { display: flex; gap: 26px; align-items: center; flex-wrap: wrap; }
+  .box { width: 96px; height: 70px; background: var(--surface); border: 1px solid var(--line); display: grid; place-items: center; }
+  .pill { width: 96px; height: 44px; border-radius: var(--radius-pill); }
+  .soft { border-radius: var(--radius-lg); }
+  .shadow { box-shadow: var(--shadow); }
+  .nm { font-family: var(--font-label); font-weight: 700; font-size: .56rem; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-soft); margin-top: 9px; text-align: center; }
+  .u { display: flex; flex-direction: column; align-items: center; }
+</style></head>
+<body>
+  <div class="row">
+    <div class="u"><div class="box" style="border-radius:var(--radius)"></div><div class="nm">radius · 2px</div></div>
+    <div class="u"><div class="box soft"></div><div class="nm">radius-lg · 14px</div></div>
+    <div class="u"><div class="box pill" style="background:var(--grad-gold);border:none"></div><div class="nm">pill · 999px</div></div>
+    <div class="u"><div class="box shadow" style="border-radius:var(--radius)"></div><div class="nm">shadow</div></div>
+  </div>
+</body></html>

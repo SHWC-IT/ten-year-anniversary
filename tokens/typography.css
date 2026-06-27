@@ -1,0 +1,37 @@
+/* ============================================================
+   TYPOGRAPHY — families, weights, and the type scale.
+   Display = Cinzel caps · Script = Great Vibes · UI/body = Hanken Grotesk
+   ============================================================ */
+:root {
+  /* --- families --- */
+  --font-display: "Cinzel", Georgia, serif;          /* ceremonial caps */
+  --font-script:  "Great Vibes", cursive;            /* gold flourish accents */
+  --font-serif:   "Cormorant Garamond", Georgia, serif; /* editorial italic */
+  --font-label:   "Hanken Grotesk", system-ui, sans-serif; /* spaced-caps labels */
+  --font-body:    "Hanken Grotesk", system-ui, sans-serif; /* running text */
+
+  /* --- weights --- */
+  --wt-display:   600;   /* @kind font */ /* Cinzel semibold = default display weight */
+  --wt-label:     700;   /* @kind font */
+  --wt-body:      400;   /* @kind font */
+  --wt-medium:    500;   /* @kind font */
+  --wt-bold:      600;   /* @kind font */
+
+  /* --- letter-spacing (signature: wide tracked caps) --- */
+  --track-label:  .26em;  /* @kind font */ /* eyebrows / buttons */
+  --track-display:.04em;  /* @kind font */ /* big serif headings */
+  --track-tight: -.02em;  /* @kind font */ /* huge numerals */
+
+  /* --- type scale (fluid where it matters) --- */
+  --fs-display-xl: clamp(2.5rem, 6vw, 4.8rem);    /* @kind font */ /* page-hero H1 */
+  --fs-display-lg: clamp(1.8rem, 4.2vw, 3.2rem);  /* @kind font */ /* section titles */
+  --fs-display-md: clamp(1.3rem, 2.6vw, 1.7rem);  /* @kind font */ /* row headings */
+  --fs-lede:       clamp(1.4rem, 3vw, 2.1rem);    /* @kind font */ /* italic lede / pull-quote */
+  --fs-body-lg:    1.08rem;   /* @kind font */
+  --fs-body:       1rem;      /* @kind font */
+  --fs-eyebrow:    .68rem;    /* @kind font */ /* tracked caps kicker */
+  --fs-label:      .62rem;    /* @kind font */ /* small tracked caps */
+
+  --lh-tight:  1.12;   /* @kind font */
+  --lh-body:   1.65;   /* @kind font */
+}

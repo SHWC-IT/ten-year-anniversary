@@ -1,0 +1,22 @@
+/* ============================================================
+   EFFECTS — shadows, motion, and the framed-box motif.
+   ============================================================ */
+:root {
+  /* --- shadows (deep, soft, low) --- */
+  --shadow:     0 30px 70px -30px rgba(0, 0, 0, .85);
+  --shadow-cta: 0 14px 38px -14px color-mix(in oklab, var(--accent) 70%, transparent);
+  --shadow-sm:  0 16px 40px -12px rgba(0, 0, 0, .5);
+
+  /* --- focus ring (gold) --- */
+  --ring: 0 0 0 3px color-mix(in oklab, var(--accent) 22%, transparent);
+
+  /* --- motion --- */
+  --ease:      cubic-bezier(.2, .7, .2, 1);   /* @kind other */ /* reveal / drawer / toast */
+  --ease-out:  cubic-bezier(.3, .8, .3, 1);   /* @kind other */
+  --dur-fast:  .2s;   /* @kind other */
+  --dur:       .35s;  /* @kind other */
+  --dur-slow:  .7s;   /* @kind other */
+
+  /* --- frame inset (double-border gold box) --- */
+  --frame-inset: 6px;
+}

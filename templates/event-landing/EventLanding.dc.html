@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- @template name="Event Landing" description="SHWC navy & gold event landing — eyebrow, script hero, schedule, and giving CTA" -->
+<helmet>
+<script src="./ds-base.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<style>
+  body { margin: 0; background: var(--bg, #0a0f1d); color: var(--ink, #f0ecdf); font-family: var(--font-body); -webkit-font-smoothing: antialiased; }
+  * { box-sizing: border-box; }
+</style>
+</helmet>
+
+<main style="max-width: var(--maxw); margin: 0 auto; padding: 0 var(--gutter);">
+
+  <!-- HERO -->
+  <section style="text-align: center; padding: clamp(48px,9vh,110px) 0 clamp(40px,7vh,80px); border-bottom: 1px solid var(--line-soft);">
+    <x-import component-from-global-scope="ShepherdSHouseDesignSystem_571688.Eyebrow" align="center" hint-size="240px,20px">A Decade of Faith</x-import>
+    <x-import component-from-global-scope="ShepherdSHouseDesignSystem_571688.SectionTitle" align="center" script="Harvest Celebration." as="h1" hint-size="60%,80px" style="font-size: clamp(2.4rem,6vw,4.4rem); margin: 16px auto 0; max-width: 18ch;">Gathering of Nations</x-import>
+    <p style="font-family: var(--font-label); font-weight: 700; font-size: .72rem; letter-spacing: .5em; text-indent: .5em; color: var(--accent); text-transform: uppercase; margin: 22px 0 0;">October 9 - 11, 2026 · Lynchburg, VA</p>
+    <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 30px;">
+      <x-import component-from-global-scope="ShepherdSHouseDesignSystem_571688.Button" href="#program" hint-size="150px,44px">Register Now</x-import>
+      <x-import component-from-global-scope="ShepherdSHouseDesignSystem_571688.Button" variant="ghost" href="#give" hint-size="120px,44px">Give</x-import>
+    </div>
+  </section>
+
+  <!-- PROGRAM -->
+  <section id="program" style="padding: clamp(56px,9vh,110px) 0;">
+    <x-import component-from-global-scope="ShepherdSHouseDesignSystem_571688.Eyebrow" hint-size="240px,20px">The Anniversary Program</x-import>
+    <x-import component-from-global-scope="ShepherdSHouseDesignSystem_571688.SectionTitle" script="weekend." hint-size="60%,60px" style="margin-top: 12px;">Three nights this</x-import>
+    <div style="margin-top: clamp(24px,4vw,44px); border-top: 1px solid var(--line);">
+      <x-import component-from-global-scope="ShepherdSHouseDesignSystem_571688.ScheduleRow" dow="Fri" day="09" month="Oct" title="Gathering of Prayer & Thanksgiving" description="A sacred gathering of prayer and thanksgiving unto the Lord." venue="Shepherd's House Church · 521 Allegheny Ave" venue-href="#" time="9:00 PM ET" hint-size="100%,120px"></x-import>
+      <x-import component-from-global-scope="ShepherdSHouseDesignSystem_571688.ScheduleRow" dow="Sat" day="10" month="Oct" title="Night of United Worship" description="A powerful night of united worship, exalting the name above all names." venue="Sydnor Performance Hall · 100 Vernon Street" venue-href="#" time="6:00 PM ET" hint-size="100%,120px"></x-import>
+      <x-import component-from-global-scope="ShepherdSHouseDesignSystem_571688.ScheduleRow" dow="Sun" day="11" month="Oct" title="Commissioning Service" description="Releasing the Church into its next dimension of purpose and impact." venue="Sydnor Performance Hall · 100 Vernon Street" venue-href="#" time="10:00 AM ET" hint-size="100%,120px"></x-import>
+    </div>
+  </section>
+
+  <!-- GIVING CTA -->
+  <section id="give" style="padding: 0 0 clamp(64px,10vh,120px);">
+    <x-import component-from-global-scope="ShepherdSHouseDesignSystem_571688.FramedPanel" align="center" glow="{{ true }}" hint-size="100%,300px">
+      <x-import component-from-global-scope="ShepherdSHouseDesignSystem_571688.Eyebrow" align="center" hint-size="120px,20px">Giving</x-import>
+      <x-import component-from-global-scope="ShepherdSHouseDesignSystem_571688.SectionTitle" align="center" script="decade." hint-size="60%,60px" style="margin: 10px 0 0;">Sow into the next</x-import>
+      <p style="color: var(--ink-soft); max-width: 52ch; margin: 16px auto 28px;">This season we're believing God for the Prayer Tabernacle, a consecrated place of divine encounter. Give securely in under a minute.</p>
+      <x-import component-from-global-scope="ShepherdSHouseDesignSystem_571688.Button" size="lg" href="#" hint-size="160px,52px">Give Now</x-import>
+    </x-import>
+  </section>
+
+</main>
+
+</x-dc>
+</body>
+</html>

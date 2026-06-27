@@ -1,0 +1,77 @@
+/* ============================================================
+   COLORS — Navy & Gold (locked brand combination)
+   Deep navy base, antique-gold accent, warm cream ink.
+   Base values first, then semantic aliases.
+   ============================================================ */
+:root {
+  /* --- Navy base ramp (dark, default) --- */
+  --navy-900:  #0a0f1d;   /* page background */
+  --navy-800:  #0e1526;   /* raised background band */
+  --navy-700:  #141c31;   /* card / surface */
+  --navy-600:  #1b2540;
+  --navy-500:  #34466e;
+  --navy-300:  #7d96c9;
+
+  /* --- Gold ramp (antique / engraved) --- */
+  --gold-300:  #ecd29a;   /* highlight (gradient top) */
+  --gold-400:  #c9a356;   /* primary gold accent */
+  --gold-600:  #8a6526;   /* deep gold (gradient base) */
+  --gold-800:  #6b531f;
+
+  /* --- Warm neutrals / ink --- */
+  --cream-50:  #f3eddd;   /* lightest ink */
+  --cream-100: #f0ecdf;   /* primary ink on navy */
+  --cream-200: #e8e0ca;
+  --cream-500: #97a0b4;   /* muted ink on navy */
+  --ink-900:   #0d1322;   /* near-black, ink on gold */
+
+  /* --- Light (cream) surface ramp --- */
+  --paper-50:  #faf6ea;
+  --paper-100: #f1ebdb;
+  --paper-200: #e8e0ca;
+  --paper-ink: #1d1812;
+  --paper-soft:#6f6253;
+
+  /* --- Status --- */
+  --danger:    #cf5f4a;
+
+  /* ============================================================
+     SEMANTIC ALIASES — reference these in components.
+     ============================================================ */
+  --bg:         var(--navy-900);
+  --bg-2:       var(--navy-800);
+  --surface:    var(--navy-700);
+  --surface-2:  var(--navy-600);
+
+  --ink:        var(--cream-100);   /* primary text */
+  --ink-soft:   var(--cream-500);   /* secondary text */
+
+  --accent:     var(--gold-400);    /* primary gold */
+  --accent-2:   var(--gold-600);    /* deep gold */
+  --gold-hi:    var(--gold-300);    /* gradient highlight */
+  --on-accent:  var(--ink-900);     /* text on gold fills */
+
+  --line:       rgba(240, 236, 223, .18);  /* hairline border */
+  --line-soft:  rgba(240, 236, 223, .09);  /* faint divider */
+
+  /* gold fill gradient used on buttons, bars, frames */
+  --grad-gold:  linear-gradient(165deg, var(--gold-hi) 0%, var(--accent) 42%, var(--accent-2) 130%);
+}
+
+/* ------------------------------------------------------------
+   Light (cream paper) theme scope — opt in with [data-theme="light"]
+   ------------------------------------------------------------ */
+:root[data-theme="light"] {
+  --bg:        var(--paper-100);
+  --bg-2:      var(--paper-200);
+  --surface:   var(--paper-50);
+  --surface-2: #fffdf6;
+  --ink:       var(--paper-ink);
+  --ink-soft:  var(--paper-soft);
+  --accent:    var(--gold-600);
+  --accent-2:  var(--gold-400);
+  --gold-hi:   #b08a3e;
+  --on-accent: var(--paper-50);
+  --line:      rgba(29, 24, 18, .25);
+  --line-soft: rgba(29, 24, 18, .11);
+}

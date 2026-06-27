@@ -1,0 +1,81 @@
+<!-- @dsCard group="Anniversary Site" viewport="1280x760" name="Home — Anniversary Site" subtitle="Interactive recreation: countdown, hero, program, merch, giving" -->
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SHWC Anniversary — UI Kit</title>
+<link rel="stylesheet" href="../../styles.css" />
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 16px; line-height: 1.65; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  @media (min-width: 720px) { body { font-size: 17px; } }
+  ::selection { background: var(--accent); color: var(--on-accent); }
+  @media (prefers-reduced-motion: no-preference) { .mq-track { animation: mq 30s linear infinite; } }
+  @keyframes mq { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  .toast { position: fixed; left: 50%; bottom: 26px; transform: translate(-50%, 140%); z-index: 99; background: var(--ink); color: var(--bg);
+    font-family: var(--font-label); font-weight: 700; font-size: .68rem; letter-spacing: .16em; text-transform: uppercase; padding: 1.1em 1.7em;
+    border-radius: var(--radius); box-shadow: var(--shadow-sm); transition: transform .35s var(--ease); max-width: calc(100vw - 40px); text-align: center; }
+  .toast.show { transform: translate(-50%, 0); }
+  /* responsive: collapse desktop nav → burger, merch grid, give layout */
+  @media (max-width: 860px) {
+    .nav-desktop { display: none !important; }
+    .nav-burger { display: flex !important; }
+    .merch-grid { grid-template-columns: 1fr 1fr !important; }
+    .give-layout { grid-template-columns: 1fr !important; }
+  }
+  @media (max-width: 540px) { .merch-grid { grid-template-columns: 1fr !important; } }
+</style>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<script type="text/babel" src="Chrome.jsx"></script>
+<script type="text/babel" src="Hero.jsx"></script>
+<script type="text/babel" src="Program.jsx"></script>
+<script type="text/babel" src="Collection.jsx"></script>
+<script type="text/babel" src="Giving.jsx"></script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel" data-presets="react">
+  function App() {
+    const [route, setRoute] = React.useState("home");
+    const [menu, setMenu] = React.useState(false);
+    const [toast, setToast] = React.useState(null);
+    const timer = React.useRef(null);
+    const showToast = (msg) => {
+      setToast(msg);
+      clearTimeout(timer.current);
+      timer.current = setTimeout(() => setToast(null), 2600);
+    };
+    const nav = (dest) => {
+      if (dest === "program" || dest === "ministers") { setRoute("home"); setTimeout(() => document.getElementById(dest)?.scrollTo, 0); }
+      else setRoute(dest);
+      window.scrollTo({ top: 0 });
+    };
+    return (
+      <>
+        <CountdownBar />
+        <Nav onNav={nav} onMenu={() => setMenu(true)} />
+        <MobileMenu open={menu} onNav={nav} onClose={() => setMenu(false)} />
+        {route === "home" && (
+          <main>
+            <Hero onNav={nav} />
+            <Marquee />
+            <div id="program"><Program onToast={showToast} /></div>
+            <RehobothBanner onToast={showToast} />
+            <Collection onToast={showToast} />
+            <GivingCTA onNav={nav} />
+          </main>
+        )}
+        {route === "giving" && <main><GivingPage onToast={showToast} /></main>}
+        <Footer />
+        <div className={"toast" + (toast ? " show" : "")}>{toast}</div>
+      </>
+    );
+  }
+  ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+</body>
+</html>

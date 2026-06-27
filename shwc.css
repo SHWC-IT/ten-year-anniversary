@@ -195,7 +195,12 @@ main, section, footer, header { position: relative; z-index: 2; }
 .countbar .cb-clock b { font-family: var(--display); font-weight: 700; font-size: 1.05rem; letter-spacing: .02em; }
 .countbar .cb-clock i { font-style: normal; font-size: .58rem; letter-spacing: .2em; opacity: .8; margin-left: .25em; }
 .countbar .cb-when { opacity: .85; white-space: nowrap; }
-@media (max-width: 560px) { .countbar .cb-when { display: none; } }
+@media (max-width: 560px) {
+  .countbar { flex-wrap: nowrap; gap: 14px; padding: 7px var(--gutter); }
+  .countbar .cb-label { display: none; }
+  .countbar .cb-when { display: none; }
+  .countbar .cb-clock { font-size: .74rem; gap: .85em; }
+}
 
 /* ============================================================
    NAV
@@ -471,12 +476,16 @@ main, section, footer, header { position: relative; z-index: 2; }
 .sr-main h3 { font-family: var(--display); font-weight: 600; text-transform: uppercase; font-size: clamp(1.15rem, 2.2vw, 1.55rem); letter-spacing: .05em; line-height: 1.2; margin: 0; }
 .sr-main p { margin: 6px 0 0; color: var(--ink-soft); font-size: .96rem; max-width: 56ch; }
 .sr-venue {
-  display: inline-flex; align-items: center; gap: 7px; margin: 11px 0 0;
-  font-family: var(--label); font-weight: 700; font-size: .67rem; letter-spacing: .12em;
-  text-transform: uppercase; color: var(--ink-soft); text-decoration: none; line-height: 1.5;
+  display: inline-flex; align-items: center; gap: 8px; margin: 13px 0 0;
+  font-family: var(--label); font-weight: 700; font-size: .82rem; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--accent); text-decoration: none; line-height: 1.4;
+  padding: .5em .9em; border-radius: var(--radius-pill, 999px);
+  background: color-mix(in oklab, var(--accent) 12%, transparent);
+  border: 1px solid color-mix(in oklab, var(--accent) 38%, transparent);
+  transition: background .2s, border-color .2s;
 }
-.sr-venue svg { width: 14px; height: 14px; color: var(--accent); flex: none; }
-.sr-venue:hover { color: var(--accent); }
+.sr-venue svg { width: 17px; height: 17px; color: var(--accent); flex: none; }
+.sr-venue:hover { color: var(--accent); background: color-mix(in oklab, var(--accent) 20%, transparent); border-color: color-mix(in oklab, var(--accent) 60%, transparent); }
 .sr-time {
   grid-area: time; display: inline-flex; align-items: center; gap: 8px; white-space: nowrap;
   padding: .75em 1.2em; border: 1px solid color-mix(in oklab, var(--accent) 35%, transparent); border-radius: 999px;

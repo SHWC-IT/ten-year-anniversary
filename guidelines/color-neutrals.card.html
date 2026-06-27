@@ -1,0 +1,21 @@
+<!-- @dsCard group="Colors" viewport="700x180" name="Ink & Neutrals" subtitle="Cream text on navy + on-gold ink" -->
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-body); padding: 22px; }
+  .row { display: flex; gap: 10px; flex-wrap: wrap; }
+  .sw { flex: 1 1 0; min-width: 96px; }
+  .chip { height: 64px; border-radius: var(--radius); border: 1px solid var(--line-soft); display: grid; place-items: center; font-family: var(--font-display); font-weight: 600; }
+  .nm { font-family: var(--font-label); font-weight: 700; font-size: .6rem; letter-spacing: .14em; text-transform: uppercase; margin-top: 9px; }
+  .hex { font-family: var(--font-label); font-size: .62rem; color: var(--ink-soft); margin-top: 2px; letter-spacing: .04em; }
+</style></head>
+<body>
+  <div class="row">
+    <div class="sw"><div class="chip" style="background:var(--cream-100);color:var(--navy-900)">Aa</div><div class="nm">ink</div><div class="hex">#f0ecdf</div></div>
+    <div class="sw"><div class="chip" style="background:var(--cream-500);color:var(--navy-900)">Aa</div><div class="nm">ink-soft</div><div class="hex">#97a0b4</div></div>
+    <div class="sw"><div class="chip" style="background:var(--ink-900);color:var(--gold-400)">Aa</div><div class="nm">ink-900</div><div class="hex">#0d1322 · on-gold</div></div>
+    <div class="sw"><div class="chip" style="background:var(--paper-100);color:var(--paper-ink)">Aa</div><div class="nm">paper-100</div><div class="hex">#f1ebdb · light bg</div></div>
+    <div class="sw"><div class="chip" style="background:var(--danger);color:#fff">Aa</div><div class="nm">danger</div><div class="hex">#cf5f4a</div></div>
+  </div>
+</body></html>

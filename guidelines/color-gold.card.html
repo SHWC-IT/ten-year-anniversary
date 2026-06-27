@@ -1,0 +1,21 @@
+<!-- @dsCard group="Colors" viewport="700x190" name="Gold Accent Ramp" subtitle="Antique gold — accents, fills, gradient" -->
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-body); padding: 22px; }
+  .row { display: flex; gap: 10px; flex-wrap: wrap; align-items: flex-end; }
+  .sw { flex: 1 1 0; min-width: 92px; }
+  .chip { height: 72px; border-radius: var(--radius); border: 1px solid var(--line-soft); }
+  .nm { font-family: var(--font-label); font-weight: 700; font-size: .6rem; letter-spacing: .14em; text-transform: uppercase; margin-top: 9px; }
+  .hex { font-family: var(--font-label); font-size: .62rem; color: var(--ink-soft); margin-top: 2px; letter-spacing: .04em; }
+</style></head>
+<body>
+  <div class="row">
+    <div class="sw"><div class="chip" style="background:var(--gold-300)"></div><div class="nm">gold-300</div><div class="hex">#ecd29a · hi</div></div>
+    <div class="sw"><div class="chip" style="background:var(--gold-400)"></div><div class="nm">gold-400</div><div class="hex">#c9a356 · accent</div></div>
+    <div class="sw"><div class="chip" style="background:var(--gold-600)"></div><div class="nm">gold-600</div><div class="hex">#8a6526 · accent-2</div></div>
+    <div class="sw"><div class="chip" style="background:var(--gold-800)"></div><div class="nm">gold-800</div><div class="hex">#6b531f</div></div>
+    <div class="sw"><div class="chip" style="background:var(--grad-gold)"></div><div class="nm">grad-gold</div><div class="hex">button / frame fill</div></div>
+  </div>
+</body></html>
