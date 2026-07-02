@@ -3,14 +3,10 @@
 <head>
 <meta charset="UTF-8" />
 <script>
-  /* Break out of the Elvanto registration iframe to the full top-level page.
-     When Elvanto redirects the iframe here after submission, this page is
-     same-origin with the parent (production), so it can promote itself to the
-     top window. Runs only when framed, so it is a no-op as a standalone page
-     (no loop). */
-  if (window.top !== window.self) {
-    window.top.location.replace('/register-complete');
-  }
+  // If this page is loaded inside the registration iframe (Elvanto redirects
+  // here after submit), break out and take over the whole browser window so
+  // the visitor sees the full confirmation page — not a panel inside a frame.
+  try { if (window.top !== window.self) { window.top.location.replace(window.location.href); } } catch (e) {}
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Registration Complete · Shepherd's House Worship Center</title>
@@ -20,48 +16,40 @@
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Italiana&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Great+Vibes&family=Pinyon+Script&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="shwc.css" />
 <style>
-  /* Full-page confirmation: site nav + footer, with the success content in a
-     cream band centered between them. (Loads briefly inside the Elvanto iframe,
-     then the script above promotes it to this full page.) */
-  body { display: flex; flex-direction: column; min-height: 100svh; }
-  main { flex: 1 0 auto; display: flex; }
-
-  .rc-band { flex: 1 1 auto; width: 100%; background: #f1ebdb; display: flex; align-items: center; padding: clamp(36px, 7vh, 80px) 0; }
-  .rc {
-    width: 100%; max-width: 940px; margin: 0 auto; padding-inline: clamp(16px, 4vw, 40px);
-    display: flex; flex-direction: column; align-items: center; text-align: center; gap: clamp(12px, 2.4vh, 20px);
+  /* cohesive cream confirmation block between the dark nav and footer */
+  .rc-band { background: #f1ebdb; }
+  .rc-wrap {
+    max-width: 600px; margin: 0 auto;
+    padding: clamp(40px, 8vh, 84px) clamp(18px, 5vw, 36px);
+    display: flex; flex-direction: column; align-items: center; text-align: center;
   }
 
   /* success header */
   .rc-badge {
-    width: 62px; aspect-ratio: 1; border-radius: 50%; flex: none;
+    width: 78px; height: 78px; border-radius: 50%; margin: 0 0 22px;
     display: grid; place-items: center; color: var(--on-accent);
     background: linear-gradient(165deg, var(--gold-hi) 0%, var(--accent) 45%, var(--accent-2) 140%);
-    box-shadow: 0 14px 32px -14px color-mix(in oklab, var(--accent) 60%, transparent);
+    box-shadow: 0 16px 36px -14px color-mix(in oklab, var(--accent) 60%, transparent);
   }
-  .rc-badge svg { width: 60%; height: 60%; }
   .rc-title {
-    margin: 0; font-family: var(--display); font-weight: 600; text-transform: uppercase;
-    font-size: clamp(2rem, 6vw, 3rem); line-height: 1.12; letter-spacing: .03em; color: #1d1812;
+    font-family: var(--display); font-weight: 600; text-transform: uppercase;
+    font-size: clamp(2rem, 6vw, 3rem); line-height: 1.2; letter-spacing: .03em; margin: 0; color: #1d1812;
   }
   .rc-title em {
     font-family: var(--script); font-style: normal; font-weight: 400;
     text-transform: none; color: #8a6526; letter-spacing: 0; font-size: 1.18em; line-height: 1;
   }
   .rc-meta {
-    margin: 0; font-family: var(--label); font-weight: 700;
-    font-size: .66rem; letter-spacing: .26em; text-transform: uppercase; color: #8a6526;
+    font-family: var(--label); font-weight: 700; font-size: .68rem;
+    letter-spacing: .26em; text-transform: uppercase; color: #8a6526; margin: 46px 0 30px;
   }
 
-  /* CTA cards — side by side when wide, stacked when narrow */
-  .rc-cards { width: 100%; display: grid; grid-template-columns: 1fr; gap: clamp(12px, 2vw, 18px); margin-top: clamp(8px, 2vh, 18px); }
-  @media (min-width: 720px) { .rc-cards { grid-template-columns: 1fr 1fr; align-items: stretch; } }
-
+  /* stacked CTA cards */
+  .rc-cards { display: flex; flex-direction: column; gap: 16px; width: 100%; }
   .rc-card {
     position: relative; background: #faf6ea;
     border: 1px solid color-mix(in oklab, var(--accent) 55%, transparent); border-radius: var(--radius);
-    padding: clamp(20px, 4vw, 30px) clamp(18px, 4vw, 28px);
-    display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
+    padding: clamp(22px, 4vw, 32px) clamp(20px, 4vw, 30px); text-align: center;
   }
   .rc-card::before {
     content: ""; position: absolute; inset: 6px; pointer-events: none;
@@ -71,19 +59,22 @@
   .rc-card .eyebrow { justify-content: center; color: #8a6526; }
   .rc-card h2 {
     font-family: var(--display); font-weight: 600; text-transform: uppercase;
-    font-size: clamp(1.3rem, 4.5vw, 1.7rem); line-height: 1.14; letter-spacing: .04em; margin: 8px 0 0; color: #1d1812;
+    font-size: clamp(1.4rem, 4.5vw, 1.85rem); line-height: 1.14; letter-spacing: .04em; margin: 9px 0 0; color: #1d1812;
   }
   .rc-card h2 em {
     font-family: var(--script); font-style: normal; font-weight: 400;
     text-transform: none; color: #8a6526; letter-spacing: 0; font-size: 1.2em;
   }
-  .rc-card p { color: #6f6253; margin: 10px auto 0; max-width: 40ch; font-size: .95rem; }
-  .rc-card .btn { margin-top: 18px; }
+  .rc-card p { color: #6f6253; margin: 11px auto 0; max-width: 42ch; font-size: .96rem; }
+  .rc-card .btn { margin-top: 20px; }
 
   /* store preview thumbnails */
-  .rc-preview { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 16px 0 0; width: 100%; }
+  .rc-preview { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 18px 0 0; }
   .rc-preview figure { margin: 0; }
-  .rc-preview .ph { aspect-ratio: 1 / 1; background: #fffdf6; border: 1px solid rgba(29, 24, 18, .14); border-radius: var(--radius); overflow: hidden; }
+  .rc-preview .ph {
+    aspect-ratio: 1 / 1; background: #fffdf6; border: 1px solid rgba(29, 24, 18, .14);
+    border-radius: var(--radius); overflow: hidden;
+  }
   .rc-preview img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .rc-preview figcaption {
     margin-top: 8px; font-family: var(--label); font-weight: 700; font-size: .54rem;
@@ -92,7 +83,12 @@
   }
   .rc-preview figcaption b { color: #8a6526; font-weight: 700; }
 
-  @media (max-width: 480px) { .rc-band { padding: 28px 0 36px; } }
+  @media (max-width: 480px) {
+    .rc-wrap { padding: 40px 16px 52px; }
+    .rc-card .btn { width: 100%; padding-inline: 1em; letter-spacing: .16em; font-size: .68rem; }
+    .rc-preview { gap: 8px; }
+    .rc-preview figcaption { font-size: .5rem; letter-spacing: .08em; }
+  }
 </style>
 </head>
 <body>
@@ -118,6 +114,7 @@
     <a href="about.html" class="optional">About</a>
     <a href="register.html">Register</a>
     <a href="giving.html">Giving</a>
+    <a href="hospitality.html">Hospitality</a>
     <a href="https://shwc-store.square.site" target="_blank" rel="noopener">Store<svg class="ext-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
     <a href="https://theshepherdshouse.church" class="btn sm ghost" target="_blank" rel="noopener">Main Site<svg class="ext-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
   </nav>
@@ -133,20 +130,20 @@
     <a href="about.html"><i>03</i>Values &amp; Mission</a>
     <a href="register.html"><i>04</i>Register</a>
     <a href="giving.html"><i>05</i>Giving</a>
-    <a href="https://shwc-store.square.site" target="_blank" rel="noopener"><i>06</i>Store<svg class="ext-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
+    <a href="hospitality.html"><i>06</i>Hospitality</a>
+    <a href="https://shwc-store.square.site" target="_blank" rel="noopener"><i>07</i>Store<svg class="ext-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
   </nav>
   <div class="mm-foot">
-    <a href="https://theshepherdshouse.church" target="_blank" rel="noopener">Main Site<svg class="ext-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
+    <a href="https://theshepherdshouse.church" target="_blank" rel="noopener">Main Site</a>
     <a href="mailto:info@theshepherdshouse.church">Contact</a>
   </div>
 </div>
 
 <main>
-
-  <section class="band rc-band" data-screen-label="Registration Complete">
-    <div class="rc">
+  <section class="rc-band" data-screen-label="Registration Complete">
+    <div class="rc-wrap">
       <span class="rc-badge">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+        <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
       </span>
       <h1 class="rc-title">You're <em>registered.</em></h1>
       <p class="rc-meta">We've saved your seat · October 9 - 11, 2026</p>
@@ -183,7 +180,6 @@
       </div>
     </div>
   </section>
-
 </main>
 
 <footer class="foot" data-screen-label="Footer">
@@ -209,6 +205,7 @@
         <a href="about.html">Values &amp; Mission</a>
         <a href="register.html">Register</a>
         <a href="giving.html">Giving</a>
+        <a href="hospitality.html">Hospitality</a>
         <a href="https://shwc-store.square.site" target="_blank" rel="noopener">Store<svg class="ext-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
       </div>
       <div>
