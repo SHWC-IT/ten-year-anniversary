@@ -1053,7 +1053,7 @@ a.hs-row:hover b { color: var(--accent); }
    (styles are scrubbed by JS from scroll progress — no
    transitions, so it can never stall)
    ============================================================ */
-.ministers { position: relative; height: 380svh; background: var(--bg-2); }
+.ministers { position: relative; height: 420svh; background: var(--bg-2); }
 .ministers .sticky {
   position: sticky; top: 0; height: 100svh; overflow: hidden;
   display: flex; align-items: center;
@@ -1105,7 +1105,7 @@ a.hs-row:hover b { color: var(--accent); }
 .m-progress i { width: 5px; height: 5px; border-radius: 50%; background: var(--line); }
 .m-progress i.on { background: var(--accent); }
 @media (max-width: 860px) {
-  .ministers { height: 420svh; }
+  .ministers { height: 465svh; }
   .m-layout { grid-template-columns: 1fr; gap: 10px; align-content: center; text-align: center; }
   .m-title { margin-bottom: 6px; }
   .m-days { flex-direction: row; flex-wrap: nowrap; justify-content: center; gap: 4px 14px; align-items: flex-end; }
