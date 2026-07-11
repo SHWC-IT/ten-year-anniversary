@@ -1065,12 +1065,12 @@ a.hs-row:hover b { color: var(--accent); }
 .m-day { opacity: .35; cursor: pointer; }
 .m-day .d {
   display: block; font-family: var(--display); font-weight: 600; text-transform: uppercase;
-  font-size: clamp(2rem, 5.2vw, 3.8rem); line-height: 1; letter-spacing: .02em;
+  font-size: clamp(2.7rem, 7vw, 5.1rem); line-height: 1; letter-spacing: .02em;
   transform-origin: left bottom; will-change: transform;
 }
 .m-day .t {
-  display: inline-flex; align-items: center; gap: .8em; margin-top: 8px;
-  font-family: var(--label); font-weight: 700; font-size: .62rem; letter-spacing: .28em; text-transform: uppercase; color: var(--accent);
+  display: inline-flex; align-items: center; gap: .8em; margin-top: 10px;
+  font-family: var(--label); font-weight: 700; font-size: .85rem; letter-spacing: .28em; text-transform: uppercase; color: var(--accent);
 }
 .m-day .t::before { content: ""; width: 22px; height: 1px; background: currentColor; }
 .m-stage { position: relative; height: min(74svh, 660px); }
@@ -1110,7 +1110,7 @@ a.hs-row:hover b { color: var(--accent); }
   .m-title { margin-bottom: 6px; }
   .m-days { flex-direction: row; flex-wrap: nowrap; justify-content: center; gap: 4px 14px; align-items: flex-end; }
   .m-day { min-width: 0; }
-  .m-day .d { font-size: clamp(1rem, 5vw, 2.2rem); transform-origin: center bottom; white-space: nowrap; }
+  .m-day .d { font-size: clamp(1.35rem, 6.6vw, 2.9rem); transform-origin: center bottom; white-space: nowrap; }
   .m-day .t { display: none; }
   .m-stage { height: min(58svh, 480px); }
   .m-card img { height: min(44svh, 380px); }
