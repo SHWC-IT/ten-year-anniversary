@@ -1073,6 +1073,11 @@ a.hs-row:hover b { color: var(--accent); }
   font-family: var(--label); font-weight: 700; font-size: .85rem; letter-spacing: .28em; text-transform: uppercase; color: var(--accent);
 }
 .m-day .t::before { content: ""; width: 22px; height: 1px; background: currentColor; }
+.m-day .tm {
+  display: block; margin-top: 6px; padding-left: 33px;
+  font-family: var(--label); font-weight: 700; font-size: .72rem; letter-spacing: .22em;
+  text-transform: uppercase; color: var(--ink-soft);
+}
 .m-stage { position: relative; height: min(74svh, 660px); }
 .m-stage::before {
   content: ""; position: absolute; left: 50%; bottom: 6%; transform: translateX(-50%);
@@ -1112,6 +1117,7 @@ a.hs-row:hover b { color: var(--accent); }
   .m-day { min-width: 0; }
   .m-day .d { font-size: clamp(1.35rem, 6.6vw, 2.9rem); transform-origin: center bottom; white-space: nowrap; }
   .m-day .t { display: none; }
+  .m-day .tm { padding-left: 0; margin-top: 3px; font-size: .55rem; letter-spacing: .12em; white-space: nowrap; }
   .m-stage { height: min(58svh, 480px); }
   .m-card img { height: min(44svh, 380px); }
 }
