@@ -1,0 +1,10 @@
+.DS_Store
+**/.DS_Store
+
+# Recipient data must never be committed. This repo is public, and the site is
+# served from its root, so anything here is published to the web.
+# The one exception is the headers-only schema template.
+email/*.xlsx
+email/*.csv
+!email/recipients-template.csv
+email/**/~$*

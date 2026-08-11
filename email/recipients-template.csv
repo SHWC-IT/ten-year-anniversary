@@ -1,0 +1,2 @@
+ContactID,FirstName,LastName,EmailAddress,Gender,Status,SentAt,LastError
+SHWC-0001,Sample,Person,sample@example.com,Female,Ready,,
