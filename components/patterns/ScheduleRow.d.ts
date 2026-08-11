@@ -16,7 +16,7 @@ export interface ScheduleRowProps {
   /** Venue line text (shows a pin icon). */
   venue?: string;
   venueHref?: string;
-  /** Time text for the pill, e.g. "9:00 PM ET". */
+  /** Time text for the pill, e.g. "8:00 PM ET". */
   time: string;
   onClick?: (e: React.MouseEvent) => void;
   style?: React.CSSProperties;

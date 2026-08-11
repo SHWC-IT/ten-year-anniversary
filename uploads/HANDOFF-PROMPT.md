@@ -11,7 +11,7 @@ You are taking over an existing, in-production website. **Read the real source f
 A standalone marketing/event website for **Shepherd's House Worship Center (SHWC)**, built to promote and support their **10 Year Anniversary celebration (2016 - 2026)**. It is a satellite site that lives alongside the church's main website (`theshepherdshouse.church`); it is NOT the main church site. Its job: get people to register/attend the three anniversary services, give toward the building fund, and buy anniversary merch.
 
 The core event is the **Gathering of Nations Harvest Celebration**, three services over October 9 - 11, 2026:
-- **Fri Oct 9, 9:00 PM ET** — Prayer & Thanksgiving — Shepherd's House Church, 521 Allegheny Ave, Lynchburg, VA
+- **Fri Oct 9, 8:00 PM ET** — Prayer & Thanksgiving — Shepherd's House Church, 521 Allegheny Ave, Lynchburg, VA
 - **Sat Oct 10, 6:00 PM ET** — Night of United Worship — Sydnor Performance Hall, 100 Vernon Street, Lynchburg, VA 24501
 - **Sun Oct 11, 10:00 AM ET** — Commissioning Service — Sydnor Performance Hall
 

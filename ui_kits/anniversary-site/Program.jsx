@@ -4,7 +4,7 @@ const { Eyebrow, SectionTitle, ScheduleRow, Button: ProgBtn } = window.ShepherdS
 const DAYS = [
   { dow: "Fri", day: "09", month: "Oct", title: "Gathering of Prayer & Thanksgiving",
     description: "A sacred gathering of prayer and thanksgiving, an offering of remembrance and gratitude unto the Lord.",
-    venue: "Shepherd's House Church · 521 Allegheny Ave", time: "9:00 PM ET" },
+    venue: "Shepherd's House Church · 521 Allegheny Ave", time: "8:00 PM ET" },
   { dow: "Sat", day: "10", month: "Oct", title: "Night of United Worship",
     description: "A powerful night of united worship, coming into one accord to exalt the name above all names.",
     venue: "Sydnor Performance Hall · 100 Vernon Street", time: "6:00 PM ET" },

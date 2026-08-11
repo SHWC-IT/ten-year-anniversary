@@ -11,7 +11,7 @@ const ExtIcon = () => (
 );
 
 function CountdownBar() {
-  const target = new Date("2026-10-09T21:00:00-04:00").getTime();
+  const target = new Date("2026-10-09T20:00:00-04:00").getTime();
   const [now, setNow] = React.useState(Date.now());
   React.useEffect(() => { const t = setInterval(() => setNow(Date.now()), 1000); return () => clearInterval(t); }, []);
   const d = Math.max(0, target - now);
@@ -31,7 +31,7 @@ function CountdownBar() {
       <span style={{ display: "inline-flex", alignItems: "baseline", gap: ".9em", fontSize: ".8rem", letterSpacing: ".1em", fontVariantNumeric: "tabular-nums" }}>
         {unit(days, "Days")}{unit(hrs, "Hrs")}{unit(min, "Min")}{unit(sec, "Sec")}
       </span>
-      <span style={{ opacity: .85, whiteSpace: "nowrap" }}>Friday, Oct 9 · 9:00 PM ET</span>
+      <span style={{ opacity: .85, whiteSpace: "nowrap" }}>Friday, Oct 9 · 8:00 PM ET</span>
     </div>
   );
 }

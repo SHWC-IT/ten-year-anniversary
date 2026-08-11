@@ -23,7 +23,7 @@ How SHWC writes.
 - **Casing:** display headings are **ALL CAPS** (Cinzel). One or two words per heading break into **gold script** (Great Vibes) for warmth — e.g. "Gathering of Nations *Harvest Celebration.*", "Sow into the next *decade.*" Labels/eyebrows are uppercase and letter-spaced.
 - **Tone words:** *Celebrate · Remember · Look Ahead · Grace, Destiny & Fulfillment.* The tagline is **"A Home of Grace, Destiny, and Fulfillment."**
 - **CTAs:** short, tracked-caps, action-first — "Give Now", "Register", "Shop the Collection", "Add to Calendar".
-- **Numerals & dates:** spelled venue + street ("Sydnor Performance Hall · 100 Vernon Street"); date ranges use a spaced hyphen ("October 9 - 11", "2016 - 2026") — **never an em dash** (project rule). Times always carry the zone ("9:00 PM ET").
+- **Numerals & dates:** spelled venue + street ("Sydnor Performance Hall · 100 Vernon Street"); date ranges use a spaced hyphen ("October 9 - 11", "2016 - 2026") — **never an em dash** (project rule). Times always carry the zone ("8:00 PM ET").
 - **Emoji:** none. The only decorative glyph is a small gold **✦** used as a separator in the marquee.
 - **Giving designations:** only **"Prayer Tabernacle"** and **"Global Missions"**.
 

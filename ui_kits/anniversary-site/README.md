@@ -6,7 +6,7 @@ Interactive recreation of the Shepherd's House Worship Center **10 Year Annivers
 Open `index.html`. It depends on the compiled `_ds_bundle.js` at the project root, so make sure the design system has compiled (run `check_design_system`). Components render `undefined` only if the bundle is stale.
 
 ## What's interactive
-- **Live countdown** to Fri Oct 9, 2026 · 9:00 PM ET.
+- **Live countdown** to Fri Oct 9, 2026 · 8:00 PM ET.
 - **Routing** between Home and Giving (top nav + mobile menu + CTAs).
 - **Mobile menu** (hamburger appears < 860px).
 - **Schedule rows** and CTAs fire toasts.

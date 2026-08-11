@@ -899,8 +899,8 @@ try { (() => {
       // Oct 2026 is EDT (UTC-4)
       var events = [{
         uid: "shwc10-fri@shwc",
-        start: "20261010T010000Z",
-        end: "20261010T030000Z",
+        start: "20261010T000000Z",
+        end: "20261010T020000Z",
         title: "SHWC 10th Anniversary - Gathering of Prayer & Thanksgiving",
         loc: campus
       }, {
@@ -2160,7 +2160,7 @@ const ExtIcon = () => /*#__PURE__*/React.createElement("svg", {
   y2: "3"
 }));
 function CountdownBar() {
-  const target = new Date("2026-10-09T21:00:00-04:00").getTime();
+  const target = new Date("2026-10-09T20:00:00-04:00").getTime();
   const [now, setNow] = React.useState(Date.now());
   React.useEffect(() => {
     const t = setInterval(() => setNow(Date.now()), 1000);
@@ -2218,7 +2218,7 @@ function CountdownBar() {
       opacity: .85,
       whiteSpace: "nowrap"
     }
-  }, "Friday, Oct 9 \xB7 9:00 PM ET"));
+  }, "Friday, Oct 9 \xB7 8:00 PM ET"));
 }
 function Nav({
   onNav,
@@ -3065,7 +3065,7 @@ const DAYS = [{
   title: "Gathering of Prayer & Thanksgiving",
   description: "A sacred gathering of prayer and thanksgiving, an offering of remembrance and gratitude unto the Lord.",
   venue: "Shepherd's House Church · 521 Allegheny Ave",
-  time: "9:00 PM ET"
+  time: "8:00 PM ET"
 }, {
   dow: "Sat",
   day: "10",
