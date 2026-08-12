@@ -46,7 +46,7 @@ FONTS = [
 
 LOGO_SRC = EMAIL_DIR.parent / "uploads" / "shwc-anniversary-logo.png"
 LOGO_HOSTED = "https://ten.theshepherdshouse.church/uploads/shwc-anniversary-logo.png"
-LOGO_WIDTH = 440  # a 220px slot at 2x
+LOGO_WIDTH = 240  # the 118px slot at 2x
 
 # Facts shown in the header strip. Kept here so the page cannot drift from the
 # numbers the build script reports.
