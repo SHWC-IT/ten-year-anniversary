@@ -90,15 +90,22 @@ Leave the action name at its default so the expression below matches.
 Action: **Compose**, renamed to exactly `TemplateHtml`
 
 ```
-base64ToString(outputs('Get_file_content_using_path')?['body']?['$content'])
-```
-
-If that errors with something about `$content` not existing, the connector handed back a plain
-string already. Use this instead:
-
-```
 string(outputs('Get_file_content_using_path')?['body'])
 ```
+
+This is the form that works on the church tenant, confirmed on the first build. The SharePoint
+action's **Infer Content Type** setting defaults to Yes, so it recognises the `.html` file as text
+and returns the decoded string directly.
+
+Verify it by opening the run history and reading the action's Outputs. It should begin with
+`<!DOCTYPE html`. Two ways it can go wrong:
+
+- Outputs are a wall of letters and digits with no angle brackets, meaning the content arrived
+  base64 encoded. Use `base64ToString(outputs('Get_file_content_using_path')?['body'])`.
+- The run fails with *"property '$content' cannot be selected. Property selection is not supported
+  on values of type 'String'"*. That is the older
+  `base64ToString(...?['body']?['$content'])` form being used against a connector that already
+  decoded the file. Switch to the expression above.
 
 Renaming Compose actions matters: `outputs('TemplateHtml')` only resolves if the action carries
 that name. Spaces in an action name become underscores in expressions.
