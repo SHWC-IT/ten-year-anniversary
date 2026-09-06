@@ -98,7 +98,7 @@
 :is(.serif, .section-title, .page-hero h1, .ten-num, .ten-side, .hero-sub,
     .day h3, .day .dow .n, .milestone .yr, .info-card h4, .value-card h3,
     .foot .big, .brand .name, .brand .mark, .give-success h3, .drawer header h3,
-    .rehab .t b, .program-venue b, .stat-bar .st b, .mm-links a,
+    .program-venue b, .stat-bar .st b, .mm-links a,
     .amounts button, .custom-amt input, .custom-amt .cur, .cart-line .thumb,
     .cart-line .pr, .drawer footer .sub b, .product .info .pr,
     .m-day .d, .m-card figcaption b) { font-weight: var(--display-wt) !important; }
@@ -618,28 +618,13 @@ a.hs-row:hover b { color: var(--accent); }
 @media (max-width: 860px) { .story-grid { grid-template-columns: 1fr; } .story-photos { position: static; grid-auto-rows: 130px; } }
 @media (max-width: 640px) { .milestone { grid-template-columns: 72px 1fr; } }
 
-/* ---------- Rehoboth Prayer Camp highlight banner ---------- */
-.rehab {
-  background: linear-gradient(160deg, var(--gold-hi) 0%, var(--accent) 48%, var(--accent-2) 135%);
-  color: var(--on-accent); border-block: none;
-  padding: clamp(34px, 5vw, 56px) 0;
-}
-.rehab .row { display: flex; align-items: center; gap: clamp(18px, 3vw, 40px); flex-wrap: wrap; }
-.rehab .ic {
-  width: 56px; height: 56px; border-radius: 50%; flex: none; display: grid; place-items: center;
-  border: 1.5px solid var(--on-accent); color: var(--on-accent);
-}
-.rehab .ic svg { width: 24px; height: 24px; }
-.rehab .t { flex: 1 1 300px; }
-.rehab .t b { font-family: var(--display); font-weight: 600; text-transform: uppercase; font-size: clamp(1.3rem, 2.6vw, 1.7rem); letter-spacing: .06em; display: block; color: var(--on-accent); }
-.rehab .t span { color: color-mix(in oklab, var(--on-accent) 80%, transparent); font-size: .98rem; }
-.rehab .placeholder-note { color: var(--on-accent); opacity: 1; text-decoration: underline dotted; text-underline-offset: 3px; }
-.btn.rehab-cta {
+/* ---------- inverse button (light button on gold bands) ---------- */
+.btn.inverse {
   background: var(--bg); color: var(--ink);
   font-size: .8rem; padding: 1.2em 2.8em;
   box-shadow: 0 14px 36px -14px rgba(0, 0, 0, .55);
 }
-.btn.rehab-cta:hover { background: var(--surface); color: var(--ink); filter: none; }
+.btn.inverse:hover { background: var(--surface); color: var(--ink); filter: none; }
 
 /* ---------- merch teaser + product cards ---------- */
 .merch-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(14px, 2vw, 24px); }

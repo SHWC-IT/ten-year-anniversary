@@ -55,7 +55,7 @@ How SHWC writes.
 
 ## Iconography
 - **Style:** inline **SVG**, 24×24 viewBox, **stroke-only**, `stroke-width: 2` (2.2 for the external-link glyph), round caps & joins, colored `currentColor` → gold. No fills.
-- **Recurring icons:** map **pin** (venue/location), **clock** (service times), **heart** (Rehoboth banner), **lock** (secure giving), **check** (success), and the **external-link** arrow-box (off-site Store / Main Site links). These are hand-inlined in the markup, not from an icon library.
+- **Recurring icons:** map **pin** (venue/location), **clock** (service times), **lock** (secure giving), **check** (success), and the **external-link** arrow-box (off-site Store / Main Site links). These are hand-inlined in the markup, not from an icon library.
 - **No icon font, no sprite sheet, no emoji.** The only non-SVG glyph is the gold **✦** marquee separator (a Unicode star).
 - **Substitution note:** the project ships no icon-library dependency. If you need icons beyond the set above, use **Lucide** (https://lucide.dev) from CDN — it matches the 24px / 2px-stroke / round-join style almost exactly. Flag any additions so they can be folded into the system.
 - Logos live in `assets/` (`logo-anniversary.png`, `logo-17yr.png`); keep clear space ≥ ¼ the logo height.

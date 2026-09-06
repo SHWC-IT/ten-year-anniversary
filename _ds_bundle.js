@@ -3051,7 +3051,7 @@ Object.assign(window, {
 // ui_kits/anniversary-site/Program.jsx
 try { (() => {
 function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
-// SHWC Anniversary — Program schedule + Rehoboth banner.
+// SHWC Anniversary — Program schedule.
 const {
   Eyebrow,
   SectionTitle,
@@ -3156,94 +3156,8 @@ function Program({
     variant: "ghost"
   }, "Directions \xB7 Fri (Church)"))));
 }
-function RehobothBanner({
-  onToast
-}) {
-  return /*#__PURE__*/React.createElement("section", {
-    style: {
-      background: "var(--grad-gold)",
-      color: "var(--on-accent)",
-      padding: "clamp(34px,5vw,56px) 0",
-      position: "relative",
-      zIndex: 2
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    style: {
-      maxWidth: "var(--maxw)",
-      margin: "0 auto",
-      padding: "0 var(--gutter)",
-      display: "flex",
-      alignItems: "center",
-      gap: "clamp(18px,3vw,40px)",
-      flexWrap: "wrap"
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    style: {
-      width: "56px",
-      height: "56px",
-      borderRadius: "50%",
-      flex: "none",
-      display: "grid",
-      placeItems: "center",
-      border: "1.5px solid var(--on-accent)"
-    }
-  }, /*#__PURE__*/React.createElement("svg", {
-    viewBox: "0 0 24 24",
-    width: "24",
-    height: "24",
-    fill: "none",
-    stroke: "currentColor",
-    strokeWidth: "2"
-  }, /*#__PURE__*/React.createElement("path", {
-    d: "M12 21s-7-4.6-9.5-9A5.5 5.5 0 0 1 12 6.5 5.5 5.5 0 0 1 21.5 12C19 16.4 12 21 12 21Z"
-  }))), /*#__PURE__*/React.createElement("div", {
-    style: {
-      flex: "1 1 300px"
-    }
-  }, /*#__PURE__*/React.createElement("b", {
-    style: {
-      fontFamily: "var(--font-display)",
-      fontWeight: 600,
-      textTransform: "uppercase",
-      fontSize: "clamp(1.3rem,2.6vw,1.7rem)",
-      letterSpacing: ".06em",
-      display: "block"
-    }
-  }, "Rehoboth Prayer Camp"), /*#__PURE__*/React.createElement("span", {
-    style: {
-      opacity: .85,
-      fontSize: ".98rem"
-    }
-  }, /*#__PURE__*/React.createElement("b", {
-    style: {
-      letterSpacing: ".08em"
-    }
-  }, "August 28 - 30, 2026"), " \xB7 Theme: ", /*#__PURE__*/React.createElement("em", {
-    style: {
-      fontStyle: "italic"
-    }
-  }, "God's Dwelling Place"))), /*#__PURE__*/React.createElement("button", {
-    onClick: () => onToast("Rehoboth registration opening soon"),
-    style: {
-      appearance: "none",
-      border: "none",
-      cursor: "pointer",
-      fontFamily: "var(--font-label)",
-      fontWeight: 700,
-      fontSize: ".8rem",
-      letterSpacing: ".22em",
-      textTransform: "uppercase",
-      padding: "1.2em 2.8em",
-      borderRadius: "var(--radius)",
-      background: "var(--bg)",
-      color: "var(--ink)",
-      boxShadow: "0 14px 36px -14px rgba(0,0,0,.55)"
-    }
-  }, "Register")));
-}
 Object.assign(window, {
-  Program,
-  RehobothBanner
+  Program
 });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "ui_kits/anniversary-site/Program.jsx", error: String((e && e.message) || e) }); }
 

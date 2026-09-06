@@ -27,7 +27,7 @@ The core event is the **Gathering of Nations Harvest Celebration**, three servic
 Plain, dependency-free **static HTML + CSS + vanilla JS**. No framework, no build step, no bundler. Just hand-written files that run as-is in a browser. Keep it that way unless explicitly asked otherwise.
 
 **Pages (each a full standalone HTML doc that shares the CSS + `shwc.js`):**
-- `index.html` — Home/Anniversary: countdown bar, hero (autoplay video collage), program schedule, ministers showcase, Rehoboth Prayer Camp banner, two merch teasers, giving teaser, footer. Behavior in `home.js`.
+- `index.html` — Home/Anniversary: countdown bar, hero (autoplay video collage), program schedule, ministers showcase, two merch teasers, giving teaser, footer. Behavior in `home.js`.
 - `about.html` — Values & Mission.
 - `giving.html` — Giving page. Behavior in `giving.js`. **Checkout is a front-end mockup only; Stripe is not wired up.** Don't represent it as taking real payments.
 - `store.html` — thin redirect to the external store. Behavior in `store.js`.

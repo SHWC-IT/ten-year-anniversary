@@ -18,7 +18,7 @@ Open `index.html`. It depends on the compiled `_ds_bundle.js` at the project roo
 |------|---------|
 | `Chrome.jsx` | `CountdownBar`, `Nav`, `MobileMenu`, `Footer` |
 | `Hero.jsx` | `Hero` (logo lockup + actions), `Marquee` |
-| `Program.jsx` | `Program` (schedule via `ScheduleRow`), `RehobothBanner` |
+| `Program.jsx` | `Program` (schedule via `ScheduleRow`) |
 | `Collection.jsx` | `Collection` (merch via `ProductCard`), `GivingCTA` (via `FramedPanel`) |
 | `Giving.jsx` | `GivingPage` (recurrence picker → Square checkout) |
 
