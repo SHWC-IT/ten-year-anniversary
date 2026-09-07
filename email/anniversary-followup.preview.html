@@ -32,36 +32,43 @@
   @media only screen and (max-width:620px) {
     .wrap        { width:100% !important; }
     .pad         { padding-left:22px !important; padding-right:22px !important; }
-    .pad-tight   { padding-left:22px !important; padding-right:22px !important; }
     .h1          { font-size:26px !important; line-height:1.16 !important; }
     .script      { font-size:34px !important; }
     .logo        { width:46px !important; height:43px !important; }
     .datecell    { width:62px !important; }
     .btn-text    { font-size:12px !important; letter-spacing:.16em !important; }
-    .sm-center   { text-align:center !important; }
     .sm-stack    { display:block !important; width:100% !important; padding-left:0 !important; padding-right:0 !important; }
     .sm-gap      { height:10px !important; }
-    /* The two cards under "Already registered" sit side by side on desktop
-       and stack on a phone. The spacer cell between them turns into a
-       full-width 12px break so the stacked cards keep their gap. */
+    /* The two cards in the cream panel sit side by side on desktop and
+       stack on a phone. The spacer cell between them becomes a full-width
+       12px break so the stacked cards keep their gap. */
     .sm-card     { display:block !important; width:100% !important; box-sizing:border-box !important; }
     .sm-break    { display:block !important; width:100% !important; height:12px !important; }
   }
 
-  /* Outlook for Android forces its own dark treatment; keep our navy. */
+  /* Outlook for Android forces its own dark treatment; hold every band at
+     its own colour so the section rhythm survives. */
   [data-ogsc] body, [data-ogsc] .bg      { background-color:#0a0f1d !important; }
   [data-ogsc] .band                      { background-color:#0e1526 !important; }
-  [data-ogsc] .surface                   { background-color:#141c31 !important; }
+  [data-ogsc] .sched                     { background-color:#141c31 !important; }
+  [data-ogsc] .foot                      { background-color:#070b16 !important; }
   [data-ogsc] .ink, [data-ogsc] .ink *   { color:#f0ecdf !important; }
   [data-ogsc] .muted, [data-ogsc] .muted * { color:#97a0b4 !important; }
   [data-ogsc] .gold, [data-ogsc] .gold * { color:#c9a356 !important; }
+  [data-ogsc] .gold-hi, [data-ogsc] .gold-hi * { color:#ecd29a !important; }
+  [data-ogsc] .cream                     { background-color:#f1ebdb !important; }
+  [data-ogsc] .cream-card                { background-color:#faf6ea !important; }
+  [data-ogsc] .cream-ink, [data-ogsc] .cream-ink *   { color:#1d1812 !important; }
+  [data-ogsc] .cream-soft, [data-ogsc] .cream-soft * { color:#6f6253 !important; }
+  [data-ogsc] .cream-gold, [data-ogsc] .cream-gold * { color:#8a6526 !important; }
+  [data-ogsc] .navy-btn                  { background-color:#0e1526 !important; }
 </style>
 </head>
 <body class="bg" style="margin:0; padding:0; background-color:#0a0f1d;">
 
 <!-- Preheader: the grey preview line in the inbox list. Hidden in the body. -->
 <div style="display:none; font-size:1px; line-height:1px; max-height:0; max-width:0; opacity:0; overflow:hidden; mso-hide:all;">
-  The weekend is just a few weeks away. If you have registered, thank you. If not, there is still time to save your seat.
+  We would be truly honored to have you join us. If you have not yet registered, kindly do so. We look forward to celebrating with you!
   &zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
 </div>
 
@@ -77,9 +84,9 @@
       <td height="4" style="height:4px; line-height:4px; font-size:0; background-color:#c9a356;">&nbsp;</td>
     </tr>
 
-    <!-- ===== masthead: logo image, then the typographic lockup ===== -->
+    <!-- ===== 1. masthead, mid navy ===== -->
     <tr>
-      <td class="band pad" align="center" style="background-color:#0e1526; padding:16px 40px 16px 40px;">
+      <td class="band pad" align="center" style="background-color:#0e1526; padding:16px 40px 16px 40px; border-bottom:1px solid #1b2231;">
 
         <!-- Identical to the invitation, so the two emails read as one series
              in the inbox. See anniversary-invite.html for the reasoning behind
@@ -105,9 +112,9 @@
       </td>
     </tr>
 
-    <!-- ===== title block ===== -->
+    <!-- ===== 2. hero, deep navy: title and a bordered date badge ===== -->
     <tr>
-      <td class="pad" align="center" style="background-color:#0a0f1d; padding:32px 40px 8px 40px;">
+      <td class="pad" align="center" style="background-color:#0a0f1d; padding:36px 40px 0 40px;">
 
         <p class="gold mso-sans" style="margin:0 0 16px 0; font-family:'Hanken Grotesk','Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:700; letter-spacing:.3em; line-height:1.5; color:#c9a356; text-transform:uppercase; mso-line-height-rule:exactly;">
           Tenth Anniversary Celebration
@@ -121,43 +128,47 @@
           Harvest Celebration.
         </p>
 
+        <!-- Date badge. A bordered box gives the eye somewhere to land
+             between the headline and the letter. -->
         <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center" style="margin:26px auto 0 auto;">
           <tr>
-            <td width="60" height="1" style="width:60px; height:1px; line-height:1px; font-size:0; background-color:#8a6526;">&nbsp;</td>
+            <td align="center" style="border:1px solid #8a6526; padding:13px 26px 13px 26px;">
+              <p class="gold-hi mso-sans" style="margin:0; font-family:'Hanken Grotesk','Helvetica Neue',Arial,sans-serif; font-size:12px; font-weight:700; letter-spacing:.22em; line-height:1.5; color:#ecd29a; text-transform:uppercase; mso-line-height-rule:exactly;">
+                October 9 - 11, 2026
+              </p>
+              <p class="muted mso-sans" style="margin:4px 0 0 0; font-family:'Hanken Grotesk','Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:600; letter-spacing:.2em; line-height:1.5; color:#97a0b4; text-transform:uppercase; mso-line-height-rule:exactly;">
+                Lynchburg, Virginia
+              </p>
+            </td>
           </tr>
         </table>
-
-        <p class="ink mso-sans" style="margin:24px 0 0 0; font-family:'Hanken Grotesk','Helvetica Neue',Arial,sans-serif; font-size:12px; font-weight:700; letter-spacing:.22em; line-height:1.7; color:#f0ecdf; text-transform:uppercase; mso-line-height-rule:exactly;">
-          October 9 - 11, 2026
-        </p>
-        <p class="muted mso-sans" style="margin:6px 0 0 0; font-family:'Hanken Grotesk','Helvetica Neue',Arial,sans-serif; font-size:11px; font-weight:600; letter-spacing:.18em; line-height:1.6; color:#97a0b4; text-transform:uppercase; mso-line-height-rule:exactly;">
-          Lynchburg, Virginia
-        </p>
 
       </td>
     </tr>
 
-    <!-- ===== letter ===== -->
+    <!-- ===== 3. letter, deep navy ===== -->
     <tr>
-      <td class="pad" style="background-color:#0a0f1d; padding:38px 40px 0 40px;">
+      <td class="pad" style="background-color:#0a0f1d; padding:40px 40px 0 40px;">
 
         <p class="ink" style="margin:0 0 22px 0; font-family:'Cinzel',Georgia,'Times New Roman',serif; font-size:17px; font-weight:600; letter-spacing:.04em; line-height:1.5; color:#f0ecdf; mso-line-height-rule:exactly;">
           Hello Friend,
         </p>
 
         <p class="ink" style="margin:0 0 18px 0; font-family:Georgia,'Times New Roman',serif; font-size:16px; line-height:1.72; color:#f0ecdf; mso-line-height-rule:exactly;">
-          A short while ago we invited you to celebrate ten years of God's faithfulness at The Shepherd's House.
-          That weekend is now just a few weeks away, and we are writing to make sure you have everything you need.
+          As The Shepherd's House celebrates 10 years of God's faithfulness, we would be truly honored to have
+          you join us for this special occasion. It is a time to give thanks, celebrate all that God has done,
+          and look ahead with hope for the years to come.
         </p>
 
         <p class="ink" style="margin:0 0 30px 0; font-family:Georgia,'Times New Roman',serif; font-size:16px; line-height:1.72; color:#f0ecdf; mso-line-height-rule:exactly;">
-          If you have not yet registered, we would love to save your seat. It takes only a moment:
+          Your presence would make this celebration even more meaningful. If you have not yet registered,
+          kindly do so at your earliest convenience so we can save your seat. It takes only a moment:
         </p>
 
       </td>
     </tr>
 
-    <!-- ===== primary button ===== -->
+    <!-- primary button -->
     <tr>
       <td class="pad" align="center" style="background-color:#0a0f1d; padding:0 40px 14px 40px;">
 
@@ -188,7 +199,7 @@
 
     <!-- plain URL, for anyone whose client strips the button -->
     <tr>
-      <td class="pad" align="center" style="background-color:#0a0f1d; padding:0 40px 38px 40px;">
+      <td class="pad" align="center" style="background-color:#0a0f1d; padding:0 40px 34px 40px;">
         <p class="muted" style="margin:0; font-family:Georgia,'Times New Roman',serif; font-size:13px; line-height:1.6; color:#97a0b4; mso-line-height-rule:exactly;">
           Or open this link:<br />
           <a href="https://ten.theshepherdshouse.church/register" target="_blank" style="color:#c9a356; text-decoration:underline;">ten.theshepherdshouse.church/register</a>
@@ -196,26 +207,40 @@
       </td>
     </tr>
 
-    <!-- ===== already registered: a thank you, then the collection and giving =====
+    <!-- closing, the same sign-off the printed invitations carry -->
+    <tr>
+      <td class="pad" align="center" style="background-color:#0a0f1d; padding:0 40px 44px 40px;">
+        <p class="ink" style="margin:0; font-family:Georgia,'Times New Roman',serif; font-style:italic; font-size:16px; line-height:1.7; color:#f0ecdf; mso-line-height-rule:exactly;">
+          God bless you, and we hope to see you there!
+        </p>
+        <p class="script gold" style="margin:8px 0 0 0; font-family:'Great Vibes',Georgia,serif; font-style:italic; font-size:30px; font-weight:400; line-height:1.2; color:#c9a356; mso-line-height-rule:exactly;">
+          The Shepherd's House
+        </p>
+      </td>
+    </tr>
+
+    <!-- ===== 4. already registered, cream panel =====
          This goes to the whole list, so it has to read well for someone who
          registered on day one and for someone who has not opened the first
-         email. The register button above serves the second group; this block
-         serves the first, and gives both a next step. -->
+         email. The register button above serves the second group; this panel
+         serves the first, and gives both a next step. The change to cream is
+         what tells the eye a new section has begun. -->
     <tr>
-      <td class="pad" style="background-color:#0a0f1d; padding:0 40px 40px 40px;">
+      <td class="cream pad" bgcolor="#f1ebdb" style="background-color:#f1ebdb; padding:42px 40px 42px 40px;">
 
-        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-top:1px solid #1b2231;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
           <tr>
-            <td align="center" style="padding:36px 0 24px 0;">
-              <p class="gold mso-sans" style="margin:0 0 10px 0; font-family:'Hanken Grotesk','Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:700; letter-spacing:.3em; line-height:1.5; color:#c9a356; text-transform:uppercase; mso-line-height-rule:exactly;">
+            <td align="center" style="padding:0 0 28px 0;">
+              <p class="cream-gold mso-sans" style="margin:0 0 10px 0; font-family:'Hanken Grotesk','Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:700; letter-spacing:.3em; line-height:1.5; color:#8a6526; text-transform:uppercase; mso-line-height-rule:exactly;">
                 Already Registered?
               </p>
-              <p class="ink" style="margin:0 0 14px 0; font-family:'Cinzel',Georgia,'Times New Roman',serif; font-size:21px; font-weight:600; letter-spacing:.03em; line-height:1.3; color:#f0ecdf; text-transform:uppercase; mso-line-height-rule:exactly;">
-                Thank you. We will see you there.
+              <p class="cream-ink" style="margin:0 0 14px 0; font-family:'Cinzel',Georgia,'Times New Roman',serif; font-size:21px; font-weight:600; letter-spacing:.03em; line-height:1.3; color:#1d1812; text-transform:uppercase; mso-line-height-rule:exactly;">
+                We look forward to celebrating with&nbsp;you!
               </p>
-              <p class="ink" style="margin:0; font-family:Georgia,'Times New Roman',serif; font-size:15px; line-height:1.7; color:#f0ecdf; mso-line-height-rule:exactly;">
-                Your seat is saved and there is nothing more you need to do. If you would like to be
-                part of this milestone in one more way, here are two.
+              <p class="cream-soft" style="margin:0; font-family:Georgia,'Times New Roman',serif; font-size:15px; line-height:1.7; color:#6f6253; mso-line-height-rule:exactly;">
+                Thank you for responding. Your seat is saved, and there is nothing more you need to do.
+                If you would like to be part of this special occasion in one more way, we would be
+                honored by either of the following.
               </p>
             </td>
           </tr>
@@ -227,22 +252,23 @@
           <tr>
 
             <!-- card: the anniversary collection -->
-            <td class="sm-card" width="254" valign="top" bgcolor="#0e1526" style="width:254px; background-color:#0e1526; border:1px solid #2c3345; padding:26px 22px 26px 22px;">
-              <p class="gold mso-sans" style="margin:0 0 10px 0; font-family:'Hanken Grotesk','Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:700; letter-spacing:.26em; line-height:1.5; color:#c9a356; text-transform:uppercase; mso-line-height-rule:exactly;">
+            <td class="sm-card cream-card" width="254" valign="top" bgcolor="#faf6ea" style="width:254px; background-color:#faf6ea; border:1px solid #d9c690; padding:26px 22px 26px 22px;">
+              <p class="cream-gold mso-sans" style="margin:0 0 10px 0; font-family:'Hanken Grotesk','Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:700; letter-spacing:.26em; line-height:1.5; color:#8a6526; text-transform:uppercase; mso-line-height-rule:exactly;">
                 The Anniversary Collection
               </p>
-              <p class="ink" style="margin:0 0 12px 0; font-family:'Cinzel',Georgia,'Times New Roman',serif; font-size:16px; font-weight:600; letter-spacing:.02em; line-height:1.35; color:#f0ecdf; mso-line-height-rule:exactly;">
+              <p class="cream-ink" style="margin:0 0 12px 0; font-family:'Cinzel',Georgia,'Times New Roman',serif; font-size:16px; font-weight:600; letter-spacing:.02em; line-height:1.35; color:#1d1812; mso-line-height-rule:exactly;">
                 Wear the milestone
               </p>
-              <p class="ink" style="margin:0 0 20px 0; font-family:Georgia,'Times New Roman',serif; font-size:14px; line-height:1.65; color:#f0ecdf; mso-line-height-rule:exactly;">
-                Commemorative pieces made for this tenth year: the hat, T-shirt, polo, pen, and tote
-                are in the church store now. Order yours ahead of the weekend.
+              <p class="cream-soft" style="margin:0 0 20px 0; font-family:Georgia,'Times New Roman',serif; font-size:14px; line-height:1.65; color:#6f6253; mso-line-height-rule:exactly;">
+                Commemorative pieces made for this milestone: the hat, T-shirt, polo, pen, and tote
+                are available now in the church store. We would love to see you wearing yours on the
+                weekend.
               </p>
               <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
                 <tr>
-                  <td align="center" style="border:1px solid #c9a356; border-radius:2px;">
+                  <td class="navy-btn" align="center" bgcolor="#0e1526" style="background-color:#0e1526; border-radius:2px;">
                     <a href="https://shwc-store.square.site" target="_blank" class="mso-sans"
-                       style="display:block; padding:13px 10px; font-family:'Hanken Grotesk','Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:700; letter-spacing:.18em; line-height:1; color:#c9a356; text-transform:uppercase; text-decoration:none;">
+                       style="display:block; padding:14px 10px; font-family:'Hanken Grotesk','Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:700; letter-spacing:.18em; line-height:1; color:#f0ecdf; text-transform:uppercase; text-decoration:none;">
                       Shop the Collection
                     </a>
                   </td>
@@ -253,22 +279,23 @@
             <td class="sm-break" width="12" style="width:12px; font-size:0; line-height:0;">&nbsp;</td>
 
             <!-- card: giving -->
-            <td class="sm-card" width="254" valign="top" bgcolor="#0e1526" style="width:254px; background-color:#0e1526; border:1px solid #2c3345; padding:26px 22px 26px 22px;">
-              <p class="gold mso-sans" style="margin:0 0 10px 0; font-family:'Hanken Grotesk','Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:700; letter-spacing:.26em; line-height:1.5; color:#c9a356; text-transform:uppercase; mso-line-height-rule:exactly;">
+            <td class="sm-card cream-card" width="254" valign="top" bgcolor="#faf6ea" style="width:254px; background-color:#faf6ea; border:1px solid #d9c690; padding:26px 22px 26px 22px;">
+              <p class="cream-gold mso-sans" style="margin:0 0 10px 0; font-family:'Hanken Grotesk','Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:700; letter-spacing:.26em; line-height:1.5; color:#8a6526; text-transform:uppercase; mso-line-height-rule:exactly;">
                 Giving
               </p>
-              <p class="ink" style="margin:0 0 12px 0; font-family:'Cinzel',Georgia,'Times New Roman',serif; font-size:16px; font-weight:600; letter-spacing:.02em; line-height:1.35; color:#f0ecdf; mso-line-height-rule:exactly;">
+              <p class="cream-ink" style="margin:0 0 12px 0; font-family:'Cinzel',Georgia,'Times New Roman',serif; font-size:16px; font-weight:600; letter-spacing:.02em; line-height:1.35; color:#1d1812; mso-line-height-rule:exactly;">
                 Sow into the next decade
               </p>
-              <p class="ink" style="margin:0 0 20px 0; font-family:Georgia,'Times New Roman',serif; font-size:14px; line-height:1.65; color:#f0ecdf; mso-line-height-rule:exactly;">
-                Every seed has built this house. Gifts this season support the Prayer Tabernacle
-                and Global Missions, and can be given securely in under a minute.
+              <p class="cream-soft" style="margin:0 0 20px 0; font-family:Georgia,'Times New Roman',serif; font-size:14px; line-height:1.65; color:#6f6253; mso-line-height-rule:exactly;">
+                Every seed has built this house. Your gift supports the Prayer Tabernacle and
+                Global Missions, and can be given securely in under a minute. Thank you for your
+                generosity.
               </p>
               <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
                 <tr>
-                  <td align="center" style="border:1px solid #c9a356; border-radius:2px;">
+                  <td class="navy-btn" align="center" bgcolor="#0e1526" style="background-color:#0e1526; border-radius:2px;">
                     <a href="https://ten.theshepherdshouse.church/giving" target="_blank" class="mso-sans"
-                       style="display:block; padding:13px 10px; font-family:'Hanken Grotesk','Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:700; letter-spacing:.18em; line-height:1; color:#c9a356; text-transform:uppercase; text-decoration:none;">
+                       style="display:block; padding:14px 10px; font-family:'Hanken Grotesk','Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:700; letter-spacing:.18em; line-height:1; color:#f0ecdf; text-transform:uppercase; text-decoration:none;">
                       Give Now
                     </a>
                   </td>
@@ -282,9 +309,12 @@
       </td>
     </tr>
 
-    <!-- ===== the weekend ===== -->
+    <!-- ===== 5. the weekend, lighter navy with a gold rule on top ===== -->
     <tr>
-      <td class="band pad" style="background-color:#0e1526; padding:36px 40px 10px 40px; border-top:1px solid #1b2231;">
+      <td height="3" style="height:3px; line-height:3px; font-size:0; background-color:#c9a356;">&nbsp;</td>
+    </tr>
+    <tr>
+      <td class="sched pad" style="background-color:#141c31; padding:38px 40px 10px 40px;">
         <p class="gold mso-sans" style="margin:0 0 4px 0; font-family:'Hanken Grotesk','Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:700; letter-spacing:.3em; line-height:1.5; color:#c9a356; text-transform:uppercase; mso-line-height-rule:exactly;">
           The Weekend
         </p>
@@ -296,12 +326,12 @@
 
     <!-- Friday -->
     <tr>
-      <td class="band pad" style="background-color:#0e1526; padding:22px 40px 0 40px;">
+      <td class="sched pad" style="background-color:#141c31; padding:22px 40px 0 40px;">
         <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
           <tr>
             <td class="datecell" width="74" valign="top" style="width:74px; padding:0 14px 0 0;">
               <p class="gold mso-sans" style="margin:0; font-family:'Hanken Grotesk','Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:700; letter-spacing:.2em; line-height:1.4; color:#c9a356; text-transform:uppercase; mso-line-height-rule:exactly;">Fri</p>
-              <p class="ink" style="margin:2px 0 0 0; font-family:'Cinzel',Georgia,'Times New Roman',serif; font-size:30px; font-weight:600; line-height:1; color:#f0ecdf; mso-line-height-rule:exactly;">09</p>
+              <p class="gold-hi" style="margin:2px 0 0 0; font-family:'Cinzel',Georgia,'Times New Roman',serif; font-size:30px; font-weight:600; line-height:1; color:#ecd29a; mso-line-height-rule:exactly;">09</p>
               <p class="muted mso-sans" style="margin:3px 0 0 0; font-family:'Hanken Grotesk','Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:600; letter-spacing:.2em; line-height:1.4; color:#97a0b4; text-transform:uppercase; mso-line-height-rule:exactly;">Oct</p>
             </td>
             <td valign="top" style="padding:0;">
@@ -317,19 +347,19 @@
               </p>
             </td>
           </tr>
-          <tr><td colspan="2" style="padding:22px 0 0 0;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td height="1" style="height:1px; line-height:1px; font-size:0; background-color:#1b2231;">&nbsp;</td></tr></table></td></tr>
+          <tr><td colspan="2" style="padding:22px 0 0 0;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td height="1" style="height:1px; line-height:1px; font-size:0; background-color:#26304a;">&nbsp;</td></tr></table></td></tr>
         </table>
       </td>
     </tr>
 
     <!-- Saturday -->
     <tr>
-      <td class="band pad" style="background-color:#0e1526; padding:22px 40px 0 40px;">
+      <td class="sched pad" style="background-color:#141c31; padding:22px 40px 0 40px;">
         <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
           <tr>
             <td class="datecell" width="74" valign="top" style="width:74px; padding:0 14px 0 0;">
               <p class="gold mso-sans" style="margin:0; font-family:'Hanken Grotesk','Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:700; letter-spacing:.2em; line-height:1.4; color:#c9a356; text-transform:uppercase; mso-line-height-rule:exactly;">Sat</p>
-              <p class="ink" style="margin:2px 0 0 0; font-family:'Cinzel',Georgia,'Times New Roman',serif; font-size:30px; font-weight:600; line-height:1; color:#f0ecdf; mso-line-height-rule:exactly;">10</p>
+              <p class="gold-hi" style="margin:2px 0 0 0; font-family:'Cinzel',Georgia,'Times New Roman',serif; font-size:30px; font-weight:600; line-height:1; color:#ecd29a; mso-line-height-rule:exactly;">10</p>
               <p class="muted mso-sans" style="margin:3px 0 0 0; font-family:'Hanken Grotesk','Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:600; letter-spacing:.2em; line-height:1.4; color:#97a0b4; text-transform:uppercase; mso-line-height-rule:exactly;">Oct</p>
             </td>
             <td valign="top" style="padding:0;">
@@ -345,19 +375,19 @@
               </p>
             </td>
           </tr>
-          <tr><td colspan="2" style="padding:22px 0 0 0;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td height="1" style="height:1px; line-height:1px; font-size:0; background-color:#1b2231;">&nbsp;</td></tr></table></td></tr>
+          <tr><td colspan="2" style="padding:22px 0 0 0;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td height="1" style="height:1px; line-height:1px; font-size:0; background-color:#26304a;">&nbsp;</td></tr></table></td></tr>
         </table>
       </td>
     </tr>
 
     <!-- Sunday -->
     <tr>
-      <td class="band pad" style="background-color:#0e1526; padding:22px 40px 22px 40px;">
+      <td class="sched pad" style="background-color:#141c31; padding:22px 40px 26px 40px;">
         <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
           <tr>
             <td class="datecell" width="74" valign="top" style="width:74px; padding:0 14px 0 0;">
               <p class="gold mso-sans" style="margin:0; font-family:'Hanken Grotesk','Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:700; letter-spacing:.2em; line-height:1.4; color:#c9a356; text-transform:uppercase; mso-line-height-rule:exactly;">Sun</p>
-              <p class="ink" style="margin:2px 0 0 0; font-family:'Cinzel',Georgia,'Times New Roman',serif; font-size:30px; font-weight:600; line-height:1; color:#f0ecdf; mso-line-height-rule:exactly;">11</p>
+              <p class="gold-hi" style="margin:2px 0 0 0; font-family:'Cinzel',Georgia,'Times New Roman',serif; font-size:30px; font-weight:600; line-height:1; color:#ecd29a; mso-line-height-rule:exactly;">11</p>
               <p class="muted mso-sans" style="margin:3px 0 0 0; font-family:'Hanken Grotesk','Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:600; letter-spacing:.2em; line-height:1.4; color:#97a0b4; text-transform:uppercase; mso-line-height-rule:exactly;">Oct</p>
             </td>
             <td valign="top" style="padding:0;">
@@ -377,10 +407,10 @@
       </td>
     </tr>
 
-    <!-- ===== secondary links, sitting directly under the schedule ===== -->
+    <!-- secondary links, sitting directly under the schedule -->
     <tr>
-      <td class="band pad" style="background-color:#0e1526; padding:6px 40px 32px 40px;">
-        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-top:1px solid #1b2231;">
+      <td class="sched pad" style="background-color:#141c31; padding:0 40px 36px 40px;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-top:1px solid #26304a;">
           <tr>
             <td align="center" style="padding:26px 0 0 0;">
               <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center" style="margin:0 auto;">
@@ -388,9 +418,9 @@
                   <td class="sm-stack" align="center" style="padding:0 6px 0 0;">
                     <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
                       <tr>
-                        <td align="center" style="border:1px solid #2c3345; border-radius:2px;">
+                        <td align="center" style="border:1px solid #c9a356; border-radius:2px;">
                           <a href="https://ten.theshepherdshouse.church/hospitality" target="_blank" class="mso-sans"
-                             style="display:inline-block; padding:13px 20px; font-family:'Hanken Grotesk','Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:700; letter-spacing:.18em; line-height:1; color:#f0ecdf; text-transform:uppercase; text-decoration:none;">
+                             style="display:inline-block; padding:13px 20px; font-family:'Hanken Grotesk','Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:700; letter-spacing:.18em; line-height:1; color:#c9a356; text-transform:uppercase; text-decoration:none;">
                             Where to Stay
                           </a>
                         </td>
@@ -401,9 +431,9 @@
                   <td class="sm-stack" align="center" style="padding:0 0 0 6px;">
                     <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
                       <tr>
-                        <td align="center" style="border:1px solid #2c3345; border-radius:2px;">
+                        <td align="center" style="border:1px solid #c9a356; border-radius:2px;">
                           <a href="https://ten.theshepherdshouse.church/" target="_blank" class="mso-sans"
-                             style="display:inline-block; padding:13px 20px; font-family:'Hanken Grotesk','Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:700; letter-spacing:.18em; line-height:1; color:#f0ecdf; text-transform:uppercase; text-decoration:none;">
+                             style="display:inline-block; padding:13px 20px; font-family:'Hanken Grotesk','Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:700; letter-spacing:.18em; line-height:1; color:#c9a356; text-transform:uppercase; text-decoration:none;">
                             Full Program
                           </a>
                         </td>
@@ -418,9 +448,9 @@
       </td>
     </tr>
 
-    <!-- ===== footer ===== -->
+    <!-- ===== 6. footer, darkest navy ===== -->
     <tr>
-      <td class="surface pad" align="center" style="background-color:#141c31; padding:32px 40px 34px 40px;">
+      <td class="foot pad" align="center" style="background-color:#070b16; padding:32px 40px 34px 40px; border-top:1px solid #1b2231;">
 
         <p class="gold" style="margin:0 0 14px 0; font-family:'Cinzel',Georgia,'Times New Roman',serif; font-size:12px; font-weight:600; letter-spacing:.2em; line-height:1.5; color:#c9a356; text-transform:uppercase; mso-line-height-rule:exactly;">
           Shepherd's House Worship Center
