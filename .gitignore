@@ -8,3 +8,6 @@ email/*.xlsx
 email/*.csv
 !email/recipients-template.csv
 email/**/~$*
+
+# Python bytecode from the email tools
+__pycache__/

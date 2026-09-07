@@ -14,6 +14,11 @@ Examples:
 
     # release everyone who is on Hold, leaving Sent and Unsubscribed alone
     python3 email/tools/set-status.py --release
+
+    # start a new mailing to the same list, such as the follow-up: every Sent
+    # row becomes Ready again and its SentAt is cleared. Unsubscribed, Bounced
+    # and Error rows are left exactly as they are.
+    python3 email/tools/set-status.py --reset-sent
 """
 
 import argparse
@@ -61,13 +66,15 @@ def main():
     parser.add_argument("--workbook", type=Path, default=DEFAULT_WB)
     parser.add_argument("--only", help="comma separated ContactIDs to leave Ready; all others go to Hold")
     parser.add_argument("--release", action="store_true", help="turn every Hold back into Ready")
+    parser.add_argument("--reset-sent", action="store_true",
+                        help="turn every Sent back into Ready and clear SentAt, for a new mailing to the same list")
     parser.add_argument("--show", action="store_true", help="print status counts and exit")
     args = parser.parse_args()
 
     if not args.workbook.exists():
         sys.exit(f"Workbook not found: {args.workbook}\nRun build-list.py first.")
-    if not (args.only or args.release or args.show):
-        parser.error("pick one of --only, --release, or --show")
+    if not (args.only or args.release or args.reset_sent or args.show):
+        parser.error("pick one of --only, --release, --reset-sent, or --show")
 
     wb = load_workbook(args.workbook)
     if SHEET not in wb.sheetnames:
@@ -92,6 +99,21 @@ def main():
         cid = str(cid_cell.value).strip().upper()
         status_cell = row[col["Status"] - 1]
         status = str(status_cell.value or "").strip()
+
+        if args.reset_sent:
+            # The one deliberate exception to PROTECTED: a new mailing has to
+            # reach the people the last one reached. Unsubscribed and Bounced
+            # stay protected, and Error rows keep their message for review.
+            if status == "Sent":
+                status_cell.value = "Ready"
+                if "SentAt" in col:
+                    row[col["SentAt"] - 1].value = None
+                changed += 1
+            elif status in PROTECTED:
+                protected += 1
+            else:
+                kept += 1
+            continue
 
         if status in PROTECTED:
             protected += 1

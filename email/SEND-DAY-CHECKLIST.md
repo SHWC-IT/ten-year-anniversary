@@ -189,6 +189,55 @@ The first live send. Ten people who will tell you the truth.
 
 ---
 
+## Part F: the follow-up email
+
+A second send to the same list a few weeks before the weekend, using
+`email/anniversary-followup.html`. It asks anyone who has not registered to do so, thanks those
+who have, and points everyone at the anniversary collection and at giving. Nothing here is new:
+it is Parts B to E again with a different template and subject.
+
+- [ ] **F1.** Pick the date. Two to three weeks before October 9 is the sweet spot: late enough
+      that the weekend feels close, early enough for people to plan travel and order from the
+      store.
+
+- [ ] **F2.** Upload `email/anniversary-followup.html` to the same SharePoint folder as the
+      invitation.
+
+- [ ] **F3.** In Power Automate, open the invitation flow and **Save As** a copy named for the
+      follow-up. In the copy, change two things and nothing else:
+
+      Step 2   File Path   /Shared Documents/Anniversary Email/anniversary-followup.html
+      Step 5d  Subject     Have you registered? Shepherd's House 10th Anniversary, October 9 - 11
+
+      Leave the original flow untouched.
+
+- [ ] **F4.** Reset the list. Every row the invitation reached reads `Sent`, and the flow only
+      picks up `Ready`. In Excel for the web, in the `Status` column, find and replace `Sent` with
+      `Ready`, then clear the `SentAt` column. Leave `Unsubscribed`, `Bounced`, and `Error`
+      exactly as they are.
+
+      If you would rather do it on a local copy and re-upload:
+
+      python3 email/tools/set-status.py --reset-sent
+
+- [ ] **F5.** Confirm the counts. `Ready` should be about 212 minus the unsubscribes, bounces,
+      and errors from the first send. If anyone replied Unsubscribe and still reads `Ready`, fix
+      that now.
+
+- [ ] **F6.** Close the workbook everywhere, then run **Part B** against the new flow. On top of
+      the usual checks, confirm:
+
+      - [ ] The subject line is the follow-up's, not the invitation's
+      - [ ] Register Now, Shop the Collection, and Give Now each land where they should
+      - [ ] The two cards under "Already registered?" sit side by side on desktop and stack on a phone
+
+- [ ] **F7.** Run **Part C** with a seed batch of about 10, then **Part D** for everyone. Same
+      settings, same 3 second pacing, about 11 minutes.
+
+- [ ] **F8.** **Part E** applies unchanged afterwards.
+
+---
+
 ## If you need to stop mid-send
 
 Turn the flow off in Power Automate, or cancel the running instance. Rows already mailed read

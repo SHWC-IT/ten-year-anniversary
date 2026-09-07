@@ -290,6 +290,44 @@ a record of why that person stopped receiving mail.
 
 ---
 
+## Sending the follow-up
+
+`anniversary-followup.html` is a second template for the same list, meant for a few weeks before
+the weekend. It asks anyone who has not registered to do so, thanks those who have, and points
+both groups at the anniversary collection in the store and at giving. It uses the same two tokens
+as the invitation, so the flow itself needs only two changes:
+
+| Where | Change to |
+|---|---|
+| Step 2, File Path | `/Shared Documents/Anniversary Email/anniversary-followup.html` |
+| Step 5d, Subject | `Have you registered? Shepherd's House 10th Anniversary, October 9 - 11` |
+
+The cleanest way to make them is **Save As** on the invitation flow, so the original stays exactly
+as it ran and the copy carries the follow-up's path and subject.
+
+The `Status` column also needs resetting before the send. Every row the invitation reached reads
+`Sent`, and the flow only picks up `Ready`. Either edit the workbook where it sits, in Excel for
+the web, replacing `Sent` with `Ready` in the `Status` column and clearing `SentAt`, or work on a
+local copy:
+
+```
+python3 email/tools/set-status.py --reset-sent
+```
+
+Both leave `Unsubscribed`, `Bounced`, and `Error` rows untouched, so nobody who asked to stop, or
+whose address failed, is mailed again. If you want to keep the invitation's timestamps, save a copy
+of the workbook first.
+
+Verify the template's tokens the same way as the invitation:
+
+```
+python3 email/tools/render-preview.py --check --template email/anniversary-followup.html
+```
+
+The step by step is [SEND-DAY-CHECKLIST.md](SEND-DAY-CHECKLIST.md), Part F.
+
+---
+
 ## Troubleshooting
 
 | Symptom | Cause | Fix |
