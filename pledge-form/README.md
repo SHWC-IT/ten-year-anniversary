@@ -54,5 +54,12 @@ using the picker in the email editor rather than typing the tags by hand. If
 the form grows new questions worth confirming, the summary box is the place to
 add them.
 
-Links in both templates point at `https://ten.theshepherdshouse.church`,
-extensionless, the way Netlify serves the site.
+The "Give Toward Your Pledge" button in both templates goes straight to the
+one time Square checkout, `https://square.link/u/NKMTbdVA`, the same link
+`giving.js` opens for a one time gift. Sending people back to `/giving` would
+just make them pick a frequency again. Other links point at
+`https://ten.theshepherdshouse.church`, extensionless, the way Netlify serves
+the site.
+
+If the one time Square link is ever reissued, it lives in three places: `LINKS`
+in `giving.js`, and the button in each of these two templates.
