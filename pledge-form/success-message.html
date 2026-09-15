@@ -7,25 +7,39 @@
   lands. Every style is inline, since none of our stylesheets reach inside
   the Elvanto frame.
 
+  It echoes back the same two details as the confirmation email, the giver's
+  name and the amount, through {{first_name}} and {{pledge_amount}}. Replace
+  those with Elvanto's merge fields. CHECK THIS WITH A REAL SUBMISSION: if
+  Elvanto does not run merge fields in the success message, the raw tags will
+  show on screen, and the fix is to cut the greeting to "Thank you for your
+  pledge." and delete the amount box.
+
   The button goes straight to the one time Square checkout, the same link
   giving.js opens for a one time gift. It escapes the iframe with
   target="_top", so Square takes over the whole window rather than loading
   inside Elvanto's frame.
 -->
-<div style="margin:0;padding:34px 8px 40px;background:#0E172B;text-align:center;font-family:'Hanken Grotesk',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">
+<div style="margin:0;padding:22px 8px 26px;background:#0E172B;text-align:center;font-family:'Hanken Grotesk',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">
 
-  <div style="width:62px;height:62px;margin:0 auto 24px;border-radius:50%;border:1px solid #C9A356;line-height:60px;font-size:27px;color:#ECD29A;">&#10003;</div>
+  <div style="width:54px;height:54px;margin:0 auto 16px;border-radius:50%;border:1px solid #C9A356;line-height:52px;font-size:24px;color:#ECD29A;">&#10003;</div>
 
   <p style="margin:0 0 10px;font-size:11px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:#C9A356;">Pledge Received</p>
 
-  <h2 style="margin:0 0 18px;font-family:Cinzel,Georgia,'Times New Roman',serif;font-weight:600;text-transform:uppercase;letter-spacing:.03em;font-size:28px;line-height:1.15;color:#F0ECDF;">Thank you for your pledge.</h2>
+  <h2 style="margin:0 0 16px;font-family:Cinzel,Georgia,'Times New Roman',serif;font-weight:600;text-transform:uppercase;letter-spacing:.03em;font-size:26px;line-height:1.15;color:#F0ECDF;">Thank you, {{first_name}}.</h2>
 
-  <p style="margin:0 auto 14px;max-width:44ch;font-size:16px;line-height:1.6;color:#A9B2C6;">We have your commitment on record, and a confirmation is on its way to your inbox. Our team will follow up with you about fulfilling it.</p>
+  <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center" style="margin:0 auto 18px;border:1px solid #2A3652;">
+    <tr>
+      <td align="center" style="padding:14px 44px 16px;">
+        <p style="margin:0 0 8px;font-size:11px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:#8C97AE;">Your Pledge</p>
+        <p style="margin:0;font-family:Cinzel,Georgia,'Times New Roman',serif;font-weight:600;font-size:32px;line-height:1.1;color:#ECD29A;">{{pledge_amount}}</p>
+      </td>
+    </tr>
+  </table>
 
-  <p style="margin:0 auto 28px;max-width:44ch;font-size:16px;line-height:1.6;color:#A9B2C6;">You can give toward your pledge at any time, in one gift or across the year.</p>
+  <p style="margin:0 auto 20px;max-width:46ch;font-size:15px;line-height:1.6;color:#A9B2C6;">We have your commitment on record and a confirmation is on its way to your inbox. Give toward it whenever you are ready, in one gift or across the year.</p>
 
-  <a href="https://square.link/u/NKMTbdVA" target="_top" style="display:inline-block;padding:16px 34px;background:#C9A356;color:#0D1322;text-decoration:none;font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;">Give Toward Your Pledge</a>
+  <a href="https://square.link/u/NKMTbdVA" target="_top" style="display:inline-block;padding:15px 32px;background:#C9A356;color:#0D1322;text-decoration:none;font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;">Give Toward Your Pledge</a>
 
-  <p style="margin:26px 0 0;font-size:13px;line-height:1.6;color:#8C97AE;">Questions? <a href="mailto:finance@theshepherdshouse.church" style="color:#ECD29A;text-decoration:none;">finance@theshepherdshouse.church</a></p>
+  <p style="margin:18px 0 0;font-size:13px;line-height:1.6;color:#8C97AE;">Questions? <a href="mailto:finance@theshepherdshouse.church" style="color:#ECD29A;text-decoration:none;">finance@theshepherdshouse.church</a></p>
 
 </div>
