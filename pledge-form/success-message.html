@@ -7,12 +7,10 @@
   lands. Every style is inline, since none of our stylesheets reach inside
   the Elvanto frame.
 
-  It echoes back the same two details as the confirmation email, the giver's
-  name and the amount, through {{first_name}} and {{pledge_amount}}. Replace
-  those with Elvanto's merge fields. CHECK THIS WITH A REAL SUBMISSION: if
-  Elvanto does not run merge fields in the success message, the raw tags will
-  show on screen, and the fix is to cut the greeting to "Thank you for your
-  pledge." and delete the amount box.
+  It names no details. Elvanto does NOT run merge fields here, it only does
+  that in emails, so a {{first_name}} or {{pledge_amount}} tag renders on
+  screen as raw braces. The confirmation email is where the giver sees their
+  name and amount echoed back. Do not reintroduce merge tags in this file.
 
   The button goes straight to the one time Square checkout, the same link
   giving.js opens for a one time gift. It escapes the iframe with
@@ -25,18 +23,9 @@
 
   <p style="margin:0 0 10px;font-size:11px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:#C9A356;">Pledge Received</p>
 
-  <h2 style="margin:0 0 16px;font-family:Cinzel,Georgia,'Times New Roman',serif;font-weight:600;text-transform:uppercase;letter-spacing:.03em;font-size:26px;line-height:1.15;color:#F0ECDF;">Thank you, {{first_name}}.</h2>
+  <h2 style="margin:0 0 16px;font-family:Cinzel,Georgia,'Times New Roman',serif;font-weight:600;text-transform:uppercase;letter-spacing:.03em;font-size:26px;line-height:1.15;color:#F0ECDF;">Thank you for your pledge.</h2>
 
-  <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center" style="margin:0 auto 18px;border:1px solid #2A3652;">
-    <tr>
-      <td align="center" style="padding:14px 44px 16px;">
-        <p style="margin:0 0 8px;font-size:11px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:#8C97AE;">Your Pledge</p>
-        <p style="margin:0;font-family:Cinzel,Georgia,'Times New Roman',serif;font-weight:600;font-size:32px;line-height:1.1;color:#ECD29A;">{{pledge_amount}}</p>
-      </td>
-    </tr>
-  </table>
-
-  <p style="margin:0 auto 20px;max-width:46ch;font-size:15px;line-height:1.6;color:#A9B2C6;">We have your commitment on record and a confirmation is on its way to your inbox. Give toward it whenever you are ready, in one gift or across the year.</p>
+  <p style="margin:0 auto 20px;max-width:46ch;font-size:15px;line-height:1.6;color:#A9B2C6;">We have your commitment on record, and a confirmation with the amount you pledged is on its way to your inbox. Give toward it whenever you are ready, in one gift or across the year.</p>
 
   <a href="https://square.link/u/NKMTbdVA" target="_top" style="display:inline-block;padding:15px 32px;background:#C9A356;color:#0D1322;text-decoration:none;font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;">Give Toward Your Pledge</a>
 
