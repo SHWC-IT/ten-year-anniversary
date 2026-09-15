@@ -14,14 +14,14 @@
 
   // Pledge form, embedded in a modal on this page.
   //
-  // TO TURN THE PLEDGE BUTTON ON: paste the form's embed URL here. The button
-  // stays hidden while this is empty, so nothing half-built ships to visitors.
+  // The button stays hidden if this is ever emptied, so the page degrades
+  // cleanly rather than opening a blank modal.
   //
-  // In the form builder, set the after-submit redirect to
-  // https://<this site>/pledge-complete.html. That page breaks out of the
-  // iframe on load, so finishing the pledge lands the visitor on our thank you
-  // page in the full window, the same way registration already works.
-  var PLEDGE_FORM_URL = "";
+  // On submit the form shows the custom success message from
+  // pledge-form/success-message.html, right here inside the modal. It does not
+  // redirect: our own X-Frame-Options would block one of our pages from
+  // rendering inside Elvanto's frame.
+  var PLEDGE_FORM_URL = "https://theshepherdshouse.elvanto.net/form/019332d2-2bec-42bd-a722-e5da03d56da7";
 
   var grid = document.getElementById("recurGrid");
   var form = document.getElementById("giveForm");
