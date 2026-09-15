@@ -107,9 +107,11 @@
 
   function openPledge() {
     lastFocus = document.activeElement;
-    // Load the form the first time it is asked for, then leave it in place so
-    // a reopen keeps whatever the visitor had already typed.
-    if (!pledgeFrame.getAttribute("src")) pledgeFrame.setAttribute("src", PLEDGE_FORM_URL);
+    // Always load a fresh form. Once a pledge is submitted the frame is sitting
+    // on the success message, and reopening has to offer a blank form rather
+    // than the last confirmation. Cheaper than trying to detect the submit
+    // across origins, at the cost of discarding a half typed form on reopen.
+    pledgeFrame.setAttribute("src", PLEDGE_FORM_URL);
     pledgeModal.hidden = false;
     document.body.style.overflow = "hidden";
     var closeBtn = pledgeModal.querySelector(".modal-x");
@@ -118,6 +120,11 @@
 
   function closePledge() {
     pledgeModal.hidden = true;
+    // Park the frame on a blank page. Assigning the same src twice is not a
+    // navigation, so without this the reopen above would be a no-op and the
+    // visitor would meet the success message again. It also stops the form
+    // running behind a closed modal.
+    pledgeFrame.setAttribute("src", "about:blank");
     document.body.style.overflow = "";
     if (lastFocus && lastFocus.focus) lastFocus.focus();
   }
