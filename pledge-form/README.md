@@ -45,9 +45,14 @@ redirect to it.
 ## Confirmation email
 
 `confirmation-email.html` is the template for the email Elvanto sends after a
-pledge. Replace the `{{...}}` placeholders with Elvanto's merge fields for the
-matching questions on the form. If a question does not exist, delete that whole
-table row rather than leaving it blank.
+pledge. It assumes the form captures First Name, Last Name, Mobile Number,
+Email Address, Pledge Amount and Pledge Agreement, and it echoes back only the
+amount, since that is the one number the giver wants to see confirmed.
+
+Replace `{{first_name}}` and `{{pledge_amount}}` with Elvanto's merge fields,
+using the picker in the email editor rather than typing the tags by hand. If
+the form grows new questions worth confirming, the summary box is the place to
+add them.
 
 Links in both templates point at `https://ten.theshepherdshouse.church`,
 extensionless, the way Netlify serves the site.

@@ -4,9 +4,10 @@
   Table based and fully inline styled, so it holds up in Outlook, Gmail and
   Apple Mail. Before saving it in Elvanto:
 
-  1. Replace the {{...}} placeholders with Elvanto's own merge fields for the
-     matching form questions. If a field does not exist on your form, delete
-     that whole <tr> rather than leaving an empty row.
+  1. Replace the two {{...}} placeholders, {{first_name}} and {{pledge_amount}},
+     with Elvanto's own merge fields. Use the merge field picker in the email
+     editor rather than typing the tags by hand, the syntax differs between
+     built in person fields and custom form fields.
   2. Cinzel is a webfont, so most mail clients will fall back to Georgia. That
      is intended, the layout is built to look right either way.
 -->
@@ -59,19 +60,13 @@
 
     <!-- pledge summary -->
     <tr>
-      <td style="padding:24px 40px 0;">
+      <td align="center" style="padding:26px 40px 0;">
         <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border:1px solid #2A3652;">
           <tr>
-            <td style="padding:18px 22px;border-bottom:1px solid #2A3652;font-family:'Hanken Grotesk',Helvetica,Arial,sans-serif;font-size:11px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:#8C97AE;" width="45%">Amount</td>
-            <td style="padding:18px 22px;border-bottom:1px solid #2A3652;font-family:Cinzel,Georgia,'Times New Roman',serif;font-weight:600;font-size:20px;color:#ECD29A;">{{pledge_amount}}</td>
-          </tr>
-          <tr>
-            <td style="padding:18px 22px;border-bottom:1px solid #2A3652;font-family:'Hanken Grotesk',Helvetica,Arial,sans-serif;font-size:11px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:#8C97AE;">Designation</td>
-            <td style="padding:18px 22px;border-bottom:1px solid #2A3652;font-family:'Hanken Grotesk',Helvetica,Arial,sans-serif;font-size:16px;color:#F0ECDF;">{{designation}}</td>
-          </tr>
-          <tr>
-            <td style="padding:18px 22px;font-family:'Hanken Grotesk',Helvetica,Arial,sans-serif;font-size:11px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:#8C97AE;">Fulfil By</td>
-            <td style="padding:18px 22px;font-family:'Hanken Grotesk',Helvetica,Arial,sans-serif;font-size:16px;color:#F0ECDF;">{{fulfil_by}}</td>
+            <td align="center" style="padding:26px 22px 28px;">
+              <p style="margin:0 0 12px;font-family:'Hanken Grotesk',Helvetica,Arial,sans-serif;font-size:11px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:#8C97AE;">Your Pledge</p>
+              <p style="margin:0;font-family:Cinzel,Georgia,'Times New Roman',serif;font-weight:600;font-size:38px;line-height:1.1;color:#ECD29A;">{{pledge_amount}}</p>
+            </td>
           </tr>
         </table>
       </td>
