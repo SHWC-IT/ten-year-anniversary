@@ -109,6 +109,12 @@
         <p class="give-unavailable" id="giveUnavailable" hidden>This option is not available yet. Please choose another frequency.</p>
 
         <p class="give-lead" style="margin:18px 0 0;">Pick a frequency and continue to our secure Square checkout, which opens in a popup or new tab. Enter your amount there, then return here once you're done.</p>
+
+        <div class="give-alt" id="pledgeRow" hidden>
+          <span class="give-or">or</span>
+          <button type="button" class="btn ghost wide" id="pledgeBtn">Make a pledge</button>
+          <p class="give-alt-note">Not giving today? Commit what you are believing God for and we will follow up with you.</p>
+        </div>
       </form>
 
       </div>
@@ -116,6 +122,22 @@
   </section>
 
 </main>
+
+<div class="modal" id="pledgeModal" hidden>
+  <div class="modal-backdrop" data-close-pledge></div>
+  <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="pledgeTitle">
+    <button type="button" class="modal-x" data-close-pledge aria-label="Close pledge form">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+    <div class="modal-head">
+      <p class="eyebrow">Generosity</p>
+      <h2 id="pledgeTitle">Make your <em>pledge.</em></h2>
+    </div>
+    <div class="modal-body">
+      <iframe id="pledgeFrame" title="Pledge form" allowtransparency="true"></iframe>
+    </div>
+  </div>
+</div>
 
 <footer class="foot" data-screen-label="Footer">
   <div class="wrap">

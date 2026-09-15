@@ -12,6 +12,17 @@
 
   var state = { freq: "once" };
 
+  // Pledge form, embedded in a modal on this page.
+  //
+  // TO TURN THE PLEDGE BUTTON ON: paste the form's embed URL here. The button
+  // stays hidden while this is empty, so nothing half-built ships to visitors.
+  //
+  // In the form builder, set the after-submit redirect to
+  // https://<this site>/pledge-complete.html. That page breaks out of the
+  // iframe on load, so finishing the pledge lands the visitor on our thank you
+  // page in the full window, the same way registration already works.
+  var PLEDGE_FORM_URL = "";
+
   var grid = document.getElementById("recurGrid");
   var form = document.getElementById("giveForm");
   var giveBtn = document.getElementById("giveBtn");
@@ -83,4 +94,39 @@
   }
   fitPick();
   window.addEventListener("resize", fitPick);
+
+  /* ---------- pledge modal ---------- */
+  var pledgeRow = document.getElementById("pledgeRow");
+  var pledgeBtn = document.getElementById("pledgeBtn");
+  var pledgeModal = document.getElementById("pledgeModal");
+  var pledgeFrame = document.getElementById("pledgeFrame");
+  if (!PLEDGE_FORM_URL || !pledgeRow || !pledgeBtn || !pledgeModal || !pledgeFrame) return;
+
+  pledgeRow.hidden = false;
+  var lastFocus = null;
+
+  function openPledge() {
+    lastFocus = document.activeElement;
+    // Load the form the first time it is asked for, then leave it in place so
+    // a reopen keeps whatever the visitor had already typed.
+    if (!pledgeFrame.getAttribute("src")) pledgeFrame.setAttribute("src", PLEDGE_FORM_URL);
+    pledgeModal.hidden = false;
+    document.body.style.overflow = "hidden";
+    var closeBtn = pledgeModal.querySelector(".modal-x");
+    if (closeBtn) closeBtn.focus();
+  }
+
+  function closePledge() {
+    pledgeModal.hidden = true;
+    document.body.style.overflow = "";
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+
+  pledgeBtn.addEventListener("click", openPledge);
+  pledgeModal.addEventListener("click", function (e) {
+    if (e.target.closest("[data-close-pledge]")) closePledge();
+  });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && !pledgeModal.hidden) closePledge();
+  });
 })();
