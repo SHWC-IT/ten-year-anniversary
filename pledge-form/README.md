@@ -45,10 +45,9 @@ redirect to it.
 ## Confirmation email
 
 `confirmation-email.html` is the template for the email Elvanto sends after a
-pledge. Before saving it:
+pledge. Replace the `{{...}}` placeholders with Elvanto's merge fields for the
+matching questions on the form. If a question does not exist, delete that whole
+table row rather than leaving it blank.
 
-1. Replace `YOUR-SITE-URL` with the live domain. It appears four times, once
-   for the logo and three times for links.
-2. Replace the `{{...}}` placeholders with Elvanto's merge fields for the
-   matching questions on the form. If a question does not exist, delete that
-   whole table row rather than leaving it blank.
+Links in both templates point at `https://ten.theshepherdshouse.church`,
+extensionless, the way Netlify serves the site.
