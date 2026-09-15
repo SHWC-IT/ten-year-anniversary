@@ -35,9 +35,8 @@ be left blank.
 
 Choose **Display a custom success message** and paste `success-message.html`.
 
-Elvanto does not run merge fields in the success message, only in emails, so
-that file names no names and no amounts. A `{{first_name}}` tag there renders
-on screen as raw braces.
+Merge fields do not run in the success message, so that file names no names
+and no amounts. A tag there renders on screen as raw braces.
 
 It also makes no promise of a confirmation email, because the email does not
 send reliably. This screen is the confirmation the giver can count on, and the
@@ -54,20 +53,20 @@ redirect to it.
 
 `confirmation-email.html` is the template for the email Elvanto sends after a
 pledge. It is a different file from `success-message.html`, which belongs in
-the form's After Submission setting, not in the email. The success message says
-a confirmation is on its way, so it reads wrong when it *is* the confirmation.
+the form's After Submission setting, not in the email.
+
+Neither file carries merge fields any more. They did not come through, so both
+thank the giver without naming them or quoting the amount back, rather than
+risking raw braces landing in front of someone. If merge fields start working,
+the email's greeting and a summary box above the button are the two places
+worth adding them.
 
 If Elvanto's email editor rejects a full document, paste only the outer
 `<table>` and everything inside it, dropping the doctype, `<html>`, `<head>`
 and `<body>` wrapper. That outer table is what paints the navy across the full
-width of the reading pane, with the 600px card centred inside it. It assumes the form captures First Name, Last Name, Mobile Number,
-Email Address, Pledge Amount and Pledge Agreement, and it echoes back only the
-amount, since that is the one number the giver wants to see confirmed.
+width of the reading pane, with the 600px card centred inside it.
 
-Replace `{{first_name}}` and `{{pledge_amount}}` with Elvanto's merge fields,
-using the picker in the email editor rather than typing the tags by hand. If
-the form grows new questions worth confirming, the summary box is the place to
-add them.
+## Links
 
 The "Give Toward Your Pledge" button in both templates goes straight to the
 one time Square checkout, `https://square.link/u/NKMTbdVA`, the same link
