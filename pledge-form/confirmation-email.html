@@ -1,0 +1,133 @@
+<!--
+  Pledge confirmation email.
+
+  Table based and fully inline styled, so it holds up in Outlook, Gmail and
+  Apple Mail. Before saving it in Elvanto:
+
+  1. Replace YOUR-SITE-URL with the live domain (three places, plus the logo).
+  2. Replace the {{...}} placeholders with Elvanto's own merge fields for the
+     matching form questions. If a field does not exist on your form, delete
+     that whole <tr> rather than leaving an empty row.
+  3. Cinzel and Great Vibes are webfonts, so most mail clients will fall back
+     to Georgia. That is intended, the layout is built to look right either way.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Your pledge to Shepherd's House Worship Center</title>
+</head>
+<body style="margin:0;padding:0;background:#0B1322;">
+
+<!-- preview text, hidden in the body but shown in the inbox list -->
+<div style="display:none;max-height:0;overflow:hidden;opacity:0;">Thank you for your pledge toward our next decade. Here is what we have on record.</div>
+
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#0B1322;">
+<tr>
+<td align="center" style="padding:32px 16px;">
+
+  <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px;max-width:100%;background:#0E172B;border:1px solid #6B5527;">
+
+    <!-- header -->
+    <tr>
+      <td align="center" style="padding:40px 32px 8px;">
+        <img src="https://YOUR-SITE-URL/uploads/shwc-anniversary-logo.png" width="82" alt="Shepherd's House Worship Center, 10 Year Anniversary" style="display:block;border:0;width:82px;height:auto;" />
+      </td>
+    </tr>
+    <tr>
+      <td align="center" style="padding:22px 32px 0;">
+        <p style="margin:0 0 10px;font-family:'Hanken Grotesk',Helvetica,Arial,sans-serif;font-size:11px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:#C9A356;">Pledge Received</p>
+        <h1 style="margin:0;font-family:Cinzel,Georgia,'Times New Roman',serif;font-weight:600;text-transform:uppercase;letter-spacing:.03em;font-size:30px;line-height:1.15;color:#F0ECDF;">Thank you for your pledge.</h1>
+      </td>
+    </tr>
+
+    <!-- gold rule -->
+    <tr>
+      <td align="center" style="padding:26px 32px 0;">
+        <table role="presentation" width="64" cellpadding="0" cellspacing="0" border="0"><tr><td style="height:1px;background:#C9A356;line-height:1px;font-size:0;">&nbsp;</td></tr></table>
+      </td>
+    </tr>
+
+    <!-- body copy -->
+    <tr>
+      <td style="padding:26px 40px 0;font-family:'Hanken Grotesk',Helvetica,Arial,sans-serif;font-size:16px;line-height:1.65;color:#A9B2C6;">
+        <p style="margin:0 0 16px;">{{first_name}},</p>
+        <p style="margin:0 0 16px;">Thank you for standing with Shepherd's House Worship Center as we step into our next decade. Your pledge has been received, and it is already counted in what God is building through this house.</p>
+        <p style="margin:0;">Here is what we have on record.</p>
+      </td>
+    </tr>
+
+    <!-- pledge summary -->
+    <tr>
+      <td style="padding:24px 40px 0;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border:1px solid #2A3652;">
+          <tr>
+            <td style="padding:18px 22px;border-bottom:1px solid #2A3652;font-family:'Hanken Grotesk',Helvetica,Arial,sans-serif;font-size:11px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:#8C97AE;" width="45%">Amount</td>
+            <td style="padding:18px 22px;border-bottom:1px solid #2A3652;font-family:Cinzel,Georgia,'Times New Roman',serif;font-weight:600;font-size:20px;color:#ECD29A;">{{pledge_amount}}</td>
+          </tr>
+          <tr>
+            <td style="padding:18px 22px;border-bottom:1px solid #2A3652;font-family:'Hanken Grotesk',Helvetica,Arial,sans-serif;font-size:11px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:#8C97AE;">Designation</td>
+            <td style="padding:18px 22px;border-bottom:1px solid #2A3652;font-family:'Hanken Grotesk',Helvetica,Arial,sans-serif;font-size:16px;color:#F0ECDF;">{{designation}}</td>
+          </tr>
+          <tr>
+            <td style="padding:18px 22px;font-family:'Hanken Grotesk',Helvetica,Arial,sans-serif;font-size:11px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:#8C97AE;">Fulfil By</td>
+            <td style="padding:18px 22px;font-family:'Hanken Grotesk',Helvetica,Arial,sans-serif;font-size:16px;color:#F0ECDF;">{{fulfil_by}}</td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+
+    <!-- primary action -->
+    <tr>
+      <td align="center" style="padding:30px 40px 0;">
+        <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+          <tr>
+            <td align="center" style="background:#C9A356;">
+              <a href="https://YOUR-SITE-URL/giving.html" style="display:inline-block;padding:16px 36px;font-family:'Hanken Grotesk',Helvetica,Arial,sans-serif;font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#0D1322;text-decoration:none;">Give Toward Your Pledge</a>
+            </td>
+          </tr>
+        </table>
+        <p style="margin:14px 0 0;font-family:'Hanken Grotesk',Helvetica,Arial,sans-serif;font-size:13px;line-height:1.6;color:#8C97AE;">Give it in one gift or across the year, whichever you purposed in your heart.</p>
+      </td>
+    </tr>
+
+    <!-- weekend reminder -->
+    <tr>
+      <td style="padding:32px 40px 0;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="height:1px;background:#2A3652;line-height:1px;font-size:0;">&nbsp;</td></tr></table>
+      </td>
+    </tr>
+    <tr>
+      <td style="padding:26px 40px 0;font-family:'Hanken Grotesk',Helvetica,Arial,sans-serif;">
+        <p style="margin:0 0 10px;font-size:11px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:#C9A356;">We Would Love to See You</p>
+        <h2 style="margin:0 0 12px;font-family:Cinzel,Georgia,'Times New Roman',serif;font-weight:600;text-transform:uppercase;letter-spacing:.03em;font-size:20px;line-height:1.2;color:#F0ECDF;">Ten Years of Grace</h2>
+        <p style="margin:0 0 6px;font-size:16px;line-height:1.65;color:#A9B2C6;">October 9 - 11, 2026</p>
+        <p style="margin:0 0 6px;font-size:16px;line-height:1.65;color:#A9B2C6;">Sydnor Performance Hall, 100 Vernon Street, Lynchburg, VA 24501</p>
+        <p style="margin:0 0 18px;font-size:16px;line-height:1.65;color:#A9B2C6;">Friday 8:00 PM &middot; Saturday 6:00 PM &middot; Sunday 10:00 AM ET</p>
+        <a href="https://YOUR-SITE-URL/register.html" style="font-family:'Hanken Grotesk',Helvetica,Arial,sans-serif;font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#ECD29A;text-decoration:none;">Reserve Your Seat &rarr;</a>
+      </td>
+    </tr>
+
+    <!-- footer -->
+    <tr>
+      <td style="padding:34px 40px 0;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="height:1px;background:#2A3652;line-height:1px;font-size:0;">&nbsp;</td></tr></table>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" style="padding:24px 40px 40px;font-family:'Hanken Grotesk',Helvetica,Arial,sans-serif;font-size:13px;line-height:1.7;color:#8C97AE;">
+        <p style="margin:0 0 8px;">Questions, or need to change your pledge? Reply to this email or write to<br /><a href="mailto:finance@theshepherdshouse.church" style="color:#ECD29A;text-decoration:none;">finance@theshepherdshouse.church</a></p>
+        <p style="margin:16px 0 0;">Shepherd's House Worship Center<br />521 Allegheny Avenue, Lynchburg, VA 24501</p>
+        <p style="margin:12px 0 0;color:#6B7690;">A Home of Grace, Destiny, and Fulfillment</p>
+      </td>
+    </tr>
+
+  </table>
+
+</td>
+</tr>
+</table>
+
+</body>
+</html>
