@@ -45,7 +45,14 @@ redirect to it.
 ## Confirmation email
 
 `confirmation-email.html` is the template for the email Elvanto sends after a
-pledge. It assumes the form captures First Name, Last Name, Mobile Number,
+pledge. It is a different file from `success-message.html`, which belongs in
+the form's After Submission setting, not in the email. The success message says
+a confirmation is on its way, so it reads wrong when it *is* the confirmation.
+
+If Elvanto's email editor rejects a full document, paste only the outer
+`<table>` and everything inside it, dropping the doctype, `<html>`, `<head>`
+and `<body>` wrapper. That outer table is what paints the navy across the full
+width of the reading pane, with the 600px card centred inside it. It assumes the form captures First Name, Last Name, Mobile Number,
 Email Address, Pledge Amount and Pledge Agreement, and it echoes back only the
 amount, since that is the one number the giver wants to see confirmed.
 
