@@ -37,8 +37,11 @@ Choose **Display a custom success message** and paste `success-message.html`.
 
 Elvanto does not run merge fields in the success message, only in emails, so
 that file names no names and no amounts. A `{{first_name}}` tag there renders
-on screen as raw braces. The confirmation email is where the giver sees their
-own details echoed back.
+on screen as raw braces.
+
+It also makes no promise of a confirmation email, because the email does not
+send reliably. This screen is the confirmation the giver can count on, and the
+email is a bonus when it arrives.
 
 That keeps the confirmation inside the modal, which is what we want. The
 **Redirect to a URL** option is a poor fit here: `netlify.toml` sends

@@ -7,10 +7,11 @@
   lands. Every style is inline, since none of our stylesheets reach inside
   the Elvanto frame.
 
-  It names no details. Elvanto does NOT run merge fields here, it only does
-  that in emails, so a {{first_name}} or {{pledge_amount}} tag renders on
-  screen as raw braces. The confirmation email is where the giver sees their
-  name and amount echoed back. Do not reintroduce merge tags in this file.
+  It names no details and promises no email. Elvanto does NOT run merge fields
+  here, it only does that in emails, so a {{first_name}} or {{pledge_amount}}
+  tag renders on screen as raw braces. Do not reintroduce merge tags, and do
+  not tell the giver a confirmation is coming: the email does not send
+  reliably, so this screen has to stand on its own as the confirmation.
 
   The button goes straight to the one time Square checkout, the same link
   giving.js opens for a one time gift. It escapes the iframe with
@@ -25,7 +26,7 @@
 
   <h2 style="margin:0 0 16px;font-family:Cinzel,Georgia,'Times New Roman',serif;font-weight:600;text-transform:uppercase;letter-spacing:.03em;font-size:26px;line-height:1.15;color:#F0ECDF;">Thank you for your pledge.</h2>
 
-  <p style="margin:0 auto 20px;max-width:46ch;font-size:15px;line-height:1.6;color:#A9B2C6;">We have your commitment on record, and a confirmation with the amount you pledged is on its way to your inbox. Give toward it whenever you are ready, in one gift or across the year.</p>
+  <p style="margin:0 auto 20px;max-width:46ch;font-size:15px;line-height:1.6;color:#A9B2C6;">We have your commitment on record. Give toward it whenever you are ready, in one gift or across the year.</p>
 
   <a href="https://square.link/u/NKMTbdVA" target="_top" style="display:inline-block;padding:15px 32px;background:#C9A356;color:#0D1322;text-decoration:none;font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;">Give Toward Your Pledge</a>
 
