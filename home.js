@@ -224,3 +224,72 @@
   window.addEventListener("resize", update);
   update();
 })();
+
+/* ---------- scroll cue ----------
+   When someone lands on #program from the menu, the giving strip fills the
+   top of the band, so a nudge tells them the schedule is below. It clears on
+   any scroll, returns after 5 idle seconds, and retires for good once the
+   program section is behind them. */
+(function () {
+  "use strict";
+
+  var cue = document.getElementById("scrollCue");
+  var section = document.getElementById("program");
+  if (!cue || !section) return;
+
+  var IDLE_MS = 5000;   // quiet time before the nudge comes back
+  var LAND_MS = 400;    // quiet time that means the jump to #program has landed
+  var TICK_MS = 300;
+
+  var OFF = 0, ARRIVING = 1, LIVE = 2;
+  var state = OFF;
+  var lastScroll = 0;
+  var timer = 0;
+
+  /* The cue is always in the DOM; the base style is transparent and inert, so
+     visibility is a class toggle. Deliberately no requestAnimationFrame here:
+     rAF is throttled whenever the page is not painting, which would leave the
+     cue stuck invisible. */
+  function show() { cue.classList.add("on"); }
+
+  function hide() { cue.classList.remove("on"); }
+
+  function stop() {
+    state = OFF;
+    clearInterval(timer);
+    timer = 0;
+    hide();
+  }
+
+  /* the program band is behind them, so the nudge has done its job */
+  function past() { return section.getBoundingClientRect().bottom < window.innerHeight * 0.5; }
+
+  function tick() {
+    if (state === OFF) return;
+    if (past()) { stop(); return; }
+    var quiet = Date.now() - lastScroll;
+    if (state === ARRIVING) {
+      if (quiet > LAND_MS) { state = LIVE; show(); }
+      return;
+    }
+    if (quiet > IDLE_MS) show();
+  }
+
+  function arrive() {
+    if (past()) return;
+    state = ARRIVING;
+    lastScroll = Date.now();
+    if (!timer) timer = setInterval(tick, TICK_MS);
+  }
+
+  window.addEventListener("scroll", function () {
+    lastScroll = Date.now();
+    if (state === LIVE) hide();
+  }, { passive: true });
+
+  if (location.hash === "#program") arrive();
+
+  document.addEventListener("click", function (e) {
+    if (e.target.closest('a[href$="#program"]')) arrive();
+  });
+})();
