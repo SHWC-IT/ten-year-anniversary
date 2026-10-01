@@ -1306,45 +1306,37 @@ a.hs-row:hover b { color: var(--accent); }
 /* ============================================================
    SCROLL CUE · nudges people down the program when they land on it
    ============================================================ */
+/* No chrome around it: just ghosted display type and an arrow, the whole
+   group drifting down together. Faint enough to read as a hint rather than
+   a banner competing with the gold on the band. */
 .scroll-cue {
-  position: fixed; left: 50%; bottom: max(18px, env(safe-area-inset-bottom)); z-index: 50;
-  display: flex; align-items: center; gap: 10px; pointer-events: none;
-  padding: 11px 18px; border-radius: 999px;
-  background: color-mix(in oklab, var(--bg) 82%, transparent);
-  border: 1px solid color-mix(in oklab, var(--accent) 45%, transparent);
-  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-  box-shadow: 0 18px 40px -18px rgba(0, 0, 0, .7);
-  color: var(--accent);
-  opacity: 0; transform: translate(-50%, 14px); transition: opacity .45s ease, transform .45s ease;
+  position: fixed; left: 0; right: 0; z-index: 50;
+  bottom: calc(22px + env(safe-area-inset-bottom, 0px));
+  display: flex; justify-content: center; pointer-events: none;
+  opacity: 0; transition: opacity .6s ease;
 }
-.scroll-cue.on { opacity: 1; transform: translate(-50%, 0); }
+.scroll-cue.on { opacity: .34; }
+.sc-inner {
+  display: flex; flex-direction: column; align-items: center; gap: clamp(6px, 1.2vw, 12px);
+  color: var(--ink);
+  animation: shwc-cue-drift 2.4s ease-in-out infinite;
+}
 .sc-label {
-  font-family: var(--label); font-weight: 700; font-size: .6rem;
-  letter-spacing: .22em; text-transform: uppercase; white-space: nowrap;
+  font-family: var(--display); font-weight: 700; white-space: nowrap;
+  font-size: clamp(.95rem, 2.1vw, 1.45rem); letter-spacing: .32em; text-transform: uppercase;
+  /* the trailing letter-space would otherwise push the word off-centre */
+  text-indent: .32em;
 }
-.sc-arrow { display: grid; place-items: center; width: 16px; height: 16px; flex: none; animation: shwc-cue-bob 1.7s ease-in-out infinite; }
-.sc-arrow svg { width: 16px; height: 16px; display: block; }
-@keyframes shwc-cue-bob {
-  0%, 100% { transform: translateY(-2px); }
-  50%      { transform: translateY(3px); }
+.sc-arrow { width: clamp(22px, 2.6vw, 30px); height: clamp(22px, 2.6vw, 30px); display: block; }
+@keyframes shwc-cue-drift {
+  0%, 100% { transform: translateY(-7px); }
+  50%      { transform: translateY(9px); }
 }
-@media (max-width: 420px) {
-  .scroll-cue { padding: 10px 15px; gap: 8px; }
-  .sc-label { font-size: .55rem; letter-spacing: .16em; }
+@media (max-width: 460px) {
+  /* the tracked-out label would otherwise run nearly edge to edge */
+  .sc-label { font-size: .82rem; letter-spacing: .24em; text-indent: .24em; }
 }
 @media (prefers-reduced-motion: reduce) {
   .scroll-cue { transition: none; }
-  .sc-arrow { animation: none; }
-}
-
-/* ---------- phone refinements for the giving card ----------
-   "Continue to secure checkout" is wider than the card at 390px, so the
-   tracked-out label steps down rather than running past its button. */
-@media (max-width: 460px) {
-  .give-band .give-card .btn.wide { font-size: .74rem; letter-spacing: .07em; padding-inline: .8em; white-space: normal; }
-  .give-band .recur-opt { min-height: 104px; padding: 1.2em .3em; }
-  .give-band .recur-opt .ro-title { font-size: .7rem; letter-spacing: .07em; }
-  .give-band .recur-opt .ro-sub { font-size: .8rem; }
-  .give-band .give-card .give-pick { font-size: 15px; white-space: normal; }
-  .give-band .give-lead { font-size: 1rem; }
+  .sc-inner { animation: none; }
 }
