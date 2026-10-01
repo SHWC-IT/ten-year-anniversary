@@ -1312,15 +1312,28 @@ a.hs-row:hover b { color: var(--accent); }
 .scroll-cue {
   position: fixed; left: 0; right: 0; z-index: 50;
   bottom: calc(22px + env(safe-area-inset-bottom, 0px));
-  display: flex; justify-content: center; pointer-events: none;
+  display: flex; justify-content: center; align-items: center; pointer-events: none;
+}
+/* A soft dark halo so the ghost letters hold their contrast over whatever
+   happens to sit behind them. Edgeless, so the cue still reads as no chrome.
+   It carries its own fade because the text is translucent and a shared
+   opacity on the parent would wash the halo out with it. */
+.scroll-cue::before {
+  content: ""; position: absolute; left: 50%; top: 50%;
+  width: min(820px, 96vw); height: 260%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(58% 50% at 50% 50%, rgba(4, 5, 9, .5), rgba(4, 5, 9, 0) 74%);
   opacity: 0; transition: opacity .6s ease;
 }
-.scroll-cue.on { opacity: .34; }
+.scroll-cue.on::before { opacity: 1; }
 .sc-inner {
+  position: relative; /* paints above the halo */
   display: flex; flex-direction: column; align-items: center; gap: clamp(6px, 1.2vw, 12px);
   color: var(--ink);
+  opacity: 0; transition: opacity .6s ease;
   animation: shwc-cue-drift 2.4s ease-in-out infinite;
 }
+.scroll-cue.on .sc-inner { opacity: .38; }
 .sc-label {
   font-family: var(--display); font-weight: 700; white-space: nowrap;
   font-size: clamp(.95rem, 2.1vw, 1.45rem); letter-spacing: .32em; text-transform: uppercase;
@@ -1337,6 +1350,6 @@ a.hs-row:hover b { color: var(--accent); }
   .sc-label { font-size: .82rem; letter-spacing: .24em; text-indent: .24em; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .scroll-cue { transition: none; }
+  .scroll-cue::before, .sc-inner { transition: none; }
   .sc-inner { animation: none; }
 }
