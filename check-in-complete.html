@@ -3,13 +3,14 @@
 <head>
 <meta charset="UTF-8" />
 <script>
-  // If this page is loaded inside the registration iframe (Elvanto redirects
+  // If this page is loaded inside the check-in iframe (Elvanto redirects
   // here after submit), break out and take over the whole browser window so
-  // the visitor sees the full confirmation page — not a panel inside a frame.
+  // the visitor sees the full confirmation page, not a panel inside a frame.
   try { if (window.top !== window.self) { window.top.location.replace(window.location.href); } } catch (e) {}
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Registration Complete · Shepherd's House Worship Center</title>
+<title>Check-In Complete · Shepherd's House Worship Center</title>
+<meta name="robots" content="noindex" />
 <link rel="icon" type="image/png" href="uploads/shwc-anniversary-logo.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -144,22 +145,29 @@
 </div>
 
 <main>
-  <section class="rc-band" data-screen-label="Registration Complete">
+  <section class="rc-band" data-screen-label="Check-In Complete">
     <div class="rc-wrap">
       <span class="rc-badge">
         <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
       </span>
-      <h1 class="rc-title">You're <em>registered.</em></h1>
-      <p class="rc-note">You should receive a confirmation email shortly. If it doesn't arrive within a few minutes, check your spam or junk folder.</p>
-      <p class="rc-meta">We've saved your seat · October 9 - 11, 2026</p>
+      <h1 class="rc-title">You're <em>checked in.</em></h1>
+      <p class="rc-note">We are so glad you are here. A confirmation email with the full weekend is on its way. If it doesn't arrive within a few minutes, check your spam or junk folder.</p>
+      <p class="rc-meta">Welcome to the celebration · October 9 - 11, 2026</p>
 
       <div class="rc-cards">
 
         <div class="rc-card">
-          <p class="eyebrow">Giving</p>
-          <h2>Sow into the next <em>decade.</em></h2>
-          <p>Help establish the Prayer Tabernacle, a consecrated place of divine encounter for the years ahead.</p>
+          <p class="eyebrow">The Anniversary Fundraiser</p>
+          <h2>Help build the <em>Prayer Tabernacle.</em></h2>
+          <p>A consecrated place where people can encounter the presence of God in prayer. We are believing God to raise over $100,000 to begin the work.</p>
           <a class="btn" href="giving.html">Give Now</a>
+        </div>
+
+        <div class="rc-card">
+          <p class="eyebrow">The Program</p>
+          <h2>See the full <em>weekend.</em></h2>
+          <p>Every service, venue, and the ministers bringing the Word each night.</p>
+          <a class="btn" href="index.html#program">View the Program</a>
         </div>
 
         <div class="rc-card">
@@ -167,19 +175,19 @@
           <h2>Take home the <em>celebration.</em></h2>
           <div class="rc-preview">
             <figure>
-              <div class="ph"><img src="uploads/merch-tee.webp" alt="10 Year Anniversary Tee" /></div>
-              <figcaption><span>Tee</span><b>$25</b></figcaption>
+              <div class="ph"><img src="uploads/merch-tee.webp" alt="10 Year Anniversary T-Shirt" /></div>
+              <figcaption><span>Tee</span><b>$30</b></figcaption>
             </figure>
             <figure>
               <div class="ph"><img src="uploads/merch-hat.webp" alt="10 Year Anniversary Hat" /></div>
-              <figcaption><span>Hat</span><b>$20</b></figcaption>
+              <figcaption><span>Hat</span><b>$25</b></figcaption>
             </figure>
             <figure>
-              <div class="ph"><img src="uploads/merch-tote.webp" alt="Anniversary Tote Bag" /></div>
-              <figcaption><span>Tote</span><b>$15</b></figcaption>
+              <div class="ph"><img src="uploads/merch-tote.webp" alt="10 Year Anniversary Tote" /></div>
+              <figcaption><span>Tote</span><b>$30</b></figcaption>
             </figure>
           </div>
-          <a class="btn" href="https://shwc-store.square.site" target="_blank" rel="noopener">Shop the Collection<svg class="ext-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
+          <a class="btn" href="index.html#merch">Shop the Collection</a>
         </div>
 
       </div>
