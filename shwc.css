@@ -1097,14 +1097,6 @@ a.hs-row:hover b { color: var(--accent); }
 .lvl.featured .lvl-amt { color: #8a6526; }
 .lvl.featured .lvl-name { font-size: 1.3rem; }
 .lvl.featured .lvl-amt { font-size: 1.55rem; }
-.give-aside .lvl-verse {
-  margin: 16px 0 0; text-align: center; font-family: "Cormorant Garamond", Georgia, serif; font-weight: 500; font-style: italic;
-  color: var(--ink-soft); font-size: 1.08rem; max-width: none;
-}
-.lvl-verse span {
-  display: block; margin-top: 4px; font-style: normal; font-family: var(--label); font-weight: 700;
-  font-size: .58rem; letter-spacing: .22em; text-transform: uppercase; color: var(--accent);
-}
 @media (max-width: 480px) {
   .lvl { gap: 12px; padding: 14px 16px 14px 12px; }
   .lvl-name { font-size: 1rem; }
