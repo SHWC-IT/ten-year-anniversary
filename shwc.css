@@ -1080,9 +1080,6 @@ a.hs-row:hover b { color: var(--accent); }
   font-size: 1.12rem; letter-spacing: .08em; color: var(--ink);
 }
 .lvl-amt { font-family: var(--display); font-weight: 600; font-size: 1.3rem; line-height: 1; color: var(--accent); }
-.lvl-amt i {
-  font-family: var(--script); font-style: normal; font-weight: 400; font-size: 1.5rem; letter-spacing: 0;
-}
 .lvl.featured {
   padding-block: 22px;
   border-color: rgba(176, 138, 62, .75);
