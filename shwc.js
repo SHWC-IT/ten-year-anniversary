@@ -129,29 +129,83 @@
     money: function (n) { return "$" + (Math.round(n * 100) / 100).toFixed(2).replace(/\.00$/, ""); }
   };
 
-  /* ---------- countdown ---------- */
+  /* ---------- countdown ----------
+     Walks the weekend: counts down to each service, shows "Happening Now"
+     with a Watch Live link while one is on, and thanks people once Sunday
+     is done. Add ?countdown-preview=2026-10-10T19:00 to a URL to preview
+     any moment (read as Eastern time). */
   var cbClock = document.getElementById("cbClock");
   if (cbClock) {
-    var cbTarget = new Date(cbClock.getAttribute("data-target")).getTime();
-    var cbUnits = cbClock.querySelectorAll("b");
+    var cbBar = cbClock.closest(".countbar");
+    var cbLabel = cbBar && cbBar.querySelector(".cb-label");
+    var cbWhen = cbBar && cbBar.querySelector(".cb-when");
+    var CB_STREAM = "https://www.youtube.com/@SHWCLynchburg/streams";
+    var CB_LIVE_MS = 3 * 3600000; // how long each service shows as Happening Now
+    var CB_SERVICES = [
+      { start: "2026-10-09T20:00:00-04:00", label: "The Celebration Begins In", when: "Friday, Oct 9 · 8:00 PM ET" },
+      { start: "2026-10-10T18:00:00-04:00", label: "Saturday Service Begins In", when: "Saturday, Oct 10 · 6:00 PM ET" },
+      { start: "2026-10-11T10:00:00-04:00", label: "Sunday Service Begins In", when: "Sunday, Oct 11 · 10:00 AM ET" }
+    ].map(function (sv) { sv.t = new Date(sv.start).getTime(); return sv; });
+
+    var cbOffset = 0;
+    var cbPreview = (location.search.match(/[?&]countdown-preview=([^&]+)/) || [])[1];
+    if (cbPreview) {
+      var cbAt = new Date(decodeURIComponent(cbPreview) + (/[+-]\d\d:\d\d$|Z$/.test(cbPreview) ? "" : "-04:00")).getTime();
+      if (!isNaN(cbAt)) cbOffset = cbAt - Date.now();
+    }
+
+    var cbExt = '<svg class="ext-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>';
+    var cbLink = document.createElement("a");
+    cbLink.className = "cb-live";
+    cbLink.href = CB_STREAM;
+    cbLink.target = "_blank";
+    cbLink.rel = "noopener";
+    cbLink.hidden = true;
+    cbBar.appendChild(cbLink);
+
     var pad2 = function (n) { return n < 10 ? "0" + n : "" + n; };
-    var cbTimer = null;
-    var cbTick = function () {
-      var diff = cbTarget - Date.now();
-      if (diff <= 0) {
-        cbClock.innerHTML = "<b>Happening Now</b>";
-        if (cbTimer) clearInterval(cbTimer);
-        return;
+    var cbMode = "";
+    var cbUnits = [];
+    var cbSet = function (mode, label, when, link) {
+      if (mode === cbMode) return;
+      cbMode = mode;
+      if (cbLabel) { cbLabel.textContent = label || ""; cbLabel.hidden = !label; }
+      if (cbWhen) { cbWhen.textContent = when || ""; cbWhen.hidden = !when; }
+      cbLink.hidden = !link;
+      if (link) cbLink.innerHTML = link + cbExt;
+      cbBar.classList.toggle("is-live", mode.indexOf("live") === 0);
+      cbBar.classList.toggle("is-done", mode === "done");
+      if (mode.indexOf("count") === 0) {
+        cbClock.innerHTML = "<span><b>0</b><i>Days</i></span><span><b>00</b><i>Hrs</i></span><span><b>00</b><i>Min</i></span><span><b>00</b><i>Sec</i></span>";
+        cbUnits = cbClock.querySelectorAll("b");
+      } else {
+        cbClock.innerHTML = mode === "done" ? "<b>Thank You for Celebrating With Us</b>" : "<b>Happening Now</b>";
+        cbUnits = [];
       }
-      var d = Math.floor(diff / 86400000);
-      var h = Math.floor(diff / 3600000) % 24;
-      var m = Math.floor(diff / 60000) % 60;
-      var s = Math.floor(diff / 1000) % 60;
-      var vals = [d, pad2(h), pad2(m), pad2(s)];
-      for (var i = 0; i < cbUnits.length && i < 4; i++) cbUnits[i].textContent = vals[i];
+    };
+
+    var cbTick = function () {
+      var now = Date.now() + cbOffset;
+      for (var i = 0; i < CB_SERVICES.length; i++) {
+        var sv = CB_SERVICES[i];
+        if (now < sv.t) {
+          // after Friday has begun, the stream link stays up between services
+          cbSet("count" + i, sv.label, sv.when, i > 0 ? "Watch Live" : "");
+          var diff = sv.t - now;
+          var vals = [Math.floor(diff / 86400000), pad2(Math.floor(diff / 3600000) % 24), pad2(Math.floor(diff / 60000) % 60), pad2(Math.floor(diff / 1000) % 60)];
+          for (var u = 0; u < cbUnits.length && u < 4; u++) cbUnits[u].textContent = vals[u];
+          if (cbUnits[0]) cbUnits[0].parentNode.hidden = vals[0] === 0;
+          return;
+        }
+        if (now < sv.t + CB_LIVE_MS) {
+          cbSet("live" + i, "The Celebration Is Here", "", "Watch Live");
+          return;
+        }
+      }
+      cbSet("done", "", "", "Watch Again");
     };
     cbTick();
-    cbTimer = setInterval(cbTick, 1000);
+    setInterval(cbTick, 1000);
   }
 
   /* ---------- mobile menu ---------- */

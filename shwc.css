@@ -197,11 +197,25 @@ main, section, footer, header { position: relative; z-index: 2; }
 .countbar .cb-clock b { font-family: var(--display); font-weight: 700; font-size: 1.05rem; letter-spacing: .02em; }
 .countbar .cb-clock i { font-style: normal; font-size: .58rem; letter-spacing: .2em; opacity: .8; margin-left: .25em; }
 .countbar .cb-when { opacity: .85; white-space: nowrap; }
+.countbar [hidden] { display: none !important; }
+.countbar .cb-live {
+  display: inline-flex; align-items: center; gap: .5em; white-space: nowrap; color: inherit;
+  text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px;
+}
+.countbar .cb-live .ext-ico { width: 1.1em; height: 1.1em; }
+.countbar.is-live .cb-clock b::before {
+  content: ""; display: inline-block; width: .5em; height: .5em; margin-right: .55em; border-radius: 50%;
+  background: currentColor; vertical-align: .12em; animation: cb-pulse 1.6s ease-in-out infinite;
+}
+@keyframes cb-pulse { 50% { opacity: .25; } }
+@media (prefers-reduced-motion: reduce) { .countbar.is-live .cb-clock b::before { animation: none; } }
 @media (max-width: 560px) {
   .countbar { flex-wrap: nowrap; gap: 14px; padding: 7px var(--gutter); }
   .countbar .cb-label { display: none; }
   .countbar .cb-when { display: none; }
   .countbar .cb-clock { font-size: .74rem; gap: .85em; }
+  .countbar.is-done { flex-wrap: wrap; gap: 3px 14px; }
+  .countbar.is-done .cb-clock b { font-size: .9rem; white-space: nowrap; }
 }
 
 /* ============================================================
