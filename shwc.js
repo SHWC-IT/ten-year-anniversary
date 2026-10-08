@@ -143,8 +143,8 @@
     var CB_LIVE_MS = 3 * 3600000; // how long each service shows as Happening Now
     var CB_SERVICES = [
       { start: "2026-10-09T20:00:00-04:00", label: "The Celebration Begins In", when: "Friday, Oct 9 · 8:00 PM ET" },
-      { start: "2026-10-10T18:00:00-04:00", label: "Saturday Service Begins In", when: "Saturday, Oct 10 · 6:00 PM ET" },
-      { start: "2026-10-11T10:00:00-04:00", label: "Sunday Service Begins In", when: "Sunday, Oct 11 · 10:00 AM ET" }
+      { start: "2026-10-10T18:00:00-04:00", label: "The Celebration Continues In", when: "Saturday, Oct 10 · 6:00 PM ET" },
+      { start: "2026-10-11T10:00:00-04:00", label: "The Celebration Continues In", when: "Sunday, Oct 11 · 10:00 AM ET" }
     ].map(function (sv) { sv.t = new Date(sv.start).getTime(); return sv; });
 
     var cbOffset = 0;
