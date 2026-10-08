@@ -131,8 +131,9 @@
 
   /* ---------- countdown ----------
      Walks the weekend: counts down to each service, shows "Happening Now"
-     with a Watch Live link while one is on, and thanks people once Sunday
-     is done. Add ?countdown-preview=2026-10-10T19:00 to a URL to preview
+     with a Watch Live link from its start until "until" (midnight on Friday
+     and Saturday, so the next countdown starts at 12 AM), and thanks
+     people once Sunday is done. Add ?countdown-preview=2026-10-10T19:00 to a URL to preview
      any moment (read as Eastern time). */
   var cbClock = document.getElementById("cbClock");
   if (cbClock) {
@@ -140,12 +141,11 @@
     var cbLabel = cbBar && cbBar.querySelector(".cb-label");
     var cbWhen = cbBar && cbBar.querySelector(".cb-when");
     var CB_STREAM = "https://www.youtube.com/@SHWCLynchburg/streams";
-    var CB_LIVE_MS = 3 * 3600000; // how long each service shows as Happening Now
     var CB_SERVICES = [
-      { start: "2026-10-09T20:00:00-04:00", label: "The Celebration Begins In", when: "Friday, Oct 9 · 8:00 PM ET" },
-      { start: "2026-10-10T18:00:00-04:00", label: "The Celebration Continues In", when: "Saturday, Oct 10 · 6:00 PM ET" },
-      { start: "2026-10-11T10:00:00-04:00", label: "The Celebration Continues In", when: "Sunday, Oct 11 · 10:00 AM ET" }
-    ].map(function (sv) { sv.t = new Date(sv.start).getTime(); return sv; });
+      { start: "2026-10-09T20:00:00-04:00", until: "2026-10-10T00:00:00-04:00", label: "The Celebration Begins In", when: "Friday, Oct 9 · 8:00 PM ET" },
+      { start: "2026-10-10T18:00:00-04:00", until: "2026-10-11T00:00:00-04:00", label: "The Celebration Continues In", when: "Saturday, Oct 10 · 6:00 PM ET" },
+      { start: "2026-10-11T10:00:00-04:00", until: "2026-10-11T13:00:00-04:00", label: "The Celebration Continues In", when: "Sunday, Oct 11 · 10:00 AM ET" }
+    ].map(function (sv) { sv.t = new Date(sv.start).getTime(); sv.end = new Date(sv.until).getTime(); return sv; });
 
     var cbOffset = 0;
     var cbPreview = (location.search.match(/[?&]countdown-preview=([^&]+)/) || [])[1];
@@ -197,7 +197,7 @@
           if (cbUnits[0]) cbUnits[0].parentNode.hidden = vals[0] === 0;
           return;
         }
-        if (now < sv.t + CB_LIVE_MS) {
+        if (now < sv.end) {
           cbSet("live" + i, "The Celebration Is Here", "", "Watch Live");
           return;
         }
